@@ -74,11 +74,11 @@ export function Newsletter() {
 
             <div className='bg-cyan-800 w-full pb-16'>
                 <p className='text-xs text-white/50 text-center max-w-xl mx-auto shadow-lg bg-gray-400/5 rounded-lg p-4'>
-                    By clicking "Subscribe", you agree to recieve marketing messages from La Playa Mexican Cafe at the number or email provided, including messages sent by autodialer.
+                    By clicking &quot;Subscribe&quot;, you agree to recieve marketing messages from La Playa Mexican Cafe at the number or email provided, including messages sent by autodialer.
                     Consent is not a condition of any purchase.
                     Message and data rates may apply.
                     Message frequency varies.
-                    You can unsubscribe at any time by replying "STOP" via SMS or clicking the "Unsubscribe" link (where available) in one of our messages.
+                    You can unsubscribe at any time by replying &quot;STOP&quot; via SMS or clicking the &quot;Unsubscribe&quot; link (where available) in one of our messages.
                     View our <a className="underline hover:cursor-pointer hover:text-white" href="/privacy-policy" target="_blank" rel="noreferrer noopener">Privacy Policy</a> and <a className="underline hover:cursor-pointer hover:text-white" href="terms-of-service" target="_blank" rel="noreferrer noopener">Terms of Service</a>.
                 </p>
             </div>

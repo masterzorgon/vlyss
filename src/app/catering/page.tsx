@@ -48,7 +48,7 @@ export default function Catering() {
                             </div>
                             <h2 className="text-3xl font-bold tracking-tight text-gray-900">Catering & Reservations</h2>
                             <p className="mt-6 text-lg leading-8 text-gray-600">
-                                Whether it's a family celebration, wedding, or just a party that needs some amazing Mexican Food. We can help. <span className='font-semibold'>Please fill out the form and tell us a little bit about your party or catering needs</span>. We look forward to making your event an wonderful success.
+                                Whether it&apos;s a family celebration, wedding, or just a party that needs some amazing Mexican Food. We can help. <span className='font-semibold'>Please fill out the form and tell us a little bit about your party or catering needs</span>. We look forward to making your event an wonderful success.
                             </p>
                             <p className="mt-6 text-lg leading-8 text-gray-600">
                                 To make a reservation, please call La Playa using the number below.
