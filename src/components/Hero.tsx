@@ -16,32 +16,24 @@ import {
 export function Hero() {
   return (
     <div className="relative overflow-hidden">
-      {/* <video 
-        src={require("@/images/videos/alt.mp4")}
-        className="absolute left-1/3 top-1/2 max-w-none translate-x-[-40%] translate-y-[-60%] object-cover"
+      <video
+        preload="auto"
         autoPlay
-        muted
         loop
-      /> */}
-
-      <video 
-        autoPlay 
-        loop 
-        muted 
+        muted
         className="absolute left-1/3 top-1/2 max-w-none translate-x-[-40%] translate-y-[-60%] object-cover"
       >
         <source src={require("@/images/videos/alt.mp4")} type='video/mp4' />
       </video>
 
       <Container className='relative text-white bg-gray-800/50 pt-32 pb-52 lg:pb-96 h-full'>
-        {/* <div className="flex flex-col items-start lg:gap-x-8 lg:gap-y-20 border-2 border-white/10 p-6 rounded-xl bg-black/10 backdrop-blur drop-shadow-xl"> */}
         <div className="flex flex-col items-start lg:gap-x-8 lg:gap-y-20">
           <div className="relative z-10 mx-auto lg:max-w-none">
             <h1 className="text-6xl sm:text-8xl font-medium tracking-tight">
               Made Locally,<br />Con Amor
             </h1>
-            <p className="mt-6 text-md sm:text-xl text-white font-semibold sm:tracking-wide sm:w-2/3 xl:w-1/2">
-              At La Playa, we pride ourselves in cooking with love. 
+            <p className="mt-6 text-lg sm:text-xl text-white font-semibold sm:tracking-wide sm:w-2/3 xl:w-1/2">
+              At La Playa, we pride ourselves in cooking with love.
               Come join us and enjoy a homemade meal made according to
               Mexican tradition.
             </p>
@@ -83,5 +75,5 @@ export function Hero() {
         </div>
       </Container>
     </div>
-  )
-}
+  );
+};

@@ -111,11 +111,11 @@ export function Header() {
                             <MobileNavLink href="/about-us">
                               About Us
                             </MobileNavLink>
-                            <MobileNavLink href="/hours">
-                              Hours & Location
-                            </MobileNavLink>
                             <MobileNavLink href="/catering">
                               Catering & Reservations
+                            </MobileNavLink>
+                            <MobileNavLink href="/hours">
+                              Hours & Location
                             </MobileNavLink>
                           </div>
                           <div className="mt-8 flex flex-col gap-4">

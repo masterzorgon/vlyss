@@ -10,8 +10,8 @@ export function NavLinks() {
 
   return [
     ['About Us', '/about-us'],
-    ['Hours & Location', '/hours'],
     ['Catering & Reservations', '/catering'],
+    ['Hours & Location', '/hours'],
   ].map(([label, href], index) => (
     <Link
       key={label}
