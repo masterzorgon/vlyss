@@ -60,14 +60,14 @@ export default function Hours() {
 
     return (
         <>
-            <div className='overflow-hidden'>
+            <div className='border-2 border-red-500 oveflow-hidden'>
                 <Image
                     src={bgImage}
                     alt=""
-                    className=" absolute inset-0 translate-y-[10%] -z-10 h-full w-full object-cover object-right md:object-center"
+                    className=" absolute inset-0 translate-y-[10%] sm:translate-y-[0%] translate-x-[-5%] sm:translate-x-[0%] scale-110 sm:scale-100 -z-10 h-full w-full object-cover object-right md:object-center"
                 />
 
-                <div className="px-6 lg:px-8 bg-black/60 py-24 sm:py-20 h-full">
+                <div className="px-6 lg:px-8 bg-black/60 py-24 sm:py-20 h-full overflow-hidden">
                     <div className="mx-auto max-w-2xl lg:mx-0">
                         <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
                             Hours and Contact

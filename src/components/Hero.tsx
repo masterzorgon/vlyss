@@ -8,6 +8,7 @@ import { Container } from '@/components/Container'
 import bestBar from '@/images/logos/best-bar.svg'
 import bestFajitas from '@/images/logos/best-fajitas.svg'
 import bestHappyHour from '@/images/logos/best-happy-hour.svg'
+
 import {
     ActionIcon,
     OrderIcon
@@ -15,24 +16,33 @@ import {
 
 function FallBack() {
     return (
-        <p>hello world</p>
-    )
-}
+        <div className='h-screen w-screen bg-red-500'>
+            <p>Your browser doesn't support video</p>
+        </div>
+    );
+};
+
+function VideoComponent() {
+    return (
+        <video
+            preload="none"
+            aria-label="Video player"
+            playsInline
+            autoPlay
+            loop
+            muted
+            className="absolute left-1/3 top-1/2 max-w-none translate-x-[-40%] translate-y-[-60%] object-cover"
+        >
+            <source src={require("@/images/videos/alt.mp4")} type='video/mp4' />
+        </video>
+    );
+};
 
 export function Hero() {
     return (
         <div className="relative overflow-hidden">
             <Suspense fallback={<FallBack />}>
-                <video
-                    preload="auto"
-                    playsInline
-                    autoPlay
-                    loop
-                    muted
-                    className="absolute left-1/3 top-1/2 max-w-none translate-x-[-40%] translate-y-[-60%] object-cover"
-                >
-                    <source src={require("@/images/videos/alt.mp4")} type='video/mp4' />
-                </video>
+                <VideoComponent />
             </Suspense>
 
             <Container className='relative text-white bg-gray-800/50 pt-32 pb-52 lg:pb-96 h-full'>
