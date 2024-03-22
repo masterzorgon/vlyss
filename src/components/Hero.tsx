@@ -2,7 +2,8 @@
 
 import Image from 'next/image'
 import clsx from 'clsx'
-import { Suspense, useMemo, useRef } from 'react'
+import { Suspense, useEffect } from 'react'
+import mailchimp from "@mailchimp/mailchimp_marketing";
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
@@ -41,6 +42,7 @@ function VideoComponent() {
 };
 
 export function Hero() {
+
     return (
         <div className="relative overflow-hidden">
             <Suspense fallback={<FallBack />}>
@@ -73,6 +75,7 @@ export function Hero() {
                                 <span className="mr-1.5">View Menu</span>
                                 <ActionIcon className="h-6 w-6 flex-none fill-black text-black" />
                             </Button>
+
                         </div>
                     </div>
 

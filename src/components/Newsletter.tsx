@@ -1,13 +1,25 @@
-import { AppStoreLink } from '@/components/AppStoreLink'
 import { CircleBackground } from '@/components/CircleBackground'
 import { Container } from '@/components/Container'
 import { Button } from '@/components/Button'
+import { useFormState } from 'react-dom'
 
 import {
     ActionIcon,
 } from '@/images/icons'
 
-export function Newsletter() {
+// mailchimp api key: c73f86d42e55291079935421b1dc21e0-us14
+// mailchimp server: https://us14.admin.mailchimp.com
+
+// hitting mailchimp api from next.js server side
+// https://stackoverflow.com/questions/70788387/how-to-get-rid-of-cors-error-with-mailchimp-api
+
+// using forms and the app router
+// https://www.youtube.com/watch?v=dDpZfOQBMaU
+
+// fullstack next.js newsletter sign up ⭐️
+// https://www.youtube.com/watch?v=4E__efwEJqA
+
+export async function Newsletter() {
     return (
         <>
             <section
