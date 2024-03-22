@@ -44,8 +44,10 @@ export function Hero() {
             <Suspense fallback={<FallBack />}>
                 <VideoComponent />
             </Suspense>
-
-            <Container className='relative text-white bg-gray-800/50 pt-32 pb-52 lg:pb-96 h-full'>
+        
+            <div className='absolute z-10 h-screen w-screen bg-black/30' />
+            
+            <Container className='relative text-white pt-32 pb-52 lg:pb-96 h-full z-10'>
                 <div className="flex flex-col items-start lg:gap-x-8 lg:gap-y-20">
                     <div className="relative z-10 mx-auto lg:max-w-none">
                         <h1 className="text-6xl sm:text-8xl font-medium tracking-tight">
