@@ -17,7 +17,7 @@ import {
 function FallBack() {
     return (
         <div className='h-screen w-screen bg-red-500'>
-            <p>Your browser doesn't support video</p>
+            <p>Your browser doesn&apos;t support video</p>
         </div>
     );
 };
