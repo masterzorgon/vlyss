@@ -21,7 +21,7 @@ function FallBack() {
 
 export function Hero() {
     return (
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden border-2 border-blue-500">
             <Suspense fallback={<FallBack />}>
                 <video
                     preload="auto"
@@ -34,8 +34,10 @@ export function Hero() {
                     <source src={require("@/images/videos/alt.mp4")} type='video/mp4' />
                 </video>
             </Suspense>
-
-            <Container className='relative text-white bg-gray-800/50 pt-32 pb-52 lg:pb-96 h-full'>
+        
+            <div className='absolute z-10 h-screen w-screen bg-black/30' />
+            
+            <Container className='relative text-white pt-32 pb-52 lg:pb-96 h-full z-10'>
                 <div className="flex flex-col items-start lg:gap-x-8 lg:gap-y-20">
                     <div className="relative z-10 mx-auto lg:max-w-none">
                         <h1 className="text-6xl sm:text-8xl font-medium tracking-tight">
