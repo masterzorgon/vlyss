@@ -2,8 +2,7 @@
 
 import Image from 'next/image'
 import clsx from 'clsx'
-import { Suspense } from 'react'
-// import { CldVideoPlayer } from 'next-cloudinary'
+import { Suspense, useMemo, useRef } from 'react'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
@@ -38,13 +37,6 @@ function VideoComponent() {
         >
             <source src={require("@/images/videos/alt.mp4")} type='video/mp4' />
         </video>
-
-        // <CldVideoPlayer 
-        //     id="hero-background"
-        //     width="1920"
-        //     height="980"
-        //     src="/images/videos/alt.mp4"
-        // />
     );
 };
 

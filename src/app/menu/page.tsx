@@ -5,20 +5,48 @@ import { Fragment, useState } from 'react'
 import { Disclosure, Menu as HeadlessMenu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
-import headerPhoto from '@/images/Mexican Cuisine Stock Photo (1).jpg'
+import headerPhoto from '@/images/menu-banner.jpg'
 import { Button } from '@/components/Button';
 import { OrderIcon } from '@/images/icons';
 import clsx from 'clsx';
 
 enum Category {
-    Appetizers,
-    SoupsAndSalads,
-    HouseFavorites,
-    Entrees,
-    Lunch,
-    Drinks,
-    Kids
+    Appetizers = "Appetizers",
+    SoupsAndSalads = "Soups and Salads",
+    HouseFavorites = "House Favorites",
+    Entrees = "Entrees",
+    Lunch = "Lunch",
+    Drinks = "Drinks",
+    Kids = "Kids"
+};
+
+enum MenuItemSize {
+    OneSize = "One Size",
+    Medium = "Medium",
+    Large = "Large"
 }
+
+interface MenuItemPrice {
+    size: MenuItemSize,
+    price: string,
+};
+
+interface Additional {
+    description: string;
+    price: string;
+};
+
+interface MenuItem {
+    name: string;
+    description: string;
+    price: MenuItemPrice[];
+    additionals?: Additional[];
+    specialty: boolean;
+};
+
+interface Menu {
+    [category: string]: MenuItem[];
+};
 
 export default function Menu() {
     const [category, setCategory] = useState<Category>(Category.Appetizers);
@@ -35,62 +63,304 @@ export default function Menu() {
         { name: 'Kids', type: Category.Kids, action: () => setCategory(Category.Kids) },
     ];
 
-    const products = [
-        {
-            id: 1,
-            name: 'Basic Tee 8-Pack',
-            href: '#',
-            price: '$256',
-            description: 'Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg',
-            imageAlt: 'Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green.',
-        },
-        {
-            id: 2,
-            name: 'Basic Tee',
-            href: '#',
-            price: '$32',
-            description: 'Look like a visionary CEO and wear the same black t-shirt every day.',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg',
-            imageAlt: 'Front of plain black t-shirt.',
-        },
-        {
-            id: 1,
-            name: 'Basic Tee 8-Pack',
-            href: '#',
-            price: '$256',
-            description: 'Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg',
-            imageAlt: 'Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green.',
-        },
-        {
-            id: 2,
-            name: 'Basic Tee',
-            href: '#',
-            price: '$32',
-            description: 'Look like a visionary CEO and wear the same black t-shirt every day.',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg',
-            imageAlt: 'Front of plain black t-shirt.',
-        },
-        {
-            id: 1,
-            name: 'Basic Tee 8-Pack',
-            href: '#',
-            price: '$256',
-            description: 'Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg',
-            imageAlt: 'Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green.',
-        },
-        {
-            id: 2,
-            name: 'Basic Tee',
-            href: '#',
-            price: '$32',
-            description: 'Look like a visionary CEO and wear the same black t-shirt every day.',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg',
-            imageAlt: 'Front of plain black t-shirt.',
-        },
-    ]
+    const menu: Menu = {
+        "Appetizers": [
+            {
+                name: "Chili Con Queso",
+                description: "Spicy dip made from melted cheese and chili peppers, served with tortilla chips",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "8.99"
+                    }
+                ],
+                additionals: [
+                    {
+                        description: "Add ground beef",
+                        price: "2.00"
+                    },
+                    {
+                        description: "Add beef or chicken fajita",
+                        price: "3.00"
+                    },
+                    {
+                        description: "Add shrimp",
+                        price: "4.00"
+                    },
+                ],
+                specialty: true,
+            },
+            {
+                name: "Guacamole",
+                description: "homemade guacamole from fresh avocados and spices, garnished with lettuce and pico de gallo",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "8.99"
+                    }
+                ],
+                specialty: false,
+            },
+            {
+                name: "Family Appetizer",
+                description: "A large chicken fajita stuffed jalapeno, four slices of ground beef nachos, one chicken flauta, one beef flauta, and three slices of chicken quesadillas. Served with sour cream and guacamole",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "15.99"
+                    }
+                ],
+                specialty: true,
+            },
+            {
+                name: "Los Panchos",
+                description: "A large chicken fajita stuffed jalapeno, four slices of ground beef nachos, one chicken flauta, one beef flauta, and three slices of chicken quesadillas. Served with sour cream and guacamole",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "16.99"
+                    }
+                ],
+                additionals: [
+                    {
+                        description: "Substitute shrimp",
+                        price: "4.00"
+                    },
+                ],
+                specialty: false,
+            },
+            {
+                name: "Queso Flameado",
+                description: "Melted monterey jack cheese serve with our tender grilled beef, chorizo, chicken fajita, or pastor",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "13.99"
+                    }
+                ],
+                additionals: [
+                    {
+                        description: "Substitute shrimp",
+                        price: "4.00"
+                    },
+                ],
+                specialty: true,
+            },
+            {
+                name: "Queso Flameado",
+                description: "Melted monterey jack cheese serve with our tender grilled beef, chorizo, chicken fajita, or pastor",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "13.99"
+                    }
+                ],
+                additionals: [
+                    {
+                        description: "Substitute shrimp",
+                        price: "4.00"
+                    },
+                ],
+                specialty: true,
+            },
+            {
+                name: "Shrimp Cocktail",
+                description: "Fresh gulf shrimp, boiled with our mexican spices then tossed in our spicy homemade cocktail sauce and topped with pico de gallo and avocado slices",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "14.99"
+                    }
+                ],
+                specialty: true,
+            },
+            {
+                name: "Fajita Quesadillas",
+                description: "Made with our fresh made flour tortillas, monterrey jack cheese, and loaded with your choice of tender marinated beef or chicken fajitas. Served with guacamole, chopped tomatoes, sour cream, and pickled jalapenos",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "12.99"
+                    }
+                ],
+                specialty: false,
+            },
+        ],
+        "Soups and Salads": [
+            {
+                name: "Homemade Tortilla and Mushroom Soup",
+                description: "Our delicious chicken broth seasoned with la playa and topped with monterey jack cheese, sliced tortilla chips, and rice",
+                price: [
+                    {
+                        size: MenuItemSize.Medium,
+                        price: "7.99"
+                    },
+                    {
+                        size: MenuItemSize.Large,
+                        price: "9.99"
+                    },
+                ],
+                additionals: [
+                    {
+                        description: "Add chicken",
+                        price: "2.00"
+                    },
+                ],
+                specialty: false,
+            },
+            {
+                name: "Marisco Soup",
+                description: "a large hearty portion of our homemade seafood stock loaded with scallops, shrimp, fish, crawfish, and rice",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "16.99"
+                    },
+                ],
+                specialty: false,
+            },
+            {
+                name: "Artesanal Chicken Soup",
+                description: "Our delicious recipe made with cabbage, potatoes, tomatoes, carrots, onions, squash, rice",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "8.99"
+                    },
+                ],
+                specialty: true,
+            },
+            {
+                name: "Taco Salad",
+                description: "A crisp garden fresh salad made with black olives, tomatoes, onions, guacamole, sour cream, and american cheese. Served in a crispy flour tortilla bowl and topped with your choice of picadillo or shredded chicken",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "10.99"
+                    },
+                ],
+                additionals: [
+                    {
+                        description: "Substitute fajita",
+                        price: "3.00"
+                    },
+                    {
+                        description: "Substitute shrimp",
+                        price: "4.00"
+                    },
+                ],
+                specialty: false,
+            },
+            {
+                name: "Delux Salad",
+                description: "A fresh garden salad with ripe avocado slices, red cabbage, cherry tomatoes, white and yellow cheese, and black olives. Topped with chicken or beef fajitas",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "14.99"
+                    },
+                ],
+                additionals: [
+                    {
+                        description: "Substitute shrimp",
+                        price: "4.00"
+                    },
+                ],
+                specialty: true,
+            },
+        ],
+        "House Favorites": [
+            {
+                name: "Fajita Guisada",
+                description: "Our award-winning beef fajita simmered in homemade guisada. Served with rice and refried beans",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "15.99"
+                    },
+                ],
+                specialty: true,
+            },
+            {
+                name: "Fried Stuffed Avocado",
+                description: "Half an avocado stuffed with your choice of beef or chicken fajita & cheese, then lightly breaded and fried. Accompanied by a fajita taco. served with rice and a cup of tortilla soup",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "14.99"
+                    },
+                ],
+                additionals: [
+                    {
+                        description: "Top with chili con queso",
+                        price: "1.00"
+                    },
+                    {
+                        description: "Top with ranchero sauce",
+                        price: "1.00"
+                    },
+                    {
+                        description: "Substitute shrimp",
+                        price: "4.00"
+                    },
+                ],
+                specialty: true,
+            },
+            {
+                name: "Burrito La Playa Style",
+                description: "A large flour tortilla filled with refried beans, queso, and your choice of ground beef or shredded chicken. Topped with chili gravy and grated cheese. Served with rice and refried beans",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "12.99"
+                    },
+                ],
+                additionals: [
+                    {
+                        description: "Substitute fajita meat",
+                        price: "3.00"
+                    },
+                ],
+                specialty: false,
+            },
+            {
+                name: "Calabaza Con Puerco",
+                description: "Mexican squash cooked with pork and corn. Served with rice and your choice of refried or ranchero beans. Includes homemade flour or corn tortillas",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "11.99"
+                    },
+                ],
+                specialty: true,
+            },
+            {
+                name: "Chile Relleno",
+                description: "Poblano pepper stuffed with cheese and ground beef, then topped with ranchero sauce and grated cheese. Served with rice and refried beans",
+                price: [
+                    {
+                        size: MenuItemSize.OneSize,
+                        price: "11.99"
+                    },
+                ],
+                additionals: [
+                    {
+                        description: "Substitute fajita meat",
+                        price: "3.00"
+                    },
+                    {
+                        description: "Substitute shrimp",
+                        price: "4.00"
+                    },
+                    {
+                        description: "Add cheese",
+                        price: "9.99"
+                    },
+                ],
+                specialty: false,
+            },
+        ],
+    };
 
     return (
         <>
@@ -111,7 +381,7 @@ export default function Menu() {
                             Our Award-Winning Menu
                         </h2>
                         <p className="text-gray-500">
-                            Explore our delicious and original recipes prepared with love just for you! When you are ready to place an order, tap the button below to begin.
+                            Explore our delicious and original recipes prepared with love just for you! <span className='font-semibold'>Starred menu items are specialty dishes</span>.
                         </p>
                         <div>
                             <Button variant="solid" color="cyan" href="https://order.toasttab.com/online/la-playa-mexican-cafe-502-s-77-sunshine-strip" target="_blank" rel="noopener noreferrer">
@@ -186,7 +456,7 @@ export default function Menu() {
                 <div className="mx-auto max-w-2xl px-4 pb-16 sm:px-6 sm:pb-24 lg:max-w-7xl lg:px-8">
                     <h2 className="sr-only">Products</h2>
 
-                    <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
+                    {/* <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
                         {products.map((product) => (
                             <div
                                 key={product.id}
@@ -210,7 +480,7 @@ export default function Menu() {
                                 </div>
                             </div>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>
