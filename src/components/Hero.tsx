@@ -21,7 +21,7 @@ function FallBack() {
 
 export function Hero() {
     return (
-        <div className="relative overflow-hidden border-2 border-blue-500">
+        <div className="relative overflow-hidden">
             <Suspense fallback={<FallBack />}>
                 <video
                     preload="auto"
