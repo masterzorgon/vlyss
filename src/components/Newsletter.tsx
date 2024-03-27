@@ -1,25 +1,54 @@
+import { Resend } from 'resend';
+
 import { CircleBackground } from '@/components/CircleBackground'
 import { Container } from '@/components/Container'
 import { Button } from '@/components/Button'
-import { useFormState } from 'react-dom'
 
 import {
     ActionIcon,
 } from '@/images/icons'
 
-// mailchimp api key: c73f86d42e55291079935421b1dc21e0-us14
-// mailchimp server: https://us14.admin.mailchimp.com
-
-// hitting mailchimp api from next.js server side
-// https://stackoverflow.com/questions/70788387/how-to-get-rid-of-cors-error-with-mailchimp-api
-
-// using forms and the app router
-// https://www.youtube.com/watch?v=dDpZfOQBMaU
-
-// fullstack next.js newsletter sign up ⭐️
-// https://www.youtube.com/watch?v=4E__efwEJqA
-
 export async function Newsletter() {
+    const signUp = async (formData: FormData) => {
+        "use server";
+
+        const resend = new Resend(process.env.RESEND_KEY);
+
+        const { email, name } = Object.fromEntries(formData);
+
+        // Basic validation
+        if (!email || !name) {
+            console.error("Error: All fields are required.");
+            return; // Stop execution if any field is missing
+        }
+
+        // Email validation using a simple regex pattern
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email as string)) {
+            console.error("Error: Invalid email format.");
+            return; // Stop execution if the email format is invalid
+        }
+
+        // Name validation (example: ensure name is at least 2 characters long)
+        if ((name as string).length < 2) {
+            console.error("Error: Name must be at least 2 characters long.");
+            return; // Stop execution if the name doesn't meet the criteria
+        }
+
+        try {
+            const { data } = await resend.contacts.create({
+                email: email as string,
+                firstName: name as string,
+                unsubscribed: false,
+                audienceId: process.env.RESEND_AUDIENCE as string
+            });
+
+            console.log("Signup successful", data);
+        } catch (error) {
+            console.error("Error signing up:", error);
+        }
+    };
+
     return (
         <>
             <section
@@ -38,32 +67,35 @@ export async function Newsletter() {
                             Stay in touch with the latest news on our promotions and menu changes.
                         </p>
 
-                        <form action="#" method="POST" className="mt-2 text-white">
+                        <form action={signUp} method="POST" className="mt-2 text-white">
+
                             <div>
-                                <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-start">
-                                    Email
+                                <label htmlFor="name" className="block text-sm font-semibold leading-6 text-start">
+                                    Name
                                 </label>
                                 <div className="mt-2.5">
                                     <input
                                         type="text"
-                                        name="first-name"
-                                        id="first-name"
-                                        autoComplete="given-name"
+                                        name="name"
+                                        id="name"
+                                        autoComplete="name"
+                                        required
                                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
                                     />
                                 </div>
                             </div>
 
                             <div className='mt-4'>
-                                <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-start">
-                                    Phone
+                                <label htmlFor="email" className="block text-sm font-semibold leading-6 text-start">
+                                    Email
                                 </label>
                                 <div className="mt-2.5">
                                     <input
-                                        type="text"
-                                        name="first-name"
-                                        id="first-name"
-                                        autoComplete="given-name"
+                                        type="emal"
+                                        name="email"
+                                        id="email"
+                                        autoComplete="email"
+                                        required
                                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
                                     />
                                 </div>
@@ -71,9 +103,9 @@ export async function Newsletter() {
 
                             <div className="mt-4 flex justify-center border-t border-gray-900/10 pt-8">
                                 <Button
-                                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                                     variant="solid"
                                     color="white"
+                                    type="submit"
                                 >
                                     <span className="mr-1.5">Subscribe</span>
                                     <ActionIcon className="h-6 w-6 flex-none fill-black text-black" />
