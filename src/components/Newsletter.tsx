@@ -4,6 +4,8 @@ import { CircleBackground } from '@/components/CircleBackground'
 import { Container } from '@/components/Container'
 import { Button } from '@/components/Button'
 
+import { ConfirmationEmail } from '../../emails/ConfirmationEmail';
+
 import {
     ActionIcon,
 } from '@/images/icons'
@@ -36,14 +38,25 @@ export async function Newsletter() {
         }
 
         try {
-            const { data } = await resend.contacts.create({
+            // add signee to the audience
+            const { data: audienceConfirmation } = await resend.contacts.create({
                 email: email as string,
                 firstName: name as string,
                 unsubscribed: false,
                 audienceId: process.env.RESEND_AUDIENCE as string
             });
 
-            console.log("Signup successful", data);
+            // send confirmation email to signee
+            await resend.emails.send({
+                from: "",
+                to: [email as string],
+                subject: "Welcome to the La Playa Family!",
+                react: <ConfirmationEmail /* ADD PARAMS */ />
+            });
+
+            // send update email to la playa
+
+            console.log("Signup successful", audienceConfirmation);
         } catch (error) {
             console.error("Error signing up:", error);
         }
