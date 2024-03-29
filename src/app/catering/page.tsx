@@ -9,6 +9,7 @@ import { ActionIcon } from '@/images/icons';
 interface FormField {
     label: string;
     id: string;
+    placeholder: string;
     autoComplete?: string;
     isOptional?: boolean;
     isFullWidth?: boolean;
@@ -44,17 +45,20 @@ export default function Catering() {
         {
             label: "First Name",
             id: "first-name",
+            placeholder: "John",
             onChange: event => setFirstName(event.target.value)
         },
         {
             label: "Last Name",
             id: "last-name",
+            placeholder: "Doe",
             isOptional: true,
             onChange: event => setLastName(event.target.value)
         },
         {
             label: "Email",
             id: "email",
+            placeholder: "john@example.com",
             autoComplete: "email",
             isFullWidth: true,
             onChange: event => setEmail(event.target.value)
@@ -62,6 +66,7 @@ export default function Catering() {
         {
             label: "Phone Number",
             id: "phone-number",
+            placeholder: "(123) 456-7890",
             autoComplete: "tel",
             isFullWidth: true,
             onChange: event => setPhoneNumber(event.target.value)
@@ -69,16 +74,19 @@ export default function Catering() {
         {
             label: "Party Size",
             id: "party-size",
+            placeholder: "10",
             onChange: event => setPartySize(event.target.value)
         },
         {
             label: "Desired Date",
             id: "desired-date",
+            placeholder: "10/3/2024",
             onChange: event => setDesiredDate(event.target.value)
         },
         {
-            label: "Leave a Message",
+            label: "Message",
             id: "message",
+            placeholder: "Have a special request? Leave us a message.",
             isOptional: true,
             isTextArea: true,
             isFullWidth: true,
@@ -108,7 +116,7 @@ export default function Catering() {
                             </div>
                             <h2 className="text-3xl font-bold tracking-tight text-gray-900">Catering & Reservations</h2>
                             <p className="mt-6 text-lg leading-8 text-gray-600">
-                                Whether it&apos;s a family celebration, wedding, or just a party that needs some amazing Mexican Food. We can help. <span className='font-semibold'>Please fill out the form and tell us a little bit about your party or catering needs</span>. We look forward to making your event an wonderful success.
+                                Let us make your event memorable with our delicious catering. <span className='font-semibold'>To submit the form, you must fill out all required fields</span>.
                             </p>
                             <p className="mt-6 text-lg leading-8 text-gray-600">
                                 To make a reservation, please call La Playa using the number below.
@@ -153,6 +161,7 @@ export default function Catering() {
                                                         name={input.id}
                                                         id={input.id}
                                                         rows={4}
+                                                        placeholder={input.placeholder}
                                                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-500 sm:text-sm sm:leading-6"
                                                         defaultValue={""}
                                                         onChange={input.onChange}
@@ -162,6 +171,7 @@ export default function Catering() {
                                                         type="text"
                                                         name={input.id}
                                                         id={input.id}
+                                                        placeholder={input.placeholder}
                                                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-500 sm:text-sm sm:leading-6"
                                                         onChange={input.onChange}
                                                     />
