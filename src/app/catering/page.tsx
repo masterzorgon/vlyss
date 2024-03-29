@@ -6,13 +6,24 @@ import { PhoneIcon } from '@heroicons/react/24/outline'
 import { Button } from '@/components/Button';
 import { ActionIcon } from '@/images/icons';
 
+interface FormField {
+    label: string;
+    id: string;
+    autoComplete?: string;
+    isOptional?: boolean;
+    isFullWidth?: boolean;
+    isTextArea?: boolean;
+    onChange: (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
+}
+
 export default function Catering() {
-    const [firstName, setFirstName] = useState<string | null>(null);
-    const [lastName, setLastName] = useState<string | null>(null);
-    const [email, setEmail] = useState<string | null>(null);
-    const [phoneNumber, setPhoneNumber] = useState<string | null>(null);
-    const [partySize, setPartySize] = useState<string | null>(null);
-    const [desiredDate, setDesiredDate] = useState<string | null>(null);
+    const [firstName, setFirstName] = useState<string>("");
+    const [lastName, setLastName] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [phoneNumber, setPhoneNumber] = useState<string>("");
+    const [partySize, setPartySize] = useState<string>("");
+    const [desiredDate, setDesiredDate] = useState<string>("");
+    const [message, setMessage] = useState<string>("");
     const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
     const handleCateringRequest = async () => {
@@ -20,11 +31,60 @@ export default function Catering() {
     };
 
     useEffect(() => {
-        // Check if all required fields are filled out
-        if (firstName && email && phoneNumber && partySize && desiredDate) {
-            setIsFormValid(true);
-        } else { setIsFormValid(false) }
-    }, [firstName, email, phoneNumber, partySize, desiredDate]); // Dependencies array to re-run the effect on changes to these states
+        setIsFormValid(
+            firstName.length > 0 &&
+            email.length > 0 &&
+            phoneNumber.length > 0 &&
+            partySize.length > 0 &&
+            desiredDate.length > 0
+        );
+    }, [firstName, email, phoneNumber, partySize, desiredDate]);
+
+    const inputs: FormField[] = [
+        {
+            label: "First Name",
+            id: "first-name",
+            onChange: event => setFirstName(event.target.value)
+        },
+        {
+            label: "Last Name",
+            id: "last-name",
+            isOptional: true,
+            onChange: event => setLastName(event.target.value)
+        },
+        {
+            label: "Email",
+            id: "email",
+            autoComplete: "email",
+            isFullWidth: true,
+            onChange: event => setEmail(event.target.value)
+        },
+        {
+            label: "Phone Number",
+            id: "phone-number",
+            autoComplete: "tel",
+            isFullWidth: true,
+            onChange: event => setPhoneNumber(event.target.value)
+        },
+        {
+            label: "Party Size",
+            id: "party-size",
+            onChange: event => setPartySize(event.target.value)
+        },
+        {
+            label: "Desired Date",
+            id: "desired-date",
+            onChange: event => setDesiredDate(event.target.value)
+        },
+        {
+            label: "Leave a Message",
+            id: "message",
+            isOptional: true,
+            isTextArea: true,
+            isFullWidth: true,
+            onChange: event => setMessage(event.target.value)
+        }
+    ];
 
     return (
         <>
@@ -72,114 +132,43 @@ export default function Catering() {
                     <form action={handleCateringRequest} method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
                         <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-                                <div>
-                                    <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
-                                        First name
-                                    </label>
-                                    <div className="mt-2.5">
-                                        <input
-                                            type="text"
-                                            name="first-name"
-                                            id="first-name"
-                                            autoComplete="given-name"
-                                            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-500 sm:text-sm sm:leading-6"
-                                            onChange={e => setFirstName(e.target.value)}
-                                        />
+                                {inputs.map(input => (
+                                    <div className={`${input.isFullWidth && "sm:col-span-2"}`}>
+                                        <div className="flex justify-between">
+                                            <label htmlFor="message" className="block text-sm font-medium leading-6 text-gray-900">
+                                                {input.label}
+                                            </label>
+                                            {
+                                                input.isOptional &&
+                                                <span className="text-sm leading-6 text-gray-500" id="message-optional">
+                                                    Optional
+                                                </span>
+                                            }
+                                        </div>
+                                        <div className="mt-2.5">
+                                            {
+                                                input.isTextArea
+                                                    ?
+                                                    <textarea
+                                                        name={input.id}
+                                                        id={input.id}
+                                                        rows={4}
+                                                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-500 sm:text-sm sm:leading-6"
+                                                        defaultValue={""}
+                                                        onChange={input.onChange}
+                                                    />
+                                                    :
+                                                    <input
+                                                        type="text"
+                                                        name={input.id}
+                                                        id={input.id}
+                                                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-500 sm:text-sm sm:leading-6"
+                                                        onChange={input.onChange}
+                                                    />
+                                            }
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <div className="flex justify-between">
-                                        <label htmlFor="lastName" className="block text-sm font-medium leading-6 text-gray-900">
-                                            Last Name
-                                        </label>
-                                        <span className="text-sm leading-6 text-gray-500" id="lastName-optional">
-                                            Optional
-                                        </span>
-                                    </div>
-                                    <div className="mt-2.5">
-                                        <input
-                                            type="text"
-                                            name="last-name"
-                                            id="last-name"
-                                            autoComplete="family-name"
-                                            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-500 sm:text-sm sm:leading-6"
-
-                                        />
-                                    </div>
-                                </div>
-                                <div className="sm:col-span-2">
-                                    <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
-                                        Email
-                                    </label>
-                                    <div className="mt-2.5">
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            id="email"
-                                            autoComplete="email"
-                                            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-500 sm:text-sm sm:leading-6"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="sm:col-span-2">
-                                    <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-gray-900">
-                                        Phone number
-                                    </label>
-                                    <div className="mt-2.5">
-                                        <input
-                                            type="tel"
-                                            name="phone-number"
-                                            id="phone-number"
-                                            autoComplete="tel"
-                                            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-500 sm:text-sm sm:leading-6"
-                                        />
-                                    </div>
-                                </div>
-                                <div>
-                                    <label htmlFor="party-size" className="block text-sm font-semibold leading-6 text-gray-900">
-                                        Party size
-                                    </label>
-                                    <div className="mt-2.5">
-                                        <input
-                                            type="text"
-                                            name="party-size"
-                                            id="party-size"
-                                            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-500 sm:text-sm sm:leading-6"
-                                        />
-                                    </div>
-                                </div>
-                                <div>
-                                    <label htmlFor="desired-date" className="block text-sm font-semibold leading-6 text-gray-900">
-                                        Desired date
-                                    </label>
-                                    <div className="mt-2.5">
-                                        <input
-                                            type="text"
-                                            name="desired-date"
-                                            id="desired-date"
-                                            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-500 sm:text-sm sm:leading-6"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="sm:col-span-2">
-                                    <div className="flex justify-between">
-                                        <label htmlFor="message" className="block text-sm font-medium leading-6 text-gray-900">
-                                            Leave a Message
-                                        </label>
-                                        <span className="text-sm leading-6 text-gray-500" id="message-optional">
-                                            Optional
-                                        </span>
-                                    </div>
-                                    <div className="mt-2.5">
-                                        <textarea
-                                            name="message"
-                                            id="message"
-                                            rows={4}
-                                            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-500 sm:text-sm sm:leading-6"
-                                            defaultValue={''}
-                                        />
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                             <div className="mt-8 flex justify-end">
                                 <Button

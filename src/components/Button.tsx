@@ -10,13 +10,13 @@ const baseStyles = {
 
 const variantStyles = {
   solid: {
-    cyan: 'relative overflow-hidden bg-cyan-500 text-white before:absolute before:inset-0 active:before:bg-transparent hover:before:bg-white/10 active:bg-cyan-600 active:text-white/80 before:transition-colors',
+    cyan: 'relative overflow-hidden bg-cyan-500 text-white before:absolute before:inset-0 active:before:bg-transparent enabled:hover:before:bg-white/10 active:bg-cyan-600 active:text-white/80 before:transition-colors',
     white:
-      'bg-white text-cyan-900 hover:bg-white/90 active:bg-white/90 active:text-cyan-900/70',
-    gray: 'bg-gray-800 text-white hover:bg-gray-900 active:bg-gray-800 active:text-white/80',
+      'bg-white text-cyan-900 enabled:hover:bg-white/90 active:bg-white/90 active:text-cyan-900/70',
+    gray: 'bg-gray-800 text-white enabled:hover:bg-gray-900 active:bg-gray-800 active:text-white/80',
   },
   outline: {
-    gray: 'border-white text-white hover:border-gray-400 active:bg-gray-100 active:text-gray-700/80',
+    gray: 'border-white text-white enabled:hover:border-gray-400 active:bg-gray-100 active:text-gray-700/80',
   },
 }
 
@@ -49,6 +49,7 @@ export function Button({ className, ...props }: ButtonProps) {
         ? variantStyles.solid[props.color]
         : undefined,
     className,
+    "disabled:cursor-not-allowed disabled:opacity-50"
   )
 
   return typeof props.href === 'undefined' ? (
