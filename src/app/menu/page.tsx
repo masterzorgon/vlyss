@@ -47,7 +47,7 @@ interface MenuItem {
     price: MenuItemPrice[];
     additionals?: Additional[];
     specialty: boolean;
-    image?: MenuItemImage
+    image: MenuItemImage
 };
 
 interface Menu {
@@ -81,8 +81,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "https://drive.google.com/uc?export=view&id=1Tbz0_OWYo8pTWrF_6U1CdPTQFaz4LDWU",
+                alt: "Chili Con Queso"
             }
         },
         {
@@ -542,8 +542,8 @@ export default function Menu() {
                         {
                             categoryItems.map(menuItem => (
                                 <div key={menuItem.name} className="relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white">
-                                    <div className="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none sm:h-96">
-                                        <img src={menuItem.image?.src} alt={menuItem.image?.alt} className="h-full w-full object-cover object-center sm:h-full sm:w-full" />
+                                    <div className="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none sm:h-80">
+                                        <img src={menuItem.image.src} alt={menuItem.image.alt} className="h-full w-full object-cover object-center sm:h-full sm:w-full" />
                                     </div>
                                     <div className="grid grid-rows-2 space-y-2 p-4 border-2 border-green-500 h-96">
                                         <div className='border-2 border-purple-500'>
