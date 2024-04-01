@@ -4,20 +4,21 @@ import Image from 'next/image';
 import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu as HeadlessMenu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import clsx from 'clsx';
 
 import headerPhoto from '@/images/menu-banner.jpg'
 import { Button } from '@/components/Button';
 import { OrderIcon } from '@/images/icons';
-import clsx from 'clsx';
 
 enum Category {
     Appetizers = "Appetizers",
     SoupsAndSalads = "Soups and Salads",
     HouseFavorites = "House Favorites",
-    Entrees = "Entrees",
+    Desserts = "Desserts",
     Lunch = "Lunch",
+    Entrees = "Entrees",
     Drinks = "Drinks",
-    Kids = "Kids"
+    Kids = "Kids",
 };
 
 enum MenuItemSize {
@@ -27,13 +28,13 @@ enum MenuItemSize {
 }
 
 interface MenuItemPrice {
-    size: MenuItemSize,
+    size: MenuItemSize | string,
     price: string,
 };
 
 interface Additional {
     description: string;
-    price: string;
+    price?: string;
 };
 
 interface MenuItemImage {
@@ -44,7 +45,7 @@ interface MenuItemImage {
 interface MenuItem {
     name: string;
     description: string;
-    price: MenuItemPrice[];
+    price?: MenuItemPrice[];
     additionals?: Additional[];
     specialty: boolean;
     image: MenuItemImage
@@ -81,7 +82,7 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "https://drive.google.com/uc?export=view&id=1Tbz0_OWYo8pTWrF_6U1CdPTQFaz4LDWU",
+                src: "1INQN3XF4iJuwMs2nDL3knHOu5A5aPyux",
                 alt: "Chili Con Queso"
             }
         },
@@ -92,12 +93,12 @@ const menu: Menu = {
                 {
                     size: MenuItemSize.OneSize,
                     price: "8.99"
-                }
+                },
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "11IdQOAf6ZyWlk9r8604CsWbvVcuysqXL",
+                alt: "Guacamole"
             }
         },
         {
@@ -111,8 +112,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "1g6FJhCknj3Z64k5MPnh5afsfGTNUZ2Jp",
+                alt: "Family Appetizer"
             }
         },
         {
@@ -132,8 +133,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1go3n3ZQWs4D7TJL7Uk3z4Gwa6Q-VAmMn",
+                alt: "Los Panchos"
             }
         },
         {
@@ -153,29 +154,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
-            }
-        },
-        {
-            name: "Queso Flameado",
-            description: "Melted monterey jack cheese serve with our tender grilled beef, chorizo, chicken fajita, or pastor",
-            price: [
-                {
-                    size: MenuItemSize.OneSize,
-                    price: "13.99"
-                }
-            ],
-            additionals: [
-                {
-                    description: "Substitute shrimp",
-                    price: "4.00"
-                },
-            ],
-            specialty: true,
-            image: {
-                src: "",
-                alt: ""
+                src: "10JUh1UftzZeks0GpRhc3X1hv2OFxSLB-",
+                alt: "Queso Flameado"
             }
         },
         {
@@ -189,8 +169,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "1qUX-zsvb2dXz0lcpFEtITKTKr9wmhbeo",
+                alt: "Shrimp Cocktail"
             }
         },
         {
@@ -204,8 +184,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "12-_OdqEtPBUYwjMXidazA5w6adLBnMs2",
+                alt: "Fajita Quesadillas"
             }
         },
     ],
@@ -422,6 +402,1248 @@ const menu: Menu = {
                 alt: ""
             }
         },
+        {
+            name: "la Playa Chimichanga",
+            description: "a large tortilla loaded with your choice of seasoned ground beef or hand shredded chicken and cheese then fried nice an crisp. topped with our flavorful chili gravy and cheese. served with rice and refried beans then garnished with lettuce and pico de gallo",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "12.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Carnitas",
+            description: "our perfectly seasoned pan seared pork accompanied by tomatoes, onions and a side of our red diabla sauce. served with rice and charro beans",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "14.99"
+                },
+            ],
+            specialty: true,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Flautas",
+            description: "three rolled corn tortillas filled with cheese and your choice of spicy ground beef or shredded chicken then deep fried and topped with our fresh sour cream. served with rice, refried beans, and guacamole",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "12.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "Substitute fajita meat",
+                    price: "3.00"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Milanesa",
+            description: "mouthwatering marinated fajita skirt or juicy chicken breasts lightly breaded then fried to perfection and topped with our delicious ranchero sauce and cheese. served sizzling on a bed of onions with rice and charro beans",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "17.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "tacos Al Carbon",
+            description: "two fresh homemade flour tortillas filled with our famous beef or chicken fajitas. served with rice, refried beans, pico de gallo, and a side of chili con queso for dipping",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "16.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+    ],
+    "Desserts": [
+        {
+            name: "Flan",
+            description: "this traditional mexican dessert is a luxurious baked custard with a hint of mexican cinnamon in a rich caramelized topping. a classic!",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "6.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Fried Ice Cream",
+            description: "a large scoop of vanilla ice cream, breaded, spiced with cinnamon, then quickly fried for a paradoxical paradise. served with a dollop of sweet whipped cream",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "6.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Sopapilla",
+            description: "a pillow like puff of deep fried pastry sprinkled with cinnamon and sugar",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "3.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Tres Leches",
+            description: "a dense moist cake soaked in a mixture of three different milk products: evaporated, sweetened condensed , and heavy cream. topped with a cloud of vanilla whipped cream. heavenly",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "6.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+    ],
+    "Lunch": [
+        {
+            name: "Crispy Tacos",
+            description: "three tacos filled with your choice of ground beef or chicken ranchero, lettuce, tomatoes and cheese. served with rice and refried beans",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "18.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Enchiladas",
+            description: "your choice of two ground beef or chicken ranchero enchiladas covered with our homemade enchilada gravy and grated cheese. served with rice and refried beans",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "9.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "Substitute beef or chicken fajita meat",
+                    price: "3.00"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Calabaza Con Puerco",
+            description: "mexican squash cooked with pork and corn. served with rice and refried or ranchero beans. includes flour or corn tortillas",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "9.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Street Tacos",
+            description: "three tacos stuffed with your choice of carne asada, chicken, pork, or mixed. topped with cilantro, onions, and queso fresco. served with charro beans, limes, and a side of green diabla sauce",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "11.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "La Playa Burger",
+            description: "1/4 lb beef patty with pickles, lettuce, onion, tomatoes, bacon and yellow american cheese",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "10.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "Add slice of avocado",
+                    price: "1.25"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "La Playa Puffy Tacos",
+            description: "two deep fried puffy tacos filled with ground beef or shredded chicken, lettuce, tomato and cheese. served with rice, beans and diabla verde sauce",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "9.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Mexican Cafe",
+            description: "your choice of beef or chicken chalupa, beef or chicken enchilada, and one crispy beef taco. served with rice and refried beans",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "9.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Flautas",
+            description: "two rolled corn tortillas filled with cheese and your choice of spicy ground beef or shredded chicken then deep fried and topped with our fresh sour cream. served with rice, refried beans, and guacamole",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "9.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Seafood Street Tacos",
+            description: "three tacos stuffed with your choice of fresh fish or shrimp , topped with purple cabbage, chopped tomatoes, and cilantro, drizzled with our delicious cilantro lime sauce. served with rice and charro beans",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "13.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Chalupas",
+            description: "two crispy corn tortillas topped with fresh lettuce, cheese, tomatoes, and your choice of savory ground beef or shredded chicken. served with a side of chili con queso and guacamole",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "9.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "Substitute fajita meat",
+                    price: "4.00"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Burrito la Playa Style",
+            description: "a large flour tortilla filled with refried beans, queso, and your choice of ground beef or shredded chicken. topped with chili gravy and grated cheese. served with rice and refried beans",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "10.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "Substitute fajita meat",
+                    price: "3.00"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "La Playa Chimichanga",
+            description: "a large flour tortilla filled with refried beans, queso, and your choice of ground beef or shredded chicken. topped with chili gravy and grated cheese. served with rice and refried beans",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "10.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "Substitute fajita meat",
+                    price: "3.00"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Burrito La Playa Style",
+            description: "a large flour tortilla filled with refried beans, queso, and your choice of ground beef or shredded chicken. topped with chili gravy and grated cheese. served with rice and refried beans",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "10.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "Substitute fajita meat",
+                    price: "3.00"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "La Playa Chimichanga",
+            description: "a large tortilla loaded with your choice of seasoned ground beef or hand shredded chicken and cheese then fried nice an crisp. topped with our flavorful chili gravy and cheese. served with rice and refried beans then garnished with lettuce and pico de gallo",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "11.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Fajita Quesadilla",
+            description: "flour tortilla filled with monterrey jack cheese and your choice of beef or chicken fajita . served with rice, refried beans, sour cream and pico de gallo",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "12.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+    ],
+    "Entrees": [
+        {
+            name: "The Mexican Plate",
+            description: "your choice of fresh beef or chicken chalupa , beef or chicken enchilada and one crispy beef taco",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "12.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "El Guero",
+            description: "one melty cheese enchilada , one crispy beef taco and flavorful beef, chicken, or mixed fajitas",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "13.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "La Reyna",
+            description: "three savory chicken quesadilla slices and one beef fajita taco topped with creamy chili con queso",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "13.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "El Mariachi Loco",
+            description: "a small taco salad, one beef fajita taco, and three chicken fajita quesadilla slices",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "13.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Beef, Chicken, or Mix",
+            description: "four tacos topped with cilantro, onions, and queso fresco",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "14.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with charro beans, rice, and green diabla sauce"
+                }
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Shrimp, Fish, or Mix",
+            description: "four tacos topped with purple cabbage, chopped tomatoes, and cilantro, drizzled with our delicious cilantro lime sauce. your choice of grilled or fried",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "16.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with charro beans, rice, and green diabla sauce"
+                }
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Al Pastor",
+            description: "four tacos filled with chili rubbed grilled pork marinated in a guajillo pineapple marinade. topped with chopped onions and cilantro",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "14.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with charro beans, rice, and green diabla sauce"
+                }
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Carnitas",
+            description: "four tacos stuffed with our delicious pork carnitas. topped with cilantro and onions, served with fresh limes",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "14.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with charro beans, rice, and green diabla sauce"
+                }
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "La Playa Fajitas",
+            description: "four tacos topped with cilantro, onions, and queso fresco",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "14.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with rice and charro beans. choice of two: pico de gallo, sour cream or cheese"
+                }
+            ],
+            specialty: true,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Fajitas Trascas",
+            description: "our award-winning fajitas topped with our mouthwatering poblano pepper cream sauce.",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "20.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with rice and charro beans. choice of two: pico de gallo, sour cream or cheese"
+                }
+            ],
+            specialty: true,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Fajitas Las Brasas",
+            description: "our award winning fajitas topped with a creamy pico de gallo wine sauce and sauteed mushrooms.",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "20.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with rice and charro beans. choice of two: pico de gallo, sour cream or cheese"
+                }
+            ],
+            specialty: true,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Fajitas Diablas",
+            description: "our tender marinated beef, chicken, or mixed fajitas topped with a spicy homemade diabla sauce with roasted arbol peppers.",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "20.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with rice and charro beans. choice of two: pico de gallo, sour cream or cheese"
+                }
+            ],
+            specialty: true,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Chicken and Spinach",
+            description: "perfectly seasoned chargrilled chicken breast with a spinach and mushroom cream sauce. served with rice in steamed veggies",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "14.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Chicken Jalisco",
+            description: "grilled chicken breast topped with sauteed onions, jalapenos, fresh minced garlic, tomatoes, cilantro and mushrooms, in a creamy buttery wine sauce. topped with monterrey jack cheese. served with rice and charro beans",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "14.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Chicken Olivia",
+            description: "fresh chicken breast dipped in our special batter then pan seared. topped with our olivia sauce which is made with cherry tomatoes and spinach carefully sauteed with extra virgin olive oil and mexican spices. served with fresh steamed veggies and rice",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "14.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Pollo Asado",
+            description: "lightly seasoned chicken breasts grilled to perfection. served with steamed veggies and rice",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "12.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Pollo Fronterizo",
+            description: "grilled chicken breast stuffed with shrimp, tomatoes, cilantro, mushrooms and onions. then topped with a creamy pico de gallo wine sauce. served on a bed of rice and charro beans",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "18.99"
+                },
+            ],
+            specialty: true,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Fried Shrimp Platter",
+            description: "six deep fried jumbo shrimp served over a bed of fries with tartar and cocktail sauce",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "16.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Shrimp Amarrados",
+            description: "six perfectly seasoned bacon wrapped jumbo shrimp stuffed with sliced jalapeno peppers and topped with monterrey jack cheese. served on a sizzling platter on top of a bed of grilled onions. includes our homemade jalapeno butter wine sauce , rice and charro beans",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "21.99"
+                },
+            ],
+            specialty: true,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Fish Cancun",
+            description: "our delicious pan seared fresh fish filet topped with sauteed scallops and crawfish in a creamy white wine sauce. served with rice and steamed vegetables",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "18.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Steamed Fish Platter",
+            description: "a fresh fish filet and three jumbo shrimp steamed with mushrooms, onions, jalapenos and tomatoes with our special blend of mexican spices. served with steamed veggies and rice",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "24.95"
+                },
+            ],
+            specialty: true,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "La Playa Seafood Platter",
+            description: "fresh fish filet and two jumbo shrimp lightly breaded and fried on top of a bed of fries. served with our homemade lemon seafood sauce and a side salad",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "18.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Fish San Lucas",
+            description: "our fresh fish filet grilled and topped with sauteed onions, jalapenos, fresh minced garlic, tomatoes, cilantro and mushrooms, in a creamy butter wine sauce. served with rice and charro beans",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "15.99"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Enchiladas Verdes",
+            description: "two flavorful shredded chicken enchiladas topped with homemade tomatillo sauce and fresh sour cream",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "12.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with rice and beans"
+                },
+                {
+                    description: "substitute fajita",
+                    price: "2.00"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Seafood Enchiladas",
+            description: "two monterey jack cheese enchiladas topped with a delectable blend of shrimp, scallops, sauteed mushrooms, bell peppers, in a light cream sauce",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "14.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with rice and beans"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Enchiladas Moles",
+            description: "two shredded chicken enchiladas topped with our spicy homemade mole sauce, sour cream and queso fresco",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "12.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with rice and beans"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Fajitas Enchiladas",
+            description: "two enchiladas stuffed with your choice of beef or chicken fajita meat topped with our homemade beef gravy and cheese",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "14.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with rice and beans"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Enchiladas",
+            description: "your choice of ground beef or shredded chicken enchiladas covered with homemade beef gravy and freshly grated cheese",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "11.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with rice and beans"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Playaquena",
+            description: "angus beef paired with two cheese enchiladas and served on a bed of grilled onion. served sizzling",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "18.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with rice and beans"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Sour Cream Enchiladas",
+            description: "two fresh chicken enchiladas topped with our mouthwatering sour cream sauce and monterey jack cheese",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "12.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with rice and beans"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Cheese Enchiladas",
+            description: "two melted cheese enchiladas made with yellow american cheese and our homemade beef gravy",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "9.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with rice and beans"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Spinach Enchiladas",
+            description: "two monterey jack cheese enchiladas topped with our sauteed spinach cream sauce",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "12.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "served with rice and beans"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+    ],
+    "Drinks": [
+        {
+            name: "House Margaritas",
+            description: "Frozen or On the Rocks",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "6.00"
+                },
+            ],
+            specialty: true,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Frozen Specialty Margaritas",
+            description: "Mango | Chamoy | Cucumber",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "7.00"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "La Reina Margarita",
+            description: "Premium Margarita",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "7.00"
+                },
+            ],
+            additionals: [
+                {
+                    description: "Made with Don Julio",
+                    price: "15.00"
+                }
+            ],
+            specialty: true,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Domestic Beer",
+            description: "Bud Light | Miller Lite | Michelob Ultra | Buedweiser",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "4.00"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Imported Beer",
+            description: "Corona | Pacifico | Modelo Especial | Victoria | Dos XX",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "5.00"
+                },
+            ],
+            additionals: [
+                {
+                    description: "Add Miche",
+                    price: "2.00",
+                }
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Domested Draft Beer",
+            description: "",
+            price: [
+                {
+                    size: "Pint",
+                    price: "4.00"
+                },
+                {
+                    size: "Tall",
+                    price: "5.00"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Domested Imported Beer",
+            description: "",
+            price: [
+                {
+                    size: "Pint",
+                    price: "5.00"
+                },
+                {
+                    size: "Tall",
+                    price: "6.00"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "House Wine",
+            description: "Red | White",
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+    ],
+    "Kids": [
+        {
+            name: "Crispy Tacos",
+            description: "choice of ground beef or shredded chicken",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "5.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "for kids ages 10 and under"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Carbon Taco",
+            description: "choice of beef or chicken",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "6.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "for kids ages 10 and under"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Fried Shrimp",
+            description: "two jumbo fried shrimp and fries",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "6.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "for kids ages 10 and under"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Chicken Fingers",
+            description: "includes fries",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "5.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "for kids ages 10 and under"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Quesadilla",
+            description: "three slices filled with monterey jack cheese",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "5.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "for kids ages 10 and under"
+                },
+                {
+                    description: "includes fries",
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
+        {
+            name: "Mac and Cheese",
+            description: "",
+            price: [
+                {
+                    size: MenuItemSize.OneSize,
+                    price: "5.99"
+                },
+            ],
+            additionals: [
+                {
+                    description: "for kids ages 10 and under"
+                },
+                {
+                    description: "add parmesan cheese",
+                    price: "1.00"
+                },
+            ],
+            specialty: false,
+            image: {
+                src: "",
+                alt: ""
+            }
+        },
     ],
 };
 
@@ -444,6 +1666,12 @@ export default function Menu() {
     useEffect(() => {
         setCategoryItems(menu[category]);
     }, [category]);
+
+    const happyHourInfo = [
+        { id: 1, name: 'House Margaritas', description: "Frozen or On The Rocks", value: '$4' },
+        { id: 2, name: 'Imported Beer', description: "Bottle | Tall Draft | Pint", value: '$4 | $5 | $4' },
+        { id: 3, name: 'Domestic Beer', description: "Bottle | Tall Draft | Pint", value: '$3 | $4 | $3' },
+    ]
 
     return (
         <>
@@ -476,6 +1704,31 @@ export default function Menu() {
                 </div>
             </div>
 
+            {/* HAPPY HOUR */}
+            <div className="bg-white py-24 sm:pb-32">
+                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div className="mx-auto max-w-2xl lg:max-w-none">
+                        <div className="text-center">
+                            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                                Happy Hour
+                            </h2>
+                            <p className="mt-4 text-lg leading-8 text-gray-600">
+                                Monday - Friday: 3PM - 6:30 PM<br />Satirday 11AM - 5PM | Sunday: All Day
+                            </p>
+                        </div>
+                        <div className="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center lg:grid-cols-3">
+                            {happyHourInfo.map((stat) => (
+                                <div key={stat.id} className="grid grid-rows-3 bg-gray-400/5 p-8 gap-y-4">
+                                    <span className="text-2xl font-semibold leading-6 text-gray-900">{stat.name}</span>
+                                    <span className="text-md font-semibold tracking-tight text-gray-600">{stat.description}</span>
+                                    <span className="text-md font-semibold tracking-tight text-gray-600">{stat.value}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             {/* FILTER */}
             <Disclosure
                 as="section"
@@ -485,13 +1738,13 @@ export default function Menu() {
                 <div className="col-start-1 row-start-1 py-4">
                     <div className="mx-auto grid grid-cols-3 max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div />
-                        <h2 className='text-center font-semibold'>
-                            {categories.find(item => item.type === category)?.name}
-                        </h2>
+
+                        <div />
+
                         <HeadlessMenu as="div" className="relative inline-block flex justify-end">
                             <div className="flex">
                                 <HeadlessMenu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-                                    Category
+                                    {category}
                                     <ChevronDownIcon
                                         className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                                         aria-hidden="true"
@@ -543,22 +1796,22 @@ export default function Menu() {
                             categoryItems.map(menuItem => (
                                 <div key={menuItem.name} className="relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white">
                                     <div className="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none sm:h-80">
-                                        <img src={menuItem.image.src} alt={menuItem.image.alt} className="h-full w-full object-cover object-center sm:h-full sm:w-full" />
+                                        <img src={`https://drive.google.com/thumbnail?id=${menuItem.image.src}`} alt={menuItem.image.alt} className="h-full w-full object-cover object-center" />
                                     </div>
-                                    <div className="grid grid-rows-2 space-y-2 p-4 border-2 border-green-500 h-96">
-                                        <div className='border-2 border-purple-500'>
-                                            <h3 className="text-sm font-medium text-gray-900">{menuItem.name}</h3>
+                                    <div className="grid grid-rows-2 space-y-2 p-4 h-96">
+                                        <div className=''>
+                                            <h3 className="text-lg font-medium text-gray-900">{menuItem.name}</h3>
                                             <p className="text-sm text-gray-500">{menuItem.description}</p>
                                         </div>
-                                        <div className="border-2 border-blue-500">
-                                            <div className='grid grid-cols-1 sm:grid-cols-3 divide-x-2 divide-gray-300 border-2 border-red-500'>
-                                                {menuItem.price.map(item => (
+                                        <div className="">
+                                            <div className='divide-x-2 divide-gray-300 '>
+                                                {menuItem.price?.map(item => (
                                                     <p key={item.size} className="text-sm font-medium text-gray-700">{item.size}: ${item.price}</p>
                                                 ))}
                                             </div>
-                                            <div className="mt-2 flex flex-col border-2 border-yellow-500 h-1/2">
+                                            <div className="mt-2 flex flex-col h-1/2">
                                                 {menuItem.additionals?.map(item => (
-                                                    <p key={item.description} className="text-xs font-medium text-gray-500">{item.description}: ${item.price}</p>
+                                                    <p key={item.description} className="text-sm font-medium text-gray-500">{item.description}: ${item.price}</p>
                                                 ))}
                                             </div>
                                         </div>
