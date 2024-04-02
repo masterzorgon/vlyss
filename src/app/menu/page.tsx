@@ -9,6 +9,7 @@ import clsx from 'clsx';
 import headerPhoto from '@/images/menu-banner.jpg'
 import { Button } from '@/components/Button';
 import { OrderIcon } from '@/images/icons';
+import { SectionBreak } from '@/components/SectionBreak';
 
 enum Category {
     Appetizers = "Appetizers",
@@ -1705,27 +1706,40 @@ export default function Menu() {
             </div>
 
             {/* HAPPY HOUR */}
-            <div className="bg-white py-24 sm:pb-32">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="relative isolate z-10 bg-cyan-800 py-24 sm:pb-32">
+                <div className="mx-auto max-w-7xl px-6 lg:px-8 py-10 mx-10 ring-1 ring-white/10 rounded-3xl shadow-md bg-white/5">
                     <div className="mx-auto max-w-2xl lg:max-w-none">
-                        <div className="text-center">
-                            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                        <div className="text-center text-white">
+                            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                                 Happy Hour
                             </h2>
-                            <p className="mt-4 text-lg leading-8 text-gray-600">
-                                Monday - Friday: 3PM - 6:30 PM<br />Satirday 11AM - 5PM | Sunday: All Day
+                            <p className="mt-4 text-lg leading-8">
+                                <span className='font-semibold'>Monday - Friday</span>: 3PM - 6:30 PM<br /><span className='font-semibold'>Saturday</span>: 11AM - 5PM<br /><span className='font-semibold'>Sunday</span>: All Day
                             </p>
                         </div>
                         <div className="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center lg:grid-cols-3">
                             {happyHourInfo.map((stat) => (
-                                <div key={stat.id} className="grid grid-rows-3 bg-gray-400/5 p-8 gap-y-4">
-                                    <span className="text-2xl font-semibold leading-6 text-gray-900">{stat.name}</span>
-                                    <span className="text-md font-semibold tracking-tight text-gray-600">{stat.description}</span>
-                                    <span className="text-md font-semibold tracking-tight text-gray-600">{stat.value}</span>
+                                <div key={stat.id} className="grid grid-rows-3 bg-white/10 p-8 gap-y-4">
+                                    <span className="text-2xl font-semibold leading-6 text-white">{stat.name}</span>
+                                    <span className="text-md font-semibold tracking-tight text-gray-200">{stat.description}</span>
+                                    <span className="text-md font-semibold tracking-tight text-gray-200">{stat.value}</span>
                                 </div>
                             ))}
                         </div>
                     </div>
+                </div>
+
+                <div
+                    className="absolute inset-x-0 -top-16 -z-10 flex transform-gpu justify-center overflow-hidden blur-3xl"
+                    aria-hidden="true"
+                >
+                    <div
+                        className="aspect-[1318/752] w-[82.375rem] flex-none bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-30"
+                        style={{
+                            clipPath:
+                                'polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)',
+                        }}
+                    />
                 </div>
             </div>
 
