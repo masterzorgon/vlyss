@@ -176,7 +176,7 @@ const menu: Menu = {
         },
         {
             name: "Fajita Quesadillas",
-            description: "Made with our fresh made flour tortillas, monterrey jack cheese, and loaded with your choice of tender marinated beef or chicken fajitas. Served with guacamole, chopped tomatoes, sour cream, and pickled jalapenos",
+            description: "Fresh made flour tortillas, monterrey jack cheese, and loaded with your choice of tender marinated beef or chicken fajitas. Served with guacamole, chopped tomatoes, sour cream, and pickled jalapenos",
             price: [
                 {
                     size: MenuItemSize.OneSize,
@@ -212,8 +212,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1wEiZnRFZ3bjhmEGEOWWl1-A-JypTDD6C",
+                alt: "Homemade Tortilla and Mushroom Soup"
             }
         },
         {
@@ -227,8 +227,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1YvT5HYiil8Y3y6KVNK4nqSN5z_gX9UWQ",
+                alt: "Marisco Soup"
             }
         },
         {
@@ -242,8 +242,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "101ff9QentcNX8v-SyF_4w_WL8jquR9DP",
+                alt: "Artesanal Chicken Soup"
             }
         },
         {
@@ -267,8 +267,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1g7Y2OrewRPMeHRHNK-y-gAmu-ojpU-lg",
+                alt: "Taco Salad"
             }
         },
         {
@@ -288,8 +288,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "1v7Ru3JLJwPbsDJZWvaGkVWNWqTfzILf7",
+                alt: "Delux Salad"
             }
         },
     ],
@@ -305,8 +305,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "1BZ-dd-W8Jr6GTtC72p383pm1eCR33PGN",
+                alt: "Fajita Guisada"
             }
         },
         {
@@ -334,8 +334,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "1f-pby8heW1UOoYTHMmJfxkoRxdc8hSlx",
+                alt: "Fried Stuffed Avocado"
             }
         },
         {
@@ -355,23 +355,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
-            }
-        },
-        {
-            name: "Calabaza Con Puerco",
-            description: "Mexican squash cooked with pork and corn. Served with rice and your choice of refried or ranchero beans. Includes homemade flour or corn tortillas",
-            price: [
-                {
-                    size: MenuItemSize.OneSize,
-                    price: "11.99"
-                },
-            ],
-            specialty: true,
-            image: {
-                src: "",
-                alt: ""
+                src: "1cDMyO7b2rBW2--WJivIpGIgpaA5N9BH8",
+                alt: "Burrito La Playa Style"
             }
         },
         {
@@ -399,12 +384,12 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1Htku4jAmaxU4QxvF0O8AcXFQLdtB4AHc",
+                alt: "Chile Relleno"
             }
         },
         {
-            name: "la Playa Chimichanga",
+            name: "La Playa Chimichanga",
             description: "a large tortilla loaded with your choice of seasoned ground beef or hand shredded chicken and cheese then fried nice an crisp. topped with our flavorful chili gravy and cheese. served with rice and refried beans then garnished with lettuce and pico de gallo",
             price: [
                 {
@@ -414,8 +399,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1GtQtEmBwuKpwaWmrwTTmEDbMW1JsuPdt",
+                alt: "La Playa Chimichanga"
             }
         },
         {
@@ -429,8 +414,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "12iURGIFLsAOTG61ZZuHsRtJqG0QWRX8I",
+                alt: "Carnitas"
             }
         },
         {
@@ -450,8 +435,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1XMFAOQjoEcWZigWO4aOGo9sqsF2_zBL-",
+                alt: "Flautas"
             }
         },
         {
@@ -465,12 +450,12 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1bGM_xay8IQ8NgH5Hf-Df6CQ9REpx9EOa",
+                alt: "Milanesa"
             }
         },
         {
-            name: "tacos Al Carbon",
+            name: "Tacos Al Carbon",
             description: "two fresh homemade flour tortillas filled with our famous beef or chicken fajitas. served with rice, refried beans, pico de gallo, and a side of chili con queso for dipping",
             price: [
                 {
@@ -480,8 +465,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1fNeMGsHpbZPomP9PZa3uUkS5DZXnKN6Q",
+                alt: "Tacos Al Carbon"
             }
         },
     ],
@@ -497,8 +482,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1RfRwG4e6TmqsAABoh-aKVOUZ80Q7eeou",
+                alt: "Flan"
             }
         },
         {
@@ -512,8 +497,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "13OWrxzh8Qhd3uKoMQHRN0ac2UVMCQgwP",
+                alt: "Fried Ice Cream"
             }
         },
         {
@@ -527,8 +512,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1CCvL9qTKg8XFvzZoJz9QjzDb9nehF2NO",
+                alt: "Sopapilla"
             }
         },
         {
@@ -542,8 +527,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1Cm4vzGcCu2Nn4Mu8cVRISh1WaI3IK4yQ",
+                alt: "Tres Leches"
             }
         },
     ],
@@ -559,44 +544,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
-            }
-        },
-        {
-            name: "Enchiladas",
-            description: "your choice of two ground beef or chicken ranchero enchiladas covered with our homemade enchilada gravy and grated cheese. served with rice and refried beans",
-            price: [
-                {
-                    size: MenuItemSize.OneSize,
-                    price: "9.99"
-                },
-            ],
-            additionals: [
-                {
-                    description: "Substitute beef or chicken fajita meat",
-                    price: "3.00"
-                },
-            ],
-            specialty: false,
-            image: {
-                src: "",
-                alt: ""
-            }
-        },
-        {
-            name: "Calabaza Con Puerco",
-            description: "mexican squash cooked with pork and corn. served with rice and refried or ranchero beans. includes flour or corn tortillas",
-            price: [
-                {
-                    size: MenuItemSize.OneSize,
-                    price: "9.99"
-                },
-            ],
-            specialty: false,
-            image: {
-                src: "",
-                alt: ""
+                src: "12ZWIv_24uMHPbn9I_Q6RO6or5YKky_r7",
+                alt: "Crispy Tacos"
             }
         },
         {
@@ -610,8 +559,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "13hFxYyx-Ne1sgKQERy3FEjYkvurw3dgI",
+                alt: "Street Tacos"
             }
         },
         {
@@ -631,8 +580,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1S6WbELHNj3CrKvJig9qV9GbgjZAXTeDp",
+                alt: "La Playa Burger"
             }
         },
         {
@@ -646,38 +595,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
-            }
-        },
-        {
-            name: "Mexican Cafe",
-            description: "your choice of beef or chicken chalupa, beef or chicken enchilada, and one crispy beef taco. served with rice and refried beans",
-            price: [
-                {
-                    size: MenuItemSize.OneSize,
-                    price: "9.99"
-                },
-            ],
-            specialty: false,
-            image: {
-                src: "",
-                alt: ""
-            }
-        },
-        {
-            name: "Flautas",
-            description: "two rolled corn tortillas filled with cheese and your choice of spicy ground beef or shredded chicken then deep fried and topped with our fresh sour cream. served with rice, refried beans, and guacamole",
-            price: [
-                {
-                    size: MenuItemSize.OneSize,
-                    price: "9.99"
-                },
-            ],
-            specialty: false,
-            image: {
-                src: "",
-                alt: ""
+                src: "1MDLwRedikTx5I5A_PPVKmyicqTtn-6g_",
+                alt: "La Playa Puffy Tacos"
             }
         },
         {
@@ -691,8 +610,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "14A1U9HVvcDfUNMW2m0y6fnl-oZuTJ4Oj",
+                alt: "Seafood Street Tacos"
             }
         },
         {
@@ -712,86 +631,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
-            }
-        },
-        {
-            name: "Burrito la Playa Style",
-            description: "a large flour tortilla filled with refried beans, queso, and your choice of ground beef or shredded chicken. topped with chili gravy and grated cheese. served with rice and refried beans",
-            price: [
-                {
-                    size: MenuItemSize.OneSize,
-                    price: "10.99"
-                },
-            ],
-            additionals: [
-                {
-                    description: "Substitute fajita meat",
-                    price: "3.00"
-                },
-            ],
-            specialty: false,
-            image: {
-                src: "",
-                alt: ""
-            }
-        },
-        {
-            name: "La Playa Chimichanga",
-            description: "a large flour tortilla filled with refried beans, queso, and your choice of ground beef or shredded chicken. topped with chili gravy and grated cheese. served with rice and refried beans",
-            price: [
-                {
-                    size: MenuItemSize.OneSize,
-                    price: "10.99"
-                },
-            ],
-            additionals: [
-                {
-                    description: "Substitute fajita meat",
-                    price: "3.00"
-                },
-            ],
-            specialty: false,
-            image: {
-                src: "",
-                alt: ""
-            }
-        },
-        {
-            name: "Burrito La Playa Style",
-            description: "a large flour tortilla filled with refried beans, queso, and your choice of ground beef or shredded chicken. topped with chili gravy and grated cheese. served with rice and refried beans",
-            price: [
-                {
-                    size: MenuItemSize.OneSize,
-                    price: "10.99"
-                },
-            ],
-            additionals: [
-                {
-                    description: "Substitute fajita meat",
-                    price: "3.00"
-                },
-            ],
-            specialty: false,
-            image: {
-                src: "",
-                alt: ""
-            }
-        },
-        {
-            name: "La Playa Chimichanga",
-            description: "a large tortilla loaded with your choice of seasoned ground beef or hand shredded chicken and cheese then fried nice an crisp. topped with our flavorful chili gravy and cheese. served with rice and refried beans then garnished with lettuce and pico de gallo",
-            price: [
-                {
-                    size: MenuItemSize.OneSize,
-                    price: "11.99"
-                },
-            ],
-            specialty: false,
-            image: {
-                src: "",
-                alt: ""
+                src: "1nVTiy_CCQ8nsr2w29yJCDYxXwjGromh8",
+                alt: "Chalupas"
             }
         },
         {
@@ -805,8 +646,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1yKAnNsNG54bkrPg0g63Gg08FAAU5XX-l",
+                alt: "Fajita Quesadilla"
             }
         },
     ],
@@ -822,8 +663,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1BW8dzbd7q8Iu7UYZh1SzoPnvnFYxBJOg",
+                alt: "The Mexican Plate"
             }
         },
         {
@@ -837,8 +678,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1wRHN_0LlyPEZcsb2v4cVXGlLWsO3-p0w",
+                alt: "El Guero"
             }
         },
         {
@@ -852,8 +693,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1mYusOuacQbBkicIHt-f34pMiv_wDgaN1",
+                alt: "La Reyna"
             }
         },
         {
@@ -867,8 +708,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1pLIXrF73qyIBvri7l-Ot1JuXF5Xf4UbU",
+                alt: "El Mariachi Loco"
             }
         },
         {
@@ -887,8 +728,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1BNIGvsjiJrYwXvsm8U8awINqXgebBraw",
+                alt: "Street Tacos Beef, Chicken, or Mix"
             }
         },
         {
@@ -907,8 +748,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1DxSc5-dHAIZLU8ik9X5GaQB7HB_ANVTe",
+                alt: "Street Tacos Shrimp, Fish, or Mix"
             }
         },
         {
@@ -927,8 +768,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1v6EX5xYmvoYgiXCL9yCnjOPO5MA1iSWg",
+                alt: "Street Tacos Al Pastor"
             }
         },
         {
@@ -947,8 +788,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1ueEcDAsz7VA0KUKgUU529sprVjX9Ifa3",
+                alt: "Street Tacos Carnitas"
             }
         },
         {
@@ -967,8 +808,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "1CBH3Xy-2t_zoEpush0_eK7lSDYkeq3kT",
+                alt: "La Playa Fajitas"
             }
         },
         {
@@ -987,8 +828,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "1_vvtsC4Z41slqeLV4MJp_hD8qmftuC9l",
+                alt: "Fajitas Trascas"
             }
         },
         {
@@ -1007,8 +848,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "1YDffwUE-n9ekwLkenp2f-h2GhGdbNaW4",
+                alt: "Fajitas Las Brasas"
             }
         },
         {
@@ -1027,8 +868,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "1iNDvvw8_JJWsKlzTl6pn5mB_ni8BqKIe",
+                alt: "Fajitas Diablas"
             }
         },
         {
@@ -1042,8 +883,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1z6x3TkVfd8rw4vv_liVaN4gqDImyAiYI",
+                alt: "Chicken and Spinach"
             }
         },
         {
@@ -1057,8 +898,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1Cq3UMTceR9xVxuHrQg7-M4ejK8q57oFi",
+                alt: "Chicken Jalisco"
             }
         },
         {
@@ -1072,8 +913,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1Fied5T74yp2mAh6U3PKhX0s1-L7qiu2u",
+                alt: "Chicken Olivia"
             }
         },
         {
@@ -1087,8 +928,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1HkzY--fh_SzkgsZGAoY5krmduIyX2TP_",
+                alt: "Pollo Asado"
             }
         },
         {
@@ -1102,8 +943,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "1hwqwV3XGPZZEmLZVp6bBbZfFjZxhYwaJ",
+                alt: "Pollo Fronterizo"
             }
         },
         {
@@ -1117,8 +958,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1dpHbgJ0cQTXStfBt1KcxpKM8MqVvHXal",
+                alt: "Fried Shrimp Platter"
             }
         },
         {
@@ -1132,8 +973,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "1RWLgbUfko4pCg8VmqH596dvc_QfZg8YG",
+                alt: "Shrimp Amarrados"
             }
         },
         {
@@ -1147,8 +988,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1qw-jGhk-7xRnEIpZ185jXjp9-s-eonf0",
+                alt: "Fish Cancun"
             }
         },
         {
@@ -1162,8 +1003,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "1sFE9k-3SF241eHC7-sVDXHhLH_O5hrGZ",
+                alt: "Steamed Fish Platter"
             }
         },
         {
@@ -1177,8 +1018,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1IIyn-mnxO5p3GNGpYeWOURnDTjv2Oxki",
+                alt: "La Playa Seafood Platter"
             }
         },
         {
@@ -1192,8 +1033,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1J8kuskRQI2ui0JnBo3nMd3y2UPdxPf8i",
+                alt: "Fish San Lucas"
             }
         },
         {
@@ -1216,8 +1057,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1sEmbIwDy0xjJq6QEw6wmImAzVbV3WKfL",
+                alt: "Enchiladas Verdes"
             }
         },
         {
@@ -1236,8 +1077,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1T-eUy-Hoy6XrPeKy-sJZECI95AianjxY",
+                alt: "Seafood Enchiladas"
             }
         },
         {
@@ -1256,8 +1097,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1hN_UXxZVZucmbAst7cq9hyGKVlSo6ZKJ",
+                alt: "Enchiladas Moles"
             }
         },
         {
@@ -1276,28 +1117,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
-            }
-        },
-        {
-            name: "Enchiladas",
-            description: "your choice of ground beef or shredded chicken enchiladas covered with homemade beef gravy and freshly grated cheese",
-            price: [
-                {
-                    size: MenuItemSize.OneSize,
-                    price: "11.99"
-                },
-            ],
-            additionals: [
-                {
-                    description: "served with rice and beans"
-                },
-            ],
-            specialty: false,
-            image: {
-                src: "",
-                alt: ""
+                src: "1wZTJh7Dphva_4Q0J-AR5RFHAIrdpGBFU",
+                alt: "Fajitas Enchiladas"
             }
         },
         {
@@ -1316,8 +1137,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1X0mNMqPQMgP1M64etHdMsfu7sHHTqEkJ",
+                alt: "Playaquena"
             }
         },
         {
@@ -1336,8 +1157,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1DcbHwONtk72OxtOBasiBDoFlnrGXfcnN",
+                alt: "Sour Cream Enchiladas"
             }
         },
         {
@@ -1356,8 +1177,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1jL0l328xnBXQR-sgbs_zCcdgTiWMno95",
+                alt: "Cheese Enchiladas"
             }
         },
         {
@@ -1376,8 +1197,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1X7Mmcj8fYnHQi7IHNWjqwuC9jFLrgave",
+                alt: "Spinach Enchiladas"
             }
         },
     ],
@@ -1393,8 +1214,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "1e7wsITB0wsylvpov2_mPgjeekN9nKU1v",
+                alt: "House Margaritas"
             }
         },
         {
@@ -1408,8 +1229,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1-XOF5Sk_lYK_oBN09YLgFMUfJY6U7NUR",
+                alt: "Frozen Specialty Margaritas"
             }
         },
         {
@@ -1429,8 +1250,8 @@ const menu: Menu = {
             ],
             specialty: true,
             image: {
-                src: "",
-                alt: ""
+                src: "1L8LFcXNQQIwMYlA29cQjgCitOzmDrptj",
+                alt: "La Reina Margarita"
             }
         },
         {
@@ -1444,8 +1265,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "https://www.molsoncoorsblog.com/sites/mcblog/files/styles/large_teaser_card/public/2022-04/Cycling%202.png?h=c673cd1c&itok=UENsKV7c",
+                alt: "Domestic Beer"
             }
         },
         {
@@ -1465,8 +1286,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWXqNQMtUqAtVfsdAVm50unT1YsucTmBQAa1jBee4xGw&s",
+                alt: "Imported Beer"
             }
         },
         {
@@ -1484,8 +1305,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy0VbwE0wZRf7hiE4WL1OlnKSN5pugxcsBpSnUQDlxaA&s",
+                alt: "Domested Draft Beer"
             }
         },
         {
@@ -1503,8 +1324,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "https://media.istockphoto.com/id/183058917/photo/bar-beer-tap-with-african-american-persons-hand-filling-glass.jpg?s=612x612&w=0&k=20&c=HZHdOUZs96rFg-Y_z_WeXx0Tdo_DDp_Lj7cOSjILup4=",
+                alt: "Domested Imported Beer"
             }
         },
         {
@@ -1512,8 +1333,8 @@ const menu: Menu = {
             description: "Red | White",
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "https://images.pexels.com/photos/14100869/pexels-photo-14100869.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                alt: "House Wine"
             }
         },
     ],
@@ -1534,8 +1355,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "17X7wTlcRdrfyg4YOEBfjPN27vM4T7L8G",
+                alt: "Crispy Tacos"
             }
         },
         {
@@ -1554,8 +1375,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1rZ_273GmW-kgvpJjEbUGMiTYg4vOVxA-",
+                alt: "Carbon Taco"
             }
         },
         {
@@ -1574,8 +1395,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "12Ef8jV-jSdhbwOE_IYzzxk55qpRWgFfd",
+                alt: "Fried Shrimp"
             }
         },
         {
@@ -1594,8 +1415,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1NkO5mJsVvu3dytA3MCJnrW7ObH7KAh1V",
+                alt: "Chicken Fingers"
             }
         },
         {
@@ -1617,8 +1438,8 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1cYpzUlLLgr8YQeNvJadSsrbYe4GMQpJt",
+                alt: "Quesadilla"
             }
         },
         {
@@ -1641,12 +1462,18 @@ const menu: Menu = {
             ],
             specialty: false,
             image: {
-                src: "",
-                alt: ""
+                src: "1oqXYJwBAp-0w2TFo21B-B2j7k0ZaW1oD",
+                alt: "Mac and Cheese"
             }
         },
     ],
 };
+
+const happyHourInfo = [
+    { id: 1, name: 'House Margaritas', description: "Frozen or On The Rocks", value: '$4' },
+    { id: 2, name: 'Imported Beer', description: "Bottle | Tall Draft | Pint", value: '$4 | $5 | $4' },
+    { id: 3, name: 'Domestic Beer', description: "Bottle | Tall Draft | Pint", value: '$3 | $4 | $3' },
+];
 
 export default function Menu() {
     const [category, setCategory] = useState<Category>(Category.Appetizers);
@@ -1656,8 +1483,9 @@ export default function Menu() {
         { name: 'Appetizers', type: Category.Appetizers, action: () => setCategory(Category.Appetizers) },
         { name: 'Soups and Salads', type: Category.SoupsAndSalads, action: () => setCategory(Category.SoupsAndSalads) },
         { name: 'House Favorites', type: Category.HouseFavorites, action: () => setCategory(Category.HouseFavorites) },
-        { name: 'Entrees', type: Category.Entrees, action: () => setCategory(Category.Entrees) },
+        { name: 'Desserts', type: Category.Desserts, action: () => setCategory(Category.Desserts) },
         { name: 'Lunch', type: Category.Lunch, action: () => setCategory(Category.Lunch) },
+        { name: 'Entrees', type: Category.Entrees, action: () => setCategory(Category.Entrees) },
         { name: 'Drinks', type: Category.Drinks, action: () => setCategory(Category.Drinks) },
         { name: 'Kids', type: Category.Kids, action: () => setCategory(Category.Kids) },
     ];
@@ -1667,12 +1495,6 @@ export default function Menu() {
     useEffect(() => {
         setCategoryItems(menu[category]);
     }, [category]);
-
-    const happyHourInfo = [
-        { id: 1, name: 'House Margaritas', description: "Frozen or On The Rocks", value: '$4' },
-        { id: 2, name: 'Imported Beer', description: "Bottle | Tall Draft | Pint", value: '$4 | $5 | $4' },
-        { id: 3, name: 'Domestic Beer', description: "Bottle | Tall Draft | Pint", value: '$3 | $4 | $3' },
-    ]
 
     return (
         <>
@@ -1810,7 +1632,15 @@ export default function Menu() {
                             categoryItems.map(menuItem => (
                                 <div key={menuItem.name} className="relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white">
                                     <div className="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none sm:h-80">
-                                        <img src={`https://drive.google.com/thumbnail?id=${menuItem.image.src}`} alt={menuItem.image.alt} className="h-full w-full object-cover object-center" />
+                                        <img 
+                                            src={
+                                                (menuItem.image.alt.includes("Beer") || menuItem.image.alt.includes("Wine"))
+                                                    ? menuItem.image.src
+                                                    : `https://drive.google.com/thumbnail?id=${menuItem.image.src}`
+                                            } 
+                                            alt={menuItem.image.alt} 
+                                            className="h-full w-full object-cover object-center" 
+                                        />
                                     </div>
                                     <div className="grid grid-rows-2 space-y-2 p-4 h-96">
                                         <div className=''>
