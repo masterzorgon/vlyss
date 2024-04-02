@@ -4,13 +4,36 @@ import { CircleBackground } from '@/components/CircleBackground'
 import { Container } from '@/components/Container'
 import { Button } from '@/components/Button'
 
-import { ConfirmationEmail } from '../../emails/ConfirmationEmail';
+import ConfirmationNewsLetterSignup from '../../emails/ConfirmationNewsLetterSignup';
+import NotificationNewsLetterSignup from '../../emails/NotificationNewsLetterSignup';
 
 import {
     ActionIcon,
 } from '@/images/icons'
 
+interface Contact {
+    id: string;
+    email: string;
+    first_name: string;
+    last_name: string;
+    created_at: string;
+    unsubscribed: boolean;
+  }
+
 export async function Newsletter() {
+    const fetchContactListLength = async () => {
+        "use server";
+
+        const resend = new Resend(process.env.RESEND_KEY);
+
+        // retrieve length of contacts and notify to la playa
+        const { data } = await resend.contacts.list({
+            audienceId: process.env.RESEND_AUDIENCE as string,
+        });
+
+        return data!.data.length as number;
+    };
+
     const signUp = async (formData: FormData) => {
         "use server";
 
@@ -48,13 +71,23 @@ export async function Newsletter() {
 
             // send confirmation email to signee
             await resend.emails.send({
-                from: "",
+                from: "Acme <onboarding@resend.dev>",
                 to: [email as string],
-                subject: "Welcome to the La Playa Family!",
-                react: <ConfirmationEmail /* ADD PARAMS */ />
+                subject: "Welcome to the La Playa Newsletter!",
+                react: <ConfirmationNewsLetterSignup /* ADD PARAMS */ />,
+                headers: {
+                    'List-Unsubscribe': '<https://www.laplayamexicancafe.com/unsubscribe>'
+                }
             });
 
-            // send update email to la playa
+            // calculate length of contact list and notify la playa of new signup
+            const numOfContacts = await fetchContactListLength();
+            await resend.emails.send({
+                from: "Acme <onboarding@resend.dev>",
+                to: "Laplayamain@gmail.com",
+                subject: "New Person Signed Up For The Newsletter",
+                react: <NotificationNewsLetterSignup numOfContacts={numOfContacts} />
+            });
 
             console.log("Signup successful", audienceConfirmation);
         } catch (error) {
@@ -136,7 +169,8 @@ export async function Newsletter() {
                     Message and data rates may apply.
                     Message frequency varies.
                     You can unsubscribe at any time by replying &quot;STOP&quot; via SMS or clicking the &quot;Unsubscribe&quot; link (where available) in one of our messages.
-                    View our <a className="underline hover:cursor-pointer hover:text-white" href="/privacy-policy" target="_blank" rel="noreferrer noopener">Privacy Policy</a> and <a className="underline hover:cursor-pointer hover:text-white" href="terms-of-service" target="_blank" rel="noreferrer noopener">Terms of Service</a>.
+                    View our <a className="underline hover:cursor-pointer hover:text-white" href="/privacy-policy">Privacy Policy</a> and <a className="underline hover:cursor-pointer hover:text-white" href="terms-of-service" target="_blank" rel="noreferrer noopener">Terms of Service</a>.
+                    You can also unsibscribe from our email list <a className='underline hover:cursor-pointer hover:text-white' href="/unsubscribe">here</a>.
                 </p>
             </div>
         </>
