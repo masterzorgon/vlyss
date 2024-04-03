@@ -13,25 +13,7 @@ import {
 import { Tailwind } from "@react-email/tailwind";
 import * as React from "react";
 
-interface CateringRequestProps {
-  firstName?: string,
-  lastName?: string,
-  email?: string,
-  phone?: string,
-  partySize?: number,
-  date?: string,
-  message?: string
-}
-
-const ConfirmationNewsLetterSignup = ({
-  firstName,
-  lastName,
-  email,
-  phone,
-  partySize,
-  date,
-  message
-}: CateringRequestProps) => {
+const ConfirmationNewsLetterSignup = () => {
   const previewText = "Welcome to the La Playa Mexican Cafe Newsletter";
 
   return (

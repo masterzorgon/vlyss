@@ -1,5 +1,3 @@
-
-
 function WhiteBreak({ 
     className,
     width=900,
@@ -42,23 +40,23 @@ export function SectionBreak({
     subClassTwo?: string
 }) {
     return (
-        <div className={`relative h-[410px] gird grid-rows-2 gap-0 overflow-hidden ${rotate && "rotate-180"} ${className}`}>
-            <div className={`relative  h-1/2 bg-cyan-800 ${subClassOne}`} />
+        <div className={`relative h-[380px] gird grid-rows-2 gap-0 overflow-hidden ${rotate && "rotate-180"} ${className}`}>
+            <div className={`relative h-1/2 bg-cyan-800 ${subClassOne}`} />
             {
                 type === "white"
                     ? (
                         <WhiteBreak 
-                            className=" absolute w-screen inset-0 translate-y-[-40%] md:translate-y-[-70%] z-10 flex items-center scale-100 md:scale-[200%]" 
+                            className="absolute w-screen inset-0 translate-y-[-40%] md:translate-y-[-70%] z-10 flex items-center scale-100 md:scale-[200%]" 
                         />
                     )
                     : (
                         <TealBreak 
-                            className=" absolute w-screen inset-0 translate-y-[-40%] md:translate-y-[-70%] z-10 flex items-center scale-100 md:scale-[200%]" 
+                            className="absolute w-screen inset-0 translate-y-[-40%] md:translate-y-[-70%] z-10 flex items-center scale-100 md:scale-[200%]" 
                         />
                     )
             }
 
-            <div className={`relative  h-1/2 bg-[#fafafa] ${subClassTwo}`} />
+            <div className={`relative h-1/2 bg-[#fafafa] ${subClassTwo}`} />
         </div>
     );
 };
