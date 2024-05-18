@@ -40,7 +40,7 @@ export function SectionBreak({
     subClassTwo?: string
 }) {
     return (
-        <div className={`relative h-[380px] gird grid-rows-2 gap-0 overflow-hidden ${rotate && "rotate-180"} ${className}`}>
+        <div className={`relative h-[380px] lg:h-[450px] gird grid-rows-2 gap-0 overflow-hidden ${rotate && "rotate-180"} ${className}`}>
             <div className={`relative h-1/2 bg-cyan-800 ${subClassOne}`} />
             {
                 type === "white"

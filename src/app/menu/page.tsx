@@ -3,13 +3,12 @@
 import Image from 'next/image';
 import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu as HeadlessMenu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon, StarIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx';
 
 import headerPhoto from '@/images/menu-banner.jpg'
 import { Button } from '@/components/Button';
 import { OrderIcon } from '@/images/icons';
-import { SectionBreak } from '@/components/SectionBreak';
 
 enum Category {
     Appetizers = "Appetizers",
@@ -1515,7 +1514,7 @@ export default function Menu() {
                             Our Award-Winning Menu
                         </h2>
                         <p className="text-gray-500">
-                            Explore our delicious and original recipes prepared with love just for you! <span className='font-semibold'>Starred menu items are specialty dishes</span>.
+                            Explore our delicious and original recipes prepared with love just for you!<br/> <span className='font-semibold inline-flex items-center'>Starred menu items are specialty dishes <StarIcon className='text-cyan-600 ml-1 w-4' /></span>
                         </p>
                         <div>
                             <Button variant="solid" color="cyan" href="https://order.toasttab.com/online/la-playa-mexican-cafe-502-s-77-sunshine-strip" target="_blank" rel="noopener noreferrer">
@@ -1576,7 +1575,7 @@ export default function Menu() {
                         <div />
 
                         <div />
-
+                        
                         <HeadlessMenu as="div" className="relative inline-block flex justify-end">
                             <div className="flex">
                                 <HeadlessMenu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
@@ -1644,7 +1643,10 @@ export default function Menu() {
                                     </div>
                                     <div className="grid grid-rows-2 space-y-2 p-4 h-96">
                                         <div className=''>
-                                            <h3 className="text-lg font-medium text-gray-900">{menuItem.name}</h3>
+                                            <span className='flex items-center'>
+                                                <h3 className="text-lg font-medium text-gray-900">{menuItem.name}</h3>
+                                                {menuItem.specialty && <StarIcon className='text-cyan-600 ml-1 w-4' />}
+                                            </span>
                                             <p className="text-sm text-gray-500">{menuItem.description}</p>
                                         </div>
                                         <div className="">

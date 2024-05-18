@@ -141,7 +141,7 @@ export default function Catering() {
                         <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                                 {inputs.map(input => (
-                                    <div className={`${input.isFullWidth && "sm:col-span-2"}`}>
+                                    <div key={input.id} className={`${input.isFullWidth && "sm:col-span-2"}`}>
                                         <div className="flex justify-between">
                                             <label htmlFor="message" className="block text-sm font-medium leading-6 text-gray-900">
                                                 {input.label}
