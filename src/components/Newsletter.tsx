@@ -101,9 +101,10 @@ export async function Newsletter() {
                 id="get-free-shares-today"
                 className="relative overflow-hidden bg-cyan-800 py-28 sm:py-28"
             >
-                <div className="flex justify-center absolute mx-auto w-screen scale-[120%] sm:scale-100 top-10 sm:top-14">
+                <div className="flex justify-center absolute mx-auto w-screen scale-[140%] sm:scale-100 top-10 sm:top-14">
                     <CircleBackground color="#fff" className="animate-spin-slower" />
                 </div>
+
                 <Container className="relative">
                     <div className="sm:mt-10 mx-auto max-w-md text-center">
                         <h2 className="text-3xl font-medium tracking-tight text-white sm:text-4xl">
@@ -162,7 +163,7 @@ export async function Newsletter() {
                 </Container>
             </section>
 
-            <div className='bg-cyan-800 w-full pb-16'>
+            <div className='bg-cyan-800 w-full pb-16 pt-10'>
                 <p className='text-xs text-white/50 text-center max-w-xl mx-auto shadow-lg bg-gray-400/5 rounded-lg p-4'>
                     By clicking &quot;Subscribe&quot;, you agree to recieve marketing messages from La Playa Mexican Cafe at the number or email provided, including messages sent by autodialer.
                     Consent is not a condition of any purchase.

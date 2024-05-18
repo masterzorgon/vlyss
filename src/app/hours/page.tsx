@@ -63,8 +63,8 @@ export default function Hours() {
             <div className='oveflow-hidden'>
                 <Image
                     src={bgImage}
-                    alt=""
-                    className=" absolute inset-0 translate-y-[10%] sm:translate-y-[0%] translate-x-[-5%] sm:translate-x-[0%] scale-110 sm:scale-100 -z-10 h-full w-full object-cover object-right md:object-center"
+                    alt="Background image"
+                    className="absolute inset-0 translate-y-[10%] sm:translate-y-[0%] translate-x-[-5%] sm:translate-x-[0%] scale-[150%] sm:scale-110 -z-10 h-full w-full object-cover object-right md:object-center"
                 />
 
                 <div className="px-6 lg:px-8 bg-black/60 py-24 sm:py-20 h-full overflow-hidden">

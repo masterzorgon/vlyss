@@ -1515,7 +1515,7 @@ export default function Menu() {
                             Our Award-Winning Menu
                         </h2>
                         <p className="text-gray-500">
-                            Explore our delicious and original recipes prepared with love just for you! <span className='font-semibold'>Starred menu items are specialty dishes</span>.
+                            Explore our delicious and original recipes prepared with love just for you!<br/> <span className='font-semibold'>Starred menu items are specialty dishes</span>.
                         </p>
                         <div>
                             <Button variant="solid" color="cyan" href="https://order.toasttab.com/online/la-playa-mexican-cafe-502-s-77-sunshine-strip" target="_blank" rel="noopener noreferrer">
