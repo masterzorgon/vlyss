@@ -22,7 +22,7 @@ interface Contact {
 
 export async function Newsletter() {
     const fetchContactListLength = async () => {
-        "use server";
+        // "use server";
 
         const resend = new Resend(process.env.RESEND_KEY);
 
@@ -35,7 +35,7 @@ export async function Newsletter() {
     };
 
     const signUp = async (formData: FormData) => {
-        "use server";
+        // "use server";
 
         const resend = new Resend(process.env.RESEND_KEY);
 
