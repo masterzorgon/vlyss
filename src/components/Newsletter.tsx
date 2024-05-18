@@ -11,15 +11,18 @@ import {
     ActionIcon,
 } from '@/images/icons'
 
+const RESEND_KEY = process.env.RESEND_KEY as string;
+const RESEND_AUDIENCE = process.env.RESEND_AUDIENCE as string;
+
 export async function Newsletter() {
     const fetchContactListLength = async () => {
         // "use server";
 
-        const resend = new Resend(process.env.RESEND_KEY);
+        const resend = new Resend(RESEND_KEY);
 
         // retrieve length of contacts and notify to la playa
         const { data } = await resend.contacts.list({
-            audienceId: process.env.RESEND_AUDIENCE as string,
+            audienceId: RESEND_AUDIENCE as string,
         });
 
         return data!.data.length as number;
@@ -28,7 +31,7 @@ export async function Newsletter() {
     const signUp = async (formData: FormData) => {
         // "use server";
 
-        const resend = new Resend(process.env.RESEND_KEY);
+        const resend = new Resend(RESEND_KEY);
 
         const { email, name } = Object.fromEntries(formData);
 
@@ -57,7 +60,7 @@ export async function Newsletter() {
                 email: email as string,
                 firstName: name as string,
                 unsubscribed: false,
-                audienceId: process.env.RESEND_AUDIENCE as string
+                audienceId: RESEND_AUDIENCE
             });
 
             // send confirmation email to signee
