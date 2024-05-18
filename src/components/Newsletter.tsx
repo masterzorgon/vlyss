@@ -11,15 +11,6 @@ import {
     ActionIcon,
 } from '@/images/icons'
 
-interface Contact {
-    id: string;
-    email: string;
-    first_name: string;
-    last_name: string;
-    created_at: string;
-    unsubscribed: boolean;
-  }
-
 export async function Newsletter() {
     const fetchContactListLength = async () => {
         // "use server";
