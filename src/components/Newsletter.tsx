@@ -13,28 +13,28 @@ import {
 
 export async function Newsletter() {
     const fetchContactListLength = async () => {
-        // "use server";
+        "use server";
 
         const RESEND_KEY = "re_QezkroZU_KY9ukYL53CtHA1GqEvQeg7eo" as string;
         const RESEND_AUDIENCE = "b6bf1183-0ff3-4e7b-8754-dc9303c4d249" as string;
 
-        const resend = new Resend(RESEND_KEY);
+        const resend = new Resend(process.env.RESEND_KEY);
 
         // retrieve length of contacts and notify to la playa
         const { data } = await resend.contacts.list({
-            audienceId: RESEND_AUDIENCE as string,
+            audienceId: process.env.RESEND_AUDIENCE as string,
         });
 
         return data!.data.length as number;
     };
 
     const signUp = async (formData: FormData) => {
-        // "use server";
+        "use server";
 
         const RESEND_KEY = "re_QezkroZU_KY9ukYL53CtHA1GqEvQeg7eo" as string;
         const RESEND_AUDIENCE = "b6bf1183-0ff3-4e7b-8754-dc9303c4d249" as string;
 
-        const resend = new Resend(RESEND_KEY);
+        const resend = new Resend(process.env.RESEND_KEY);
 
         const { email, name } = Object.fromEntries(formData);
 
@@ -63,7 +63,7 @@ export async function Newsletter() {
                 email: email as string,
                 firstName: name as string,
                 unsubscribed: false,
-                audienceId: RESEND_AUDIENCE
+                audienceId: process.env.RESEND_AUDIENCE as string
             });
 
             // send confirmation email to signee
