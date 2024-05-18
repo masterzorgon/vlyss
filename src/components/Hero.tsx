@@ -49,7 +49,7 @@ export function Hero() {
                 <VideoComponent />
             </Suspense>
         
-            <div className='absolute z-10 h-screen w-screen bg-black/30' />
+            <div className='absolute z-10 h-[1000px] w-screen bg-black/30' />
             
             <Container className='relative text-white pt-32 pb-52 lg:pb-96 h-full z-10'>
                 <div className="flex flex-col items-start lg:gap-x-8 lg:gap-y-20">

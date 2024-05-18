@@ -10,9 +10,9 @@ export default function Home() {
     <main className='overflow-hidden'>
       <Hero />
       <SectionBreak 
-        className="-mt-36 lg:-mt-72 bottom-6 sm:bottom-0 border-2 md:top-10 md:overflow-visible border-red-500"
-        subClassOne="bg-transparent border-2 border-green-500"
-        subClassTwo="bg-cyan-800 border-2 border-blue-500"
+        className="-mt-40 lg:-mt-72 bottom-0 md:top-10 md:overflow-visible"
+        subClassOne="bg-transparent"
+        subClassTwo="bg-cyan-800"
         type="teal"
       />
       <WeeklyFeature />
