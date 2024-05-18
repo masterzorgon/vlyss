@@ -11,12 +11,12 @@ import {
     ActionIcon,
 } from '@/images/icons'
 
-const RESEND_KEY = "re_QezkroZU_KY9ukYL53CtHA1GqEvQeg7eo" as string;
-const RESEND_AUDIENCE = "b6bf1183-0ff3-4e7b-8754-dc9303c4d249" as string;
-
 export async function Newsletter() {
     const fetchContactListLength = async () => {
-        // "use server";
+        "use server";
+
+        const RESEND_KEY = "re_QezkroZU_KY9ukYL53CtHA1GqEvQeg7eo" as string;
+        const RESEND_AUDIENCE = "b6bf1183-0ff3-4e7b-8754-dc9303c4d249" as string;
 
         const resend = new Resend(RESEND_KEY);
 
@@ -29,7 +29,10 @@ export async function Newsletter() {
     };
 
     const signUp = async (formData: FormData) => {
-        // "use server";
+        "use server";
+
+        const RESEND_KEY = "re_QezkroZU_KY9ukYL53CtHA1GqEvQeg7eo" as string;
+        const RESEND_AUDIENCE = "b6bf1183-0ff3-4e7b-8754-dc9303c4d249" as string;
 
         const resend = new Resend(RESEND_KEY);
 
