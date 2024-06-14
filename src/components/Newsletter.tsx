@@ -93,7 +93,7 @@ export async function Newsletter() {
                 aria-labelledby="newsletter-title"
                 className="relative overflow-hidden bg-zinc-900 py-28 sm:pb-32"
             >
-                <div className="flex justify-center absolute mx-auto w-screen scale-[140%] lg:scale-100 top-10 top-14">
+                <div className="flex justify-center absolute mx-auto w-screen scale-[120%] top-0 lg:scale-100 lg:top-14">
                     <CircleBackground color="#e087dd" className="animate-spin-slower" />
                 </div>
 
