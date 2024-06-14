@@ -121,11 +121,11 @@ export function Header() {
                           <div className="mt-8 flex flex-col gap-4">
                             <Button href="https://www.youtube.com/@VlyssPodcast" variant="outline">
                               <span className="mr-1.5 text-white">Our Podcast</span>
-                              <ActionIcon className="h-6 w-6 flex-none fill-white text-white" />
+                              <OrderIcon className="h-6 w-6 flex-none" />
                             </Button>
                             <Button variant="solid" color="white" href="https://cal.com/hello-vlyss/15min">
                               <span className="mr-1.5">Book a Meeting</span>
-                              <OrderIcon className="h-6 w-6 flex-none" />
+                              <ActionIcon className="h-6 w-6 flex-none fill-black text-black" />
                             </Button>
                           </div>
                         </Popover.Panel>
