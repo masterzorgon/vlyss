@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import logo from '@/images/logos/Company Placeholder.svg'
+import vlyssLogo from '@/images/logos/vlyss.svg'
 
 export function Logomark(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -17,10 +17,10 @@ export function Logomark(props: React.ComponentPropsWithoutRef<'svg'>) {
 export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
       <Image 
-        src={logo}
-        width={140}
-        height={140}
-        alt="La Playa Mexican Cafe Logo"
+        src={vlyssLogo}
+        width={50}
+        height={50}
+        alt="Vlyss Logo"
       />
   );
 }

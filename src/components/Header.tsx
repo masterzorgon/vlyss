@@ -57,12 +57,12 @@ function MobileNavLink(
 
 export function Header() {
   return (
-    <header className='bg-cyan-800'>
+    <header className='bg-zinc-900'>
       <nav>
         <Container className="relative z-50 flex justify-between py-8">
           <div className="relative z-10 flex items-center gap-16">
-            <Link href="/" aria-label="Home">
-              <Logo className="h-10 w-auto" />
+            <Link href="/" aria-label="Home" className=''>
+              <Logo className="" />
             </Link>
             <div className="hidden lg:flex lg:gap-10">
               <NavLinks />
@@ -73,7 +73,7 @@ export function Header() {
               {({ open }) => (
                 <>
                   <Popover.Button
-                    className="relative z-10 -m-2 inline-flex items-center rounded-lg stroke-gray-900 p-2 hover:bg-gray-200/50 hover:stroke-gray-600 active:stroke-gray-900 ui-not-focus-visible:outline-none"
+                    className="relative z-10 -m-2 inline-flex items-center rounded-lg stroke-gray-50 p-2 hover:bg-gray-200/50 hover:stroke-gray-600 active:stroke-gray-900 ui-not-focus-visible:outline-none"
                     aria-label="Toggle site navigation"
                   >
                     {({ open }) =>
@@ -105,26 +105,26 @@ export function Header() {
                             y: -32,
                             transition: { duration: 0.2 },
                           }}
-                          className="absolute inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-cyan-800 px-6 pb-6 pt-32 shadow-2xl shadow-gray-900/20"
+                          className="absolute inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-zinc-900 px-6 pb-6 pt-32 shadow-2xl shadow-gray-900/20"
                         >
                           <div className="space-y-4">
-                            <MobileNavLink href="/about-us">
-                              About Us
+                            <MobileNavLink href="#newsletter">
+                              Newsletter
                             </MobileNavLink>
-                            <MobileNavLink href="/catering">
-                              Catering & Reservations
+                            <MobileNavLink href="#reviews">
+                              Reviews
                             </MobileNavLink>
-                            <MobileNavLink href="/hours">
-                              Hours & Location
+                            <MobileNavLink href="#podcast">
+                              Podcast
                             </MobileNavLink>
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
-                            <Button href="/menu" variant="outline">
-                              <span className="mr-1.5 text-white">View Menu</span>
+                            <Button href="https://www.youtube.com/@VlyssPodcast" variant="outline">
+                              <span className="mr-1.5 text-white">Our Podcast</span>
                               <ActionIcon className="h-6 w-6 flex-none fill-white text-white" />
                             </Button>
-                            <Button variant="solid" color="white" href="https://order.toasttab.com/online/la-playa-mexican-cafe-502-s-77-sunshine-strip" target="_blank" rel="noopener noreferrer">
-                              <span className="mr-1.5">Order Now</span>
+                            <Button variant="solid" color="white" href="https://cal.com/hello-vlyss/15min">
+                              <span className="mr-1.5">Book a Meeting</span>
                               <OrderIcon className="h-6 w-6 flex-none" />
                             </Button>
                           </div>
@@ -136,10 +136,10 @@ export function Header() {
               )}
             </Popover>
             <Button href="/menu" variant="outline" className="hidden lg:block border-black">
-              <span className="text-white">View Menu</span>
+              <span className="text-white">Our Podcast</span>
             </Button>
             <Button variant="solid" color="white" href="https://order.toasttab.com/online/la-playa-mexican-cafe-502-s-77-sunshine-strip" target="_blank" rel="noopener noreferrer" className="hidden lg:block">
-              <span>Order Now</span>
+              <span>Book a Meeting</span>
             </Button>
           </div>
         </Container>

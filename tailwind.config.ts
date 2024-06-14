@@ -36,8 +36,8 @@ export default {
       },
       colors: ({ colors }) => ({
         gray: colors.neutral,
-        'primary': '#42AFFF',
-        'secondary': '#296AA4',
+        'primary': '#f16beb',
+        'secondary': '#e087dd',
         'accent': '#F4EE83'
       }),
       fontFamily: {

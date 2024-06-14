@@ -15,57 +15,39 @@ interface Review {
 
 const reviews: Array<Review> = [
   {
-    title: 'My children love La PLaya!',
-    body: 'Well my four children and I went here two days in a row because it was so good the first day no one wanted to try any other place the second day!',
-    author: 'Ashley Onochie',
+    title: 'Incredible Work',
+    body: "Vlyss produces work that looks absolutely incredible!",
+    author: 'Nader, CEO @ Brev.dev',
     rating: 5,
   },
   {
-    title: 'Great atmosphere.',
-    body: 'Since we arrived at the place, it already smelled delicious, they welcomed us spectacularly, the atmosphere was very happy and fun.',
-    author: 'Juan Martínez',
+    title: 'Iterate Quickly',
+    body: "It's really nice to be able to iterate quickly with the Vlyss team.",
+    author: 'Ishan, Founder @ Agora Labs',
     rating: 5,
   },
   {
-    title: 'They use fresh ingredients.',
-    body: "I've been here many times, and the food is consistently excellent. They use fresh ingredients and lots of vegetables and herbs.",
-    author: 'Richard Torbett',
+    title: 'Passion for Beauty',
+    body: "Beautiful work! It was a pleasure working with them.",
+    author: 'Joey, Founder @ Zircon',
     rating: 5,
   },
   {
-    title: 'Great service!',
-    body: 'The waiter was very attentive and our order came out quickly and prepared superbly.',
-    author: 'Tammy Jackson',
+    title: 'Attention to Detail',
+    body: "I love their attention to detail!",
+    author: 'Adam, SWE @ marginfi',
     rating: 5,
   },
   {
-    title: 'A local classic.',
-    body: 'Appreciated the recommendation from a kind Harlengen local. Great food.',
-    author: 'Ellen Nacik',
+    title: 'Brining Vision to Life',
+    body: "We're excited to see hw Vlyss brings our vision to life!",
+    author: 'Madison, Designer @ Mycelium',
     rating: 5,
   },
   {
-    title: 'Quick service.',
-    body: 'First time eating here! Not disappointed! Friendly staff, and the food was served pretty quick for it being 5 people.',
-    author: 'Anna R.',
-    rating: 5,
-  },
-  {
-    title: 'Great menu choices!',
-    body: 'The customer service was outstanding. The menu had great options and even lunch choices.',
-    author: 'SM Brown-Loyd',
-    rating: 5,
-  },
-  {
-    title: 'Authentic Mexican food.',
-    body: 'Delicious Authentic Mexican Food in the heart of Harlingen Tx.',
-    author: 'Travis L McIntire',
-    rating: 5,
-  },
-  {
-    title: "The best Mexican food I've ever had",
-    body: "Wow! Talk about a wonderful surprise! I've eaten at many Mexican restaurants, but La Playa is on a different level.",
-    author: 'S Garcia',
+    title: 'Great Enthusiasm',
+    body: "Amazing work. Great enthusiasm and quality work.",
+    author: 'Bob, SVP @ Dell Financial Services',
     rating: 5,
   },
 ]
@@ -86,7 +68,7 @@ function StarRating({ rating }: { rating: Review['rating'] }) {
           key={index}
           className={clsx(
             'h-5 w-5',
-            rating > index ? 'fill-cyan-500' : 'fill-gray-300',
+            rating > index ? 'fill-primary' : 'fill-gray-300',
           )}
         />
       ))}
@@ -125,7 +107,7 @@ function Review({
         </p>
         <p className="mt-3 text-base leading-7">{body}</p>
       </blockquote>
-      <figcaption className="mt-3 text-sm text-gray-600 before:content-['–_']">
+      <figcaption className="mt-3 text-sm text-gray-600">
         {author}
       </figcaption>
     </figure>
@@ -252,10 +234,10 @@ export function Reviews() {
           id="reviews-title"
           className="text-3xl font-medium tracking-tight text-gray-900 sm:text-center"
         >
-          Harlingen Loves Our Food
+          Why Vlyss?
         </h2>
         <p className="mt-2 text-lg text-gray-600 sm:text-center">
-          La Playa is a staple in the Harlingen community.<br />Hear what others have to say about us!
+          Hear what some of our partners have to say about working with Vlyss
         </p>
         <ReviewGrid />
       </Container>

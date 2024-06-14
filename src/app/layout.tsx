@@ -12,11 +12,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - La Playa',
-    default: 'La Playa Mexican Restuarant.',
+    template: '%s - Vlyss',
+    default: 'Vlyss: Design and Development Studio.',
   },
   description:
-    'At La Playa, we pride ourselves in cooking with love. Join us and enjoy homemade meals made according to Mexican tradition',
+    'Whether you need a landing page, brand, or full-stack application, Vlyss gets the job done.',
 }
 
 export default function RootLayout({

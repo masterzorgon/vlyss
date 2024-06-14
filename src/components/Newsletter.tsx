@@ -15,9 +15,6 @@ export async function Newsletter() {
     const fetchContactListLength = async () => {
         "use server";
 
-        const RESEND_KEY = "re_QezkroZU_KY9ukYL53CtHA1GqEvQeg7eo" as string;
-        const RESEND_AUDIENCE = "b6bf1183-0ff3-4e7b-8754-dc9303c4d249" as string;
-
         const resend = new Resend(process.env.RESEND_KEY);
 
         // retrieve length of contacts and notify to la playa
@@ -31,16 +28,13 @@ export async function Newsletter() {
     const signUp = async (formData: FormData) => {
         "use server";
 
-        const RESEND_KEY = "re_QezkroZU_KY9ukYL53CtHA1GqEvQeg7eo" as string;
-        const RESEND_AUDIENCE = "b6bf1183-0ff3-4e7b-8754-dc9303c4d249" as string;
-
         const resend = new Resend(process.env.RESEND_KEY);
 
         const { email, name } = Object.fromEntries(formData);
 
         // Basic validation
         if (!email || !name) {
-            console.error("Error: All fields are required.");
+            alert("Please enter all required fields");
             return; // Stop execution if any field is missing
         }
 
@@ -70,7 +64,7 @@ export async function Newsletter() {
             await resend.emails.send({
                 from: "Acme <onboarding@resend.dev>",
                 to: [email as string],
-                subject: "Welcome to the La Playa Newsletter!",
+                subject: "Welcome to the Vlyss Newsletter!",
                 react: <ConfirmationNewsLetterSignup /* ADD PARAMS */ />,
                 headers: {
                     'List-Unsubscribe': '<https://www.laplayamexicancafe.com/unsubscribe>'
@@ -81,8 +75,8 @@ export async function Newsletter() {
             const numOfContacts = await fetchContactListLength();
             await resend.emails.send({
                 from: "Acme <onboarding@resend.dev>",
-                to: "Laplayamain@gmail.com",
-                subject: "New Person Signed Up For The Newsletter",
+                to: "hello@vlyss.com",
+                subject: "New Newsletter Signup!",
                 react: <NotificationNewsLetterSignup numOfContacts={numOfContacts} />
             });
 
@@ -95,40 +89,24 @@ export async function Newsletter() {
     return (
         <>
             <section
-                id="get-free-shares-today"
-                className="relative overflow-hidden bg-cyan-800 py-28 sm:py-28"
+                id="newsletter"
+                aria-labelledby="newsletter-title"
+                className="relative overflow-hidden bg-zinc-900 py-28 sm:pb-32"
             >
-                <div className="flex justify-center absolute mx-auto w-screen scale-[140%] sm:scale-100 top-10 sm:top-14">
-                    <CircleBackground color="#fff" className="animate-spin-slower" />
+                <div className="flex justify-center absolute mx-auto w-screen scale-[140%] lg:scale-100 top-10 top-14">
+                    <CircleBackground color="#e087dd" className="animate-spin-slower" />
                 </div>
 
                 <Container className="relative">
-                    <div className="sm:mt-10 mx-auto max-w-md text-center">
+                    <div className="sm:mt-20 mx-auto max-w-md text-center">
                         <h2 className="text-3xl font-medium tracking-tight text-white sm:text-4xl">
                             Join Our Newsletter
                         </h2>
                         <p className="mt-4 text-lg text-gray-300">
-                            Stay in touch with the latest news on our promotions and menu changes.
+                            Follow the conversation as Vlyss discusses all things design, technology, and culture.
                         </p>
 
                         <form action={signUp} method="POST" className="mt-2 text-white">
-
-                            <div>
-                                <label htmlFor="name" className="block text-sm font-semibold leading-6 text-start">
-                                    Name
-                                </label>
-                                <div className="mt-2.5">
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        id="name"
-                                        autoComplete="name"
-                                        required
-                                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
-                                    />
-                                </div>
-                            </div>
-
                             <div className='mt-4'>
                                 <label htmlFor="email" className="block text-sm font-semibold leading-6 text-start">
                                     Email
@@ -148,11 +126,11 @@ export async function Newsletter() {
                             <div className="mt-4 flex justify-center border-t border-gray-900/10 pt-8">
                                 <Button
                                     variant="solid"
-                                    color="white"
+                                    color="cyan"
                                     type="submit"
                                 >
                                     <span className="mr-1.5">Subscribe</span>
-                                    <ActionIcon className="h-6 w-6 flex-none fill-black text-black" />
+                                    <ActionIcon className="h-6 w-6 flex-none fill-white text-white" />
                                 </Button>
                             </div>
                         </form>
@@ -160,9 +138,9 @@ export async function Newsletter() {
                 </Container>
             </section>
 
-            <div className='bg-cyan-800 w-full pb-16 pt-10'>
+            <div className='bg-zinc-900 w-full pb-16 pt-16'>
                 <p className='text-xs text-white/50 text-center max-w-xl mx-auto shadow-lg bg-gray-400/5 rounded-lg p-4'>
-                    By clicking &quot;Subscribe&quot;, you agree to recieve marketing messages from La Playa Mexican Cafe at the number or email provided, including messages sent by autodialer.
+                    By clicking &quot;Subscribe&quot;, you agree to recieve marketing messages from Vlyss at the number or email provided, including messages sent by autodialer.
                     Consent is not a condition of any purchase.
                     Message and data rates may apply.
                     Message frequency varies.

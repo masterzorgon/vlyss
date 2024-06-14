@@ -8,9 +8,12 @@ import mailchimp from "@mailchimp/mailchimp_marketing";
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 
-import bestBar from '@/images/logos/best-bar.svg'
-import bestFajitas from '@/images/logos/best-fajitas.svg'
-import bestHappyHour from '@/images/logos/best-happy-hour.svg'
+import solanaLogo from '@/images/logos/solana.svg'
+import brevLogo from '@/images/logos/brev.svg'
+import dellLogo from '@/images/logos/dell.svg'
+import customersLogo from '@/images/logos/customers.svg'
+
+
 
 import {
     ActionIcon,
@@ -36,7 +39,7 @@ function VideoComponent() {
             muted
             className="absolute left-1/3 top-1/2 max-w-none translate-x-[-40%] translate-y-[-60%] object-cover"
         >
-            <source src={require("@/images/videos/alt.mp4")} type='video/mp4' />
+            <source src={require("@/images/videos/hero.mp4")} type='video/mp4' />
         </video>
     );
 };
@@ -48,52 +51,50 @@ export function Hero() {
             <Suspense fallback={<FallBack />}>
                 <VideoComponent />
             </Suspense>
-        
+
             <div className='absolute z-10 h-[1000px] w-screen bg-black/30' />
-            
-            <Container className='relative text-white pt-32 pb-52 lg:pb-96 h-full z-10'>
-                <div className="flex flex-col items-start lg:gap-x-8 lg:gap-y-20">
-                    <div className="relative z-10 mx-auto lg:max-w-none">
-                        <h1 className="text-6xl sm:text-8xl font-medium tracking-tight">
-                            Made Locally,<br />Con Amor
+
+            <Container className='relative text-white h-full py-20 m-20 z-10 border-2 border-white/10 backdrop-blur-md bg-white/10 rounded-2xl shadow-xl'>
+                <div className="flex flex-col items-center text-center">
+                    <div className="relative z-10 lg:max-w-none">
+                        <h1 className="text-4xl sm:text-6xl font-medium leading-tight">
+                            Vlyss brings your vision to life
                         </h1>
-                        <p className="mt-6 text-lg sm:text-xl text-white font-semibold sm:tracking-wide sm:w-2/3 xl:w-1/2">
-                            At La Playa, we pride ourselves in cooking with love.
-                            Come join us and enjoy a homemade meal made according to
-                            Mexican tradition.
+                        <p className="mt-6 text-lg sm:text-xl text-white font-semibold sm:tracking-wide sm:mx-32">
+                            Whether you need a landing page, brand, or full-stack application, Vlyss gets the job done.
                         </p>
-                        <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4">
-                            <Button variant="solid" color="cyan" href="https://order.toasttab.com/online/la-playa-mexican-cafe-502-s-77-sunshine-strip" target="_blank" rel="noopener noreferrer">
-                                <span className="mr-1.5">Order Now</span>
+                        <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4 justify-center">
+                            <Button variant="solid" color="cyan" href="https://www.youtube.com/@VlyssPodcast" target="_blank" rel="noopener noreferrer">
+                                <span className="mr-1.5">Our Podcast</span>
                                 <OrderIcon className="h-6 w-6 flex-none" />
                             </Button>
                             <Button
-                                href="/menu"
+                                href="https://cal.com/hello-vlyss/15min"
                                 variant="solid"
                                 color="white"
                             >
-                                <span className="mr-1.5">View Menu</span>
+                                <span className="mr-1.5">Book a Meeting</span>
                                 <ActionIcon className="h-6 w-6 flex-none fill-black text-black" />
                             </Button>
-
                         </div>
                     </div>
 
-                    <div className="justify-start mt-10 sm:mt-0">
+                    <div className="flex flex-col items-center mt-10">
                         <p className="text-lg font-semibold text-white text-left mx-auto mt-4 flex-wrap flex max-w-xl justify-start gap-x-10 gap-y-8 lg:mx-0">
-                            Our Restaurant Is Award-Winning
+                            Our team has worked for the best
                         </p>
                         <ul
                             role="list"
-                            className="mx-auto sm:mt-8 mt-4 flex-wrap sm:flex-nowrap flex max-w-xl justify-start gap-x-10 gap-y-8 lg:mx-0"
+                            className="mx-auto mt-2 flex-wrap sm:flex-nowrap flex max-w-xl justify-start gap-x-10 lg:mx-0"
                         >
                             {[
-                                ['Best Bar and Lounge', bestBar],
-                                ['Best Fajitas', bestFajitas],
-                                ['Best Happy Hour', bestHappyHour],
+                                // ['The Solana Foundation', solanaLogo],
+                                // ['Brev.dev', brevLogo],
+                                // ['Dell Financial Services', dellLogo],
+                                ['Customers', customersLogo],
                             ].map(([name, logo, className]) => (
                                 <li key={name} className={clsx('flex', className)}>
-                                    <Image src={logo} alt={name} className="h-10" unoptimized />
+                                    <Image src={logo} alt={name} unoptimized />
                                 </li>
                             ))}
                         </ul>
