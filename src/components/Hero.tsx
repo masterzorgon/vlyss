@@ -2,18 +2,13 @@
 
 import Image from 'next/image'
 import clsx from 'clsx'
-import { Suspense, useEffect } from 'react'
-import mailchimp from "@mailchimp/mailchimp_marketing";
+import { Suspense } from 'react'
+import { track } from '@vercel/analytics';
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 
-import solanaLogo from '@/images/logos/solana.svg'
-import brevLogo from '@/images/logos/brev.svg'
-import dellLogo from '@/images/logos/dell.svg'
 import customersLogo from '@/images/logos/customers.svg'
-
-
 
 import {
     ActionIcon,
@@ -64,7 +59,7 @@ export function Hero() {
                             Whether you need a landing page, brand, or full-stack application, Vlyss gets the job done.
                         </p>
                         <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4 justify-center">
-                            <Button variant="solid" color="cyan" href="https://www.youtube.com/@VlyssPodcast" target="_blank" rel="noopener noreferrer">
+                            <Button variant="solid" color="cyan" href="https://www.youtube.com/@VlyssPodcast" target="_blank" rel="noopener noreferrer" onClick={() => track("View podcast action")}>
                                 <span className="mr-1.5">Our Podcast</span>
                                 <OrderIcon className="h-6 w-6 flex-none" />
                             </Button>
@@ -72,6 +67,7 @@ export function Hero() {
                                 href="https://cal.com/hello-vlyss/15min"
                                 variant="solid"
                                 color="white"
+                                onClick={() => track("Book a meeting action")}
                             >
                                 <span className="mr-1.5">Book a Meeting</span>
                                 <ActionIcon className="h-6 w-6 flex-none fill-black text-black" />

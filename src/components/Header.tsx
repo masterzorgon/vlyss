@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { Popover } from '@headlessui/react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { track } from '@vercel/analytics';
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
@@ -108,22 +109,22 @@ export function Header() {
                           className="absolute inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-zinc-900 px-6 pb-6 pt-32 shadow-2xl shadow-gray-900/20"
                         >
                           <div className="space-y-4">
-                            <MobileNavLink href="#newsletter">
+                            <MobileNavLink href="#newsletter" onClick={() => track("Newsletter header button")}>
                               Newsletter
                             </MobileNavLink>
-                            <MobileNavLink href="#reviews">
+                            <MobileNavLink href="#reviews" onClick={() => track("Reviews header button")}>
                               Reviews
                             </MobileNavLink>
-                            <MobileNavLink href="#podcast">
+                            <MobileNavLink href="#podcast" onClick={() => track("Podcast header button")}>
                               Podcast
                             </MobileNavLink>
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
-                            <Button href="https://www.youtube.com/@VlyssPodcast" variant="outline">
+                            <Button href="https://www.youtube.com/@VlyssPodcast" variant="outline" onClick={() => track("View podcast action")}>
                               <span className="mr-1.5 text-white">Our Podcast</span>
                               <OrderIcon className="h-6 w-6 flex-none" />
                             </Button>
-                            <Button variant="solid" color="white" href="https://cal.com/hello-vlyss/15min">
+                            <Button variant="solid" color="white" href="https://cal.com/hello-vlyss/15min" onClick={() => track("Book a meeting action")}>
                               <span className="mr-1.5">Book a Meeting</span>
                               <ActionIcon className="h-6 w-6 flex-none fill-black text-black" />
                             </Button>
@@ -135,10 +136,10 @@ export function Header() {
                 </>
               )}
             </Popover>
-            <Button href="/menu" variant="outline" className="hidden lg:block border-black">
+            <Button href="/menu" variant="outline" className="hidden lg:block border-black" onClick={() => track("View podcast action")}>
               <span className="text-white">Our Podcast</span>
             </Button>
-            <Button variant="solid" color="white" href="https://order.toasttab.com/online/la-playa-mexican-cafe-502-s-77-sunshine-strip" target="_blank" rel="noopener noreferrer" className="hidden lg:block">
+            <Button variant="solid" color="white" href="https://cal.com/hello-vlyss/15min" target="_blank" rel="noopener noreferrer" className="hidden lg:block" onClick={() => track("Book a meeting action")}>
               <span>Book a Meeting</span>
             </Button>
           </div>

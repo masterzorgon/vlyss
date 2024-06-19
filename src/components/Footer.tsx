@@ -50,6 +50,7 @@ export function Footer() {
             </div>
           </div> */}
         </div>
+        
         <div className="flex items-start border-t border-gray-200 pb-12 pt-8 md:pt-6">
           <p className="mt-6 text-sm text-gray-200 md:mt-0">
             &copy; Copyright {new Date().getFullYear()}. Vlyss. All rights reserved.
