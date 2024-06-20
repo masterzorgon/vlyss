@@ -8,6 +8,9 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Logomark } from '@/components/Logo'
 
+const STRIPE_STANDARD_SUB_LINK = "https://buy.stripe.com/test_9AQ17m7uqfQf4jmeUW"
+const STRIPE_PRO_SUB_LINK = "https://buy.stripe.com/test_00gg2gg0WfQf036dQR"
+
 const plans = [
     {
         name: 'Standard',
@@ -17,7 +20,7 @@ const plans = [
             'You need a website with maintenance, hosting, and analytics out-of-the-box.',
         button: {
             label: 'Get started today',
-            href: process.env.STRIPE_STANDARD_SUB_LINK! as string,
+            href: STRIPE_STANDARD_SUB_LINK,
         },
         features: [
             "One request at a time",
@@ -36,7 +39,7 @@ const plans = [
             'You have a large project that needs dedicated support and in-depth work.',
         button: {
             label: 'Get started today',
-            href: process.env.STRIPE_PRO_SUB_LINK! as string,
+            href: STRIPE_PRO_SUB_LINK,
         },
         features: [
             "Two requests at a time",
