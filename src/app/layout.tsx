@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     default: 'Vlyss: Design and Development Studio',
   },
   description:
-    'Whether you need a landing page, brand, or full-stack application, Vlyss gets the job done.',
+    'Whether you need a website, brand, or end-to-end application, Vlyss gets the job done.',
 }
 
 export default function RootLayout({
