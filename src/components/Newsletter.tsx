@@ -106,7 +106,7 @@ export async function Newsletter() {
                             Join Our Newsletter
                         </h2>
                         <p className="mt-4 text-lg text-gray-300">
-                            Follow the conversation as Vlyss discusses all things design, technology, and culture.
+                            Follow the conversation as Vlyss discusses all things design and technology.
                         </p>
 
                         <form action={signUp} method="POST" className="mt-2 text-white">
