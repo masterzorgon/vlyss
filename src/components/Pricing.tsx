@@ -17,7 +17,7 @@ const plans = [
             'You need a website with maintenance, hosting, and analytics out-of-the-box.',
         button: {
             label: 'Get started today',
-            href: process.env.STRIPE_STANDARD_SUB_LINK,
+            href: process.env.STRIPE_STANDARD_SUB_LINK! as string,
         },
         features: [
             "One request at a time",
@@ -36,7 +36,7 @@ const plans = [
             'You have a large project that needs dedicated support and in-depth work.',
         button: {
             label: 'Get started today',
-            href: process.env.STRIPE_PRO_SUB_LINK,
+            href: process.env.STRIPE_PRO_SUB_LINK! as string,
         },
         features: [
             "Two requests at a time",
