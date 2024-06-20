@@ -226,7 +226,7 @@ export function Pricing() {
                     </h2>
                     <p className="mt-2 text-lg text-gray-600">
                         You can onboard with Vlyss directly through our website.
-                        Just click "Subscribe" to get started.
+                        Just click &quot;Subscribe&quot; to get started.
                     </p>
                 </div>
 
