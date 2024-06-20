@@ -93,7 +93,7 @@ export async function Newsletter() {
         <>
             <section
                 id="newsletter"
-                aria-labelledby="newsletter-title"
+                aria-labelledby="Join our newsletter"
                 className="relative overflow-hidden bg-zinc-900 py-28 sm:pb-32"
             >
                 <div className="flex justify-center absolute mx-auto w-screen scale-[120%] top-0 lg:scale-100 lg:top-14">

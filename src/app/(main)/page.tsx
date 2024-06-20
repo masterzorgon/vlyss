@@ -3,15 +3,17 @@ import { Hero } from '@/components/Hero';
 import { Reviews } from '@/components/Reviews';
 import { Podcast } from '@/components/Podcast';
 import { Pricing } from '@/components/Pricing';
+import { Offerings } from '@/components/Offerings';
 
 export default function Home() {
   return (
     <main className='overflow-hidden'>
       <Hero />
-      <Pricing />
+      <Offerings />
       <Newsletter />
-      <Reviews />
+      <Pricing />
       <Podcast />
+      <Reviews />
     </main>
   );
 };

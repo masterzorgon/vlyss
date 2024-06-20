@@ -13,8 +13,8 @@ export function Podcast() {
   return (
     <>
         <section 
-            id="reviews"
-            aria-labelledby="reviews-title"
+            id="podcast"
+            aria-labelledby="Watch the Vlyss Podcast"
             className="relative isolate z-10 bg-zinc-900 py-32"
         >
             <div className=" mx-auto max-w-7xl sm:px-6 lg:px-8">

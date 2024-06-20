@@ -226,7 +226,7 @@ export function Reviews() {
   return (
     <section
       id="reviews"
-      aria-labelledby="reviews-title"
+      aria-labelledby="What Vlyss customers have to say"
       className="pb-16 pt-20 sm:pb-24 sm:pt-32"
     >
       <Container className='bg-gradient-to-b from-gray-50 to-white'>
