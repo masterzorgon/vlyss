@@ -63,6 +63,7 @@ export function Hero() {
                                 variant="solid" 
                                 color="cyan" 
                                 onClick={() => {
+                                    console.log("EVENT TRIGGERED")
                                     track("Podcast", { location: "Hero" });
                                     window.location.href = "https://www.youtube.com/@VlyssPodcast";
                                 }}
@@ -74,6 +75,7 @@ export function Hero() {
                                 variant="solid"
                                 color="white"
                                 onClick={() => {
+                                    console.log("EVENT TRIGGERED")
                                     track("Meeting", { location: "Hero" });
                                     window.location.href = "https://cal.com/hello-vlyss/15min";
                                 }}
