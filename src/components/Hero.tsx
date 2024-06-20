@@ -59,15 +59,24 @@ export function Hero() {
                             Whether you need a landing page, brand, or full-stack application, Vlyss gets the job done.
                         </p>
                         <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4 justify-center">
-                            <Button variant="solid" color="cyan" href="https://www.youtube.com/@VlyssPodcast" target="_blank" rel="noopener noreferrer" onClick={() => track("View podcast action")}>
+                            <Button 
+                                variant="solid" 
+                                color="cyan" 
+                                onClick={() => {
+                                    track("Podcast", { location: "Hero" });
+                                    window.location.href = "https://www.youtube.com/@VlyssPodcast";
+                                }}
+                            >
                                 <span className="mr-1.5">Our Podcast</span>
                                 <OrderIcon className="h-6 w-6 flex-none" />
                             </Button>
                             <Button
-                                href="https://cal.com/hello-vlyss/15min"
                                 variant="solid"
                                 color="white"
-                                onClick={() => track("Book a meeting action")}
+                                onClick={() => {
+                                    track("Meeting", { location: "Hero" });
+                                    window.location.href = "https://cal.com/hello-vlyss/15min";
+                                }}
                             >
                                 <span className="mr-1.5">Book a Meeting</span>
                                 <ActionIcon className="h-6 w-6 flex-none fill-black text-black" />
@@ -84,9 +93,6 @@ export function Hero() {
                             className="mx-auto mt-2 flex-wrap sm:flex-nowrap flex max-w-xl justify-start gap-x-10 lg:mx-0"
                         >
                             {[
-                                // ['The Solana Foundation', solanaLogo],
-                                // ['Brev.dev', brevLogo],
-                                // ['Dell Financial Services', dellLogo],
                                 ['Customers', customersLogo],
                             ].map(([name, logo, className]) => (
                                 <li key={name} className={clsx('flex', className)}>
