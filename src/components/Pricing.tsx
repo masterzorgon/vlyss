@@ -57,7 +57,7 @@ const plans = [
             "Do you have a special request? Get in touch with our sales team!",
         button: {
             label: 'Get in touch',
-            href: '#',
+            href: "https://cal.com/hello-vlyss/15min",
         },
         features: [],
         logomarkClassName: 'fill-gray-300',
