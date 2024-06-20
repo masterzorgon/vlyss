@@ -4,13 +4,13 @@ import { Container } from '@/components/Container'
 
 const features = [
   {
-    name: 'Website & App Designs',
+    name: 'Website Designs',
     description:
       'Crafting visually appealing and user-friendly interfaces for websites and apps.',
     icon: DeviceCardsIcon,
   },
   {
-    name: 'Website & App Development',
+    name: 'Website Development',
     description:
       'Building responsive, high-performance websites tailored to your needs in a timely manner.',
     icon: DeviceClockIcon,
