@@ -59,9 +59,7 @@ const plans = [
             label: 'Get in touch',
             href: '#',
         },
-        features: [
-
-        ],
+        features: [],
         logomarkClassName: 'fill-gray-300',
     },
 ]
@@ -185,7 +183,7 @@ function Plan({
                             <CheckIcon
                                 className={clsx(
                                     'h-6 w-6 flex-none',
-                                    featured ? 'text-white' : 'text-cyan-500',
+                                    featured ? 'text-secondary' : 'text-gray-700',
                                 )}
                             />
                             <span className="ml-4">{feature}</span>
