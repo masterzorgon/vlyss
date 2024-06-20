@@ -17,7 +17,7 @@ const plans = [
             'You need a website with maintenance, hosting, and analytics out-of-the-box.',
         button: {
             label: 'Get started today',
-            href: '#',
+            href: process.env.STRIPE_STANDARD_SUB_LINK,
         },
         features: [
             "One request at a time",
@@ -36,7 +36,7 @@ const plans = [
             'You have a large project that needs dedicated support and in-depth work.',
         button: {
             label: 'Get started today',
-            href: '#',
+            href: process.env.STRIPE_PRO_SUB_LINK,
         },
         features: [
             "Two requests at a time",
@@ -223,8 +223,7 @@ export function Pricing() {
                         Simple Pricing. Simple Onboarding.
                     </h2>
                     <p className="mt-2 text-lg text-gray-600">
-                        You can onboard with Vlyss directly through our website.
-                        Just click &quot;Subscribe&quot; to get started.
+                        Join the Vlyss family by clicking &quot;Get started today&quot;<br/>Pause or cancel anytime
                     </p>
                 </div>
 
@@ -256,7 +255,7 @@ export function Pricing() {
 
                 <div className="mt-8 flex justify-center">
                     <div className="relative">
-                        <RadioGroup
+                        {/* <RadioGroup
                             value={activePeriod}
                             onChange={setActivePeriod}
                             className="grid grid-cols-2"
@@ -275,7 +274,7 @@ export function Pricing() {
                                     {period}
                                 </Radio>
                             ))}
-                        </RadioGroup>
+                        </RadioGroup> */}
                         <div
                             aria-hidden="true"
                             className={clsx(
