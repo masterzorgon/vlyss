@@ -14,7 +14,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: {
     template: '%s - Vlyss',
-    default: 'Vlyss: Design and Development Studio.',
+    default: 'Vlyss: Design and Development Studio',
   },
   description:
     'Whether you need a landing page, brand, or full-stack application, Vlyss gets the job done.',
