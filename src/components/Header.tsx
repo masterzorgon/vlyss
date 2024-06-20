@@ -145,10 +145,9 @@ export function Header() {
               )}
             </Popover>
             <Button 
-              href="/menu" 
+              href="https://www.youtube.com/@VlyssPodcast" 
               variant="outline" 
               className="hidden lg:block border-black" 
-              onClick={() => track("View podcast action")}
             >
               <span className="text-white">Our Podcast</span>
             </Button>
