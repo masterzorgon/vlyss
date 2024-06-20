@@ -123,7 +123,6 @@ export function Header() {
                             <Button 
                               href="https://www.youtube.com/@VlyssPodcast" 
                               variant="outline" 
-                              onClick={() => track("View podcast action")}
                             >
                               <span className="mr-1.5 text-white">Our Podcast</span>
                               <OrderIcon className="h-6 w-6 flex-none" />
