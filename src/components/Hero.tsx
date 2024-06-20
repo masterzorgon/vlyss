@@ -56,7 +56,7 @@ export function Hero() {
                             Vlyss brings your vision to life
                         </h1>
                         <p className="mt-6 text-lg sm:text-xl text-white font-semibold sm:tracking-wide sm:mx-32">
-                            Whether you need a landing page, brand, or full-stack application, Vlyss gets the job done.
+                            Whether you need a website, brand, or end-to-end application, Vlyss gets the job done.
                         </p>
                         <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4 justify-center">
                             <Button 
