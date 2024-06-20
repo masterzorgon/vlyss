@@ -20,7 +20,7 @@ export function Podcast() {
             <div className=" mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div className=" mx-auto flex max-w-2xl flex-col gap-16 bg-white/5 px-6 py-16 ring-1 ring-white/10 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-start lg:py-20 xl:gap-x-20 xl:px-20">
                     <Image
-                        className="flex-none rounded-2xl object-cover shadow-xl shadow-pink-500/10 aspect-video h-auto max-w-sm"
+                        className="flex-none rounded-2xl object-cover shadow-xl shadow-pink-500/10 aspect-video h-auto lg:max-w-sm"
                         src={podImage}
                         alt="Vlyss Podcast Thumbnail"
                     />
