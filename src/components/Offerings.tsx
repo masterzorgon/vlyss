@@ -57,7 +57,7 @@ function DeviceArrowIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
         strokeWidth={2}
         strokeLinecap="round"
       />
-      <circle cx={16} cy={16} r={16} fill="#A3A3A3" fillOpacity={0.2} />
+      <circle cx={16} cy={16} r={16} fill="#e1b3e5" fillOpacity={0.2} />
     </svg>
   )
 }
@@ -80,7 +80,7 @@ function DeviceCardsIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
         fill={`url(#${id}-gradient)`}
       />
       <rect x={9} y={6} width={14} height={4} rx={1} fill="#f36cff" />
-      <circle cx={16} cy={16} r={16} fill="#A3A3A3" fillOpacity={0.2} />
+      <circle cx={16} cy={16} r={16} fill="#e1b3e5" fillOpacity={0.2} />
       <defs>
         <linearGradient
           id={`${id}-gradient`}
@@ -101,7 +101,7 @@ function DeviceCardsIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 function DeviceClockIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 32 32" aria-hidden="true" {...props}>
-      <circle cx={16} cy={16} r={16} fill="#A3A3A3" fillOpacity={0.2} />
+      <circle cx={16} cy={16} r={16} fill="#e1b3e5" fillOpacity={0.2} />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -136,7 +136,7 @@ function DeviceListIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
         strokeWidth={2}
         strokeLinecap="square"
       />
-      <circle cx={16} cy={16} r={16} fill="#A3A3A3" fillOpacity={0.2} />
+      <circle cx={16} cy={16} r={16} fill="#e1b3e5" fillOpacity={0.2} />
     </svg>
   )
 }
@@ -144,7 +144,7 @@ function DeviceListIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 function DeviceLockIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 32 32" aria-hidden="true" {...props}>
-      <circle cx={16} cy={16} r={16} fill="#A3A3A3" fillOpacity={0.2} />
+      <circle cx={16} cy={16} r={16} fill="#e1b3e5" fillOpacity={0.2} />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -182,7 +182,7 @@ function DeviceChartIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
         strokeWidth={2}
         strokeLinecap="square"
       />
-      <circle cx={16} cy={16} r={16} fill="#A3A3A3" fillOpacity={0.2} />
+      <circle cx={16} cy={16} r={16} fill="#e1b3e5" fillOpacity={0.2} />
     </svg>
   )
 }
