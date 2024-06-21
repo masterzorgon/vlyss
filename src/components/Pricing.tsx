@@ -2,14 +2,10 @@
 
 import { useState } from 'react'
 import clsx from 'clsx'
-import { RadioGroup, Radio } from '@headlessui/react';
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Logomark } from '@/components/Logo'
-
-const STRIPE_STANDARD_SUB_LINK = "https://buy.stripe.com/test_9AQ17m7uqfQf4jmeUW"
-const STRIPE_PRO_SUB_LINK = "https://buy.stripe.com/test_00gg2gg0WfQf036dQR"
 
 const plans = [
     {
@@ -20,7 +16,7 @@ const plans = [
             'You need a website with maintenance, hosting, and analytics out-of-the-box.',
         button: {
             label: 'Get started today',
-            href: STRIPE_STANDARD_SUB_LINK,
+            href: "https://buy.stripe.com/test_9AQ17m7uqfQf4jmeUW",
         },
         features: [
             "One request at a time",
@@ -39,7 +35,7 @@ const plans = [
             'You have a large project that needs dedicated support and in-depth work.',
         button: {
             label: 'Get started today',
-            href: STRIPE_PRO_SUB_LINK,
+            href: "https://buy.stripe.com/test_00gg2gg0WfQf036dQR",
         },
         features: [
             "Two requests at a time",
@@ -113,6 +109,22 @@ function Plan({
     logomarkClassName?: string
     featured?: boolean
 }) {
+    // const handleCheckoutSession = async (productId: string) => {
+    //     const res = await fetch("/api/subscription", {
+    //         method: "POST",
+    //         body: JSON.stringify(productId),
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         }
+    //     });
+
+    //     const checkoutSession = await res.json().then((value => {
+    //         return value.session;
+    //     }));
+
+    //     const stripe
+    // };
+
     return (
         <section
             className={clsx(
