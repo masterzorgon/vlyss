@@ -8,45 +8,45 @@ import {
     ActionIcon,
 } from '@/images/icons'
 
-import ConfirmationUnsubscribe from '../../emails/ConfirmationUnsubscribe';
+// import ConfirmationUnsubscribe from '../../emails/ConfirmationUnsubscribe';
 
 
 
 export default async function Unsubscribe() {
-    const unsubscribe = async (formData: FormData) => {
-        "use server";
+    // const unsubscribe = async (formData: FormData) => {
+    //     "use server";
 
-        const resend = new Resend(process.env.RESEND_KEY);
+    //     const resend = new Resend(process.env.RESEND_KEY);
 
-        const { email } = Object.fromEntries(formData);
+    //     const { email } = Object.fromEntries(formData);
 
-        // Email validation using a simple regex pattern
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email as string)) {
-            console.error("Error: Invalid email format.");
-            return; // Stop execution if the email format is invalid
-        }
+    //     // Email validation using a simple regex pattern
+    //     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    //     if (!emailRegex.test(email as string)) {
+    //         console.error("Error: Invalid email format.");
+    //         return; // Stop execution if the email format is invalid
+    //     }
 
-        try {
-            // remove user from audience
-            const { data: audienceConfirmation } = await resend.contacts.remove({
-                email: email as string,
-                audienceId: process.env.RESEND_AUDIENCE as string
-            });
+    //     try {
+    //         // remove user from audience
+    //         const { data: audienceConfirmation } = await resend.contacts.remove({
+    //             email: email as string,
+    //             audienceId: process.env.RESEND_AUDIENCE as string
+    //         });
 
-            // send confirmation email to user
-            await resend.emails.send({
-                from: "Acme <onboarding@resend.dev>",
-                to: [email as string],
-                subject: "You Are Removed From The La Playa Newsletter!",
-                react: <ConfirmationUnsubscribe /* ADD PARAMS */ />,
-            });
+    //         // send confirmation email to user
+    //         await resend.emails.send({
+    //             from: "Acme <onboarding@resend.dev>",
+    //             to: [email as string],
+    //             subject: "You Are Removed From The La Playa Newsletter!",
+    //             react: <ConfirmationUnsubscribe /* ADD PARAMS */ />,
+    //         });
 
-            console.log("Signup successful", audienceConfirmation);
-        } catch (error) {
-            console.error("Error signing up:", error);
-        }
-    };
+    //         console.log("Signup successful", audienceConfirmation);
+    //     } catch (error) {
+    //         console.error("Error signing up:", error);
+    //     }
+    // };
 
     return (
         <>
@@ -66,7 +66,7 @@ export default async function Unsubscribe() {
                             By clicking &quot;Unsubscribe&quot;, you are choosing to remove yourself from the La Playa Mexican Cafe newsletter. 
                         </p>
 
-                        <form action={unsubscribe} method="POST" className="mt-2 text-white">
+                        <form action={()=>console.log("")} method="POST" className="mt-2 text-white">
                             <div className='mt-4'>
                                 <label htmlFor="email" className="block text-sm font-semibold leading-6 text-start">
                                     Email
