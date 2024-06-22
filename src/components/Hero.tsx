@@ -52,10 +52,10 @@ export function Hero() {
             <Container className='relative text-white h-full py-20 m-20 z-10 border-2 border-white/10 backdrop-blur-md bg-white/10 rounded-2xl shadow-xl'>
                 <div className="flex flex-col items-center text-center">
                     <div className="relative z-10 lg:max-w-none">
-                        <h1 className="text-4xl sm:text-6xl font-medium leading-tight">
+                        <h1 className="text-4xl sm:text-6xl font-medium leading-tight text-break">
                             Vlyss brings your vision to life
                         </h1>
-                        <p className="mt-6 text-lg sm:text-xl text-white font-semibold sm:tracking-wide sm:mx-32">
+                        <p className="mt-6 text-lg sm:text-xl font-medium max-w-xl mx-auto">
                             Whether you need a website, brand, or end-to-end application, Vlyss gets the job done.
                         </p>
                         <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4 justify-center">
@@ -83,7 +83,7 @@ export function Hero() {
                     </div>
 
                     <div className="flex flex-col items-center mt-10">
-                        <p className="text-lg font-semibold text-white text-left mx-auto mt-4 flex-wrap flex max-w-xl justify-start gap-x-10 gap-y-8 lg:mx-0">
+                        <p className="text-lg font-medium text-white text-left mx-auto mt-4 flex-wrap flex max-w-xl justify-start gap-x-10 gap-y-8 lg:mx-0">
                             Our team has worked for the best
                         </p>
                         <ul

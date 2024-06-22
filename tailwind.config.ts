@@ -41,6 +41,7 @@ export default {
         'accent': '#F4EE83'
       }),
       fontFamily: {
+        vlyss: ['"Publica Sans Round"'],
         sans: 'var(--font-inter)',
       },
       keyframes: {

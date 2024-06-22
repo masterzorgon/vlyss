@@ -12,8 +12,6 @@ import {
 
 // import ConfirmationUnsubscribe from '../../emails/ConfirmationUnsubscribe';
 
-
-
 export default async function Unsubscribe() {
     // const unsubscribe = async (formData: FormData) => {
     //     "use server";

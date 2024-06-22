@@ -25,10 +25,10 @@ export function Podcast() {
                         alt="Vlyss Podcast Thumbnail"
                     />
                     <div className="h-96 w-full flex-auto ">
-                        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                        <h2 className="text-3xl font-medium tracking-tight text-white sm:text-4xl">
                             <span>Join the conversation!</span>
                         </h2>
-                        <p className='mt-10 text-white text-2xl font-semibold'>The Vlyss Podcast</p>
+                        <p className='mt-10 text-white text-2xl font-medium'>The Vlyss Podcast</p>
                         <p className="mt-2 text-lg leading-8 text-gray-200">
                             Every week, the Vlyss team releases an episode spanning topics across technology, design, culture, and college life. Join us as we talk through our thoughts and experiences as young entreprenuers.
                         </p>

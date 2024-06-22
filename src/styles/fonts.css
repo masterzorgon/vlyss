@@ -1,0 +1,32 @@
+/* PUBLICA SANS ROUND */
+@font-face {
+    font-family: "Publica Sans Round";
+    src: url(../fonts/Publica_Sans_Round/PublicaSansRound-Rg.otf);
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Publica Sans Round";
+    src: url(../fonts/Publica_Sans_Round/PublicaSansRound-Md.otf);
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Publica Sans Round";
+    src: url(../fonts/Publica_Sans_Round/PublicaSansRound-Bd.otf);
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Publica Sans Round";
+    src: url(../fonts/Publica_Sans_Round/PublicaSansRound-XBd.otf);
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
