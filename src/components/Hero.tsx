@@ -73,14 +73,10 @@ export function Hero() {
                             </Button>
                             <Button
                                 variant="solid"
-                                color="white"
-                                onClick={() => {
-                                    console.log("EVENT TRIGGERED")
-                                    track("Meeting", { location: "Hero" });
-                                    window.location.href = "https://cal.com/hello-vlyss/15min";
-                                }}
+                                color="white"   
+                                href="#plans"
                             >
-                                <span className="mr-1.5">Book a Meeting</span>
+                                <span className="mr-1.5">View Our Plans</span>
                                 <ActionIcon className="h-6 w-6 flex-none fill-black text-black" />
                             </Button>
                         </div>

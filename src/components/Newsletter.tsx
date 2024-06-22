@@ -1,93 +1,91 @@
+"use client";
+
 import { Resend } from 'resend';
-import { track } from '@vercel/analytics';
 
 import { CircleBackground } from '@/components/CircleBackground'
 import { Container } from '@/components/Container'
 import { Button } from '@/components/Button';
-
-import ConfirmationNewsLetterSignup from '../../emails/ConfirmationNewsLetterSignup';
-import NotificationNewsLetterSignup from '../../emails/NotificationNewsLetterSignup';
 
 import {
     ActionIcon,
 } from '@/images/icons'
 
 export async function Newsletter() {
-    const fetchContactListLength = async () => {
-        "use server";
+    // const fetchContactListLength = async () => {
+    //     "use server";
 
-        const resend = new Resend(process.env.RESEND_KEY);
+    //     const resend = new Resend(process.env.RESEND_KEY);
 
-        // retrieve length of contacts and notify to la playa
-        const { data } = await resend.contacts.list({
-            audienceId: process.env.RESEND_AUDIENCE as string,
-        });
+    //     // retrieve length of contacts and notify to la playa
+    //     const { data } = await resend.contacts.list({
+    //         audienceId: process.env.RESEND_AUDIENCE as string,
+    //     });
 
-        return data!.data.length as number;
-    };
+    //     return data!.data.length as number;
+    // };
 
-    const signUp = async (formData: FormData) => {
-        "use server";
+    // const signUp = async (formData: FormData) => {
+    //     "use server";
 
-        track("Newsletter signup action");
+    //     track("Newsletter signup action");
 
-        const resend = new Resend(process.env.RESEND_KEY);
+    //     const resend = new Resend(process.env.RESEND_KEY);
 
-        const { email, name } = Object.fromEntries(formData);
+    //     const { email, name } = Object.fromEntries(formData);
 
-        // Basic validation
-        if (!email || !name) {
-            alert("Please enter all required fields");
-            return; // Stop execution if any field is missing
-        }
+    //     // Basic validation
+    //     if (!email || !name) {
+    //         alert("Please enter all required fields");
+    //         return; // Stop execution if any field is missing
+    //     }
 
-        // Email validation using a simple regex pattern
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email as string)) {
-            console.error("Error: Invalid email format.");
-            return; // Stop execution if the email format is invalid
-        }
+    //     // Email validation using a simple regex pattern
+    //     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    //     if (!emailRegex.test(email as string)) {
+    //         console.error("Error: Invalid email format.");
+    //         return; // Stop execution if the email format is invalid
+    //     }
 
-        // Name validation (example: ensure name is at least 2 characters long)
-        if ((name as string).length < 2) {
-            console.error("Error: Name must be at least 2 characters long.");
-            return; // Stop execution if the name doesn't meet the criteria
-        }
+    //     // Name validation (example: ensure name is at least 2 characters long)
+    //     if ((name as string).length < 2) {
+    //         console.error("Error: Name must be at least 2 characters long.");
+    //         return; // Stop execution if the name doesn't meet the criteria
+    //     }
 
-        try {
-            // add signee to the audience
-            const { data: audienceConfirmation } = await resend.contacts.create({
-                email: email as string,
-                firstName: name as string,
-                unsubscribed: false,
-                audienceId: process.env.RESEND_AUDIENCE as string
-            });
+    //     try {
+    //         // add signee to the audience
+    //         const { data: audienceConfirmation } = await resend.contacts.create({
+    //             email: email as string,
+    //             firstName: name as string,
+    //             unsubscribed: false,
+    //             audienceId: process.env.RESEND_AUDIENCE as string
+    //         });
 
-            // send confirmation email to signee
-            await resend.emails.send({
-                from: "Acme <onboarding@resend.dev>",
-                to: [email as string],
-                subject: "Welcome to the Vlyss Newsletter!",
-                react: <ConfirmationNewsLetterSignup /* ADD PARAMS */ />,
-                headers: {
-                    'List-Unsubscribe': '<https://www.laplayamexicancafe.com/unsubscribe>'
-                }
-            });
+    //         // send confirmation email to signee
+    //         await resend.emails.send({
+    //             from: "Acme <onboarding@resend.dev>",
+    //             to: [email as string],
+    //             subject: "Welcome to the Vlyss Newsletter!",
+    //             react: <ConfirmationNewsLetterSignup /* ADD PARAMS */ />,
+    //             headers: {
+    //                 'List-Unsubscribe': '<https://www.laplayamexicancafe.com/unsubscribe>'
+    //             }
+    //         });
 
-            // calculate length of contact list and notify la playa of new signup
-            const numOfContacts = await fetchContactListLength();
-            await resend.emails.send({
-                from: "Acme <onboarding@resend.dev>",
-                to: "hello@vlyss.com",
-                subject: "New Newsletter Signup!",
-                react: <NotificationNewsLetterSignup numOfContacts={numOfContacts} />
-            });
+    //         // calculate length of contact list and notify la playa of new signup
+    //         const numOfContacts = await fetchContactListLength();
+    //         await resend.emails.send({
+    //             from: "Acme <onboarding@resend.dev>",
+    //             to: "hello@vlyss.com",
+    //             subject: "New Newsletter Signup!",
+    //             react: <NotificationNewsLetterSignup numOfContacts={numOfContacts} />
+    //         });
 
-            console.log("Signup successful", audienceConfirmation);
-        } catch (error) {
-            console.error("Error signing up:", error);
-        }
-    };
+    //         console.log("Signup successful", audienceConfirmation);
+    //     } catch (error) {
+    //         console.error("Error signing up:", error);
+    //     }
+    // };
 
     return (
         <>
@@ -109,7 +107,7 @@ export async function Newsletter() {
                             Follow the conversation as Vlyss discusses all things design and technology.
                         </p>
 
-                        <form action={signUp} method="POST" className="mt-2 text-white">
+                        <form onSubmit={() => console.log("tbd")} method="POST" className="mt-2 text-white">
                             <div className='mt-4'>
                                 <label htmlFor="email" className="block text-sm font-semibold leading-6 text-start">
                                     Email

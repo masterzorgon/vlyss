@@ -38,10 +38,10 @@ export function Podcast() {
                                 <OrderIcon className="h-6 w-6 flex-none" />
                             </Button>
                             <Button
-                                href="https://cal.com/hello-vlyss/15min"
                                 variant="outline"
+                                href="#plans"
                             >
-                                <span className="mr-1.5">Book a Meeting</span>
+                                <span className="mr-1.5">View Our Plans</span>
                                 <ActionIcon className="h-6 w-6 flex-none fill-white" />
                             </Button>
                         </div>

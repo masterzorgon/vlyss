@@ -191,7 +191,7 @@ export function Offerings() {
   return (
     <section
       id="offerings"
-      aria-label="What Vlyss offers our customers"
+      aria-label="Vlyss's Service Offerings"
       className="py-20 sm:py-32"
     >
       <Container>

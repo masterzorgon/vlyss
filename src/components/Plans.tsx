@@ -231,15 +231,15 @@ function Plan({
     )
 }
 
-export function Pricing() {
+export function Plans() {
     let [activePeriod, setActivePeriod] = useState<'Monthly' | 'Annually'>(
         'Monthly',
     )
 
     return (
         <section
-            id="pricing"
-            aria-labelledby="pricing-title"
+            id="plans"
+            aria-labelledby="Subscription Plans"
             className="border-t border-gray-200 bg-gray-100 py-20 sm:py-32"
         >
             <Container>

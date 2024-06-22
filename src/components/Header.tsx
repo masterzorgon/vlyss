@@ -121,6 +121,7 @@ export function Header() {
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
                             <Button 
+
                               href="https://www.youtube.com/@VlyssPodcast" 
                               variant="outline" 
                             >
@@ -130,8 +131,7 @@ export function Header() {
                             <Button 
                               variant="solid" 
                               color="white" 
-                              href="https://cal.com/hello-vlyss/15min" 
-                              onClick={() => track("Book a meeting action")}
+                              href="#plans" 
                             >
                               <span className="mr-1.5">Book a Meeting</span>
                               <ActionIcon className="h-6 w-6 flex-none fill-black text-black" />
@@ -154,13 +154,10 @@ export function Header() {
             <Button 
               variant="solid" 
               color="white" 
-              href="https://cal.com/hello-vlyss/15min" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href="#plans" 
               className="hidden lg:block" 
-              onClick={() => track("Book a meeting action")}
             >
-              <span>Book a Meeting</span>
+              <span>View Our Plans</span>
             </Button>
           </div>
         </Container>

@@ -1,52 +1,68 @@
 import { NextRequest, NextResponse } from "next/server";
+import { headers } from 'next/headers';
 import Stripe from "stripe";
-import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_KEY as string);
-const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET as string;
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-    apiVersion: "2024-04-10"
-});
-
-// Stripe requires the raw body to construct the event.
-export const config = {
-    api: {
-      bodyParser: false,
-    },
-  };
+import { stripe, resend, webhookSecret } from '@/lib/env';
+import { SubscriptionNotification, SubscriptionConfirmation } from "@/emails/subscription";
 
 export async function POST(req: NextRequest, res: NextResponse) {
-    let event;
+    const body = await req.text(); // get body in string format
+    const signature = headers().get("stripe-signature") as string; // authenticates req as from stripe
 
-    console.log("req.headers", req.headers);
-    if (req.method !== "POST")
-        return NextResponse.json({ error: "Only POST requests allowed" }, { status: 500 });
+    let event: Stripe.Event;
 
     try {
-        const sig = (req.headers as any)['stripe-signature'];
-        const payload = req.arrayBuffer().toString()
-        event = stripe.webhooks.constructEvent(payload, sig, webhookSecret);
-    } catch (err: any) {
-        console.error(err);
-        return NextResponse.json({ error: `Webhook Error: ${err.message}` }, { status: 400 });
+        event = stripe.webhooks.constructEvent(
+            body,
+            signature,
+            webhookSecret
+        );
+        console.log("Event", event);
+    } catch (error) {
+        return new NextResponse("Invalid signautre", { status: 400 });
     }
 
-    // Handle the event
-    switch (event.type) {
-        case 'subscription_schedule.created':
-            const subscriptionIntent = event.data.object;
-            console.log(`PaymentIntent for ${subscriptionIntent.created} was successful!`);
+    const session = event.data.object as Stripe.Checkout.Session;
 
-            // send confirmation email to signee
-            const { data } = await resend.emails.send({
-                from: "Acme <onboarding@resend.dev>",
-                to: "nathan@vlyss.com",
-                subject: "New Subscriber to Vlyss",
-                text: "<h1>NEW SUBSCRIBER!</h1>",
-            });
+    let resendData;
+    if (event.type === "checkout.session.completed") {
 
-            return NextResponse.json({ data });
-        default:
-            console.log(`Unhandled event type ${event.type}.`);
+        const subscription = await stripe.subscriptions.retrieve(session.subscription as string);
+
+        const customerEmail = (session as any).customer_details.email as string;
+        const customerName = (session as any).customer_details.name as string;
+        const customerID = (session as any).customer as string;
+        const subscriptionPlan = ((subscription as any).plan.amount.toString() === "79900" ? "Pro Subscription" : "Standard Subscription");
+
+        // notify vlyss of subscription
+        await resend.emails.send({
+            from: "Acme <onboarding@resend.dev>",
+            to: "hello@vlyss.com",
+            cc: [
+                "nathan@vlyss.com",
+                "cade@vlyss.com"
+            ],
+            subject: "New Vlyss Subscriber 🎉",
+            react: SubscriptionNotification({
+                customerEmail,
+                customerName,
+                customerID,
+                subscriptionPlan
+            })
+        });
+
+        // send confirmation email to customer
+        // BUG: cannoy send emails to other emails besides hello@vlyss.com
+        // const confirmData = await resend.emails.send({
+        //     from: "Acme <onboarding@resend.dev>",
+        //     // to: customerEmail,
+        //     to: "nathan.zebedee@gmail.com",
+        //     subject: "Vlyss Subscription Confirmation",
+        //     react: SubscriptionConfirmation({
+        //         subscriptionPlan
+        //     })
+        // })
     }
+
+    return NextResponse.json({ resendData }, { status: 200 });
 }

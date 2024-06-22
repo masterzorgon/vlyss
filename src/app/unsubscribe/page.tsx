@@ -8,7 +8,7 @@ import {
     ActionIcon,
 } from '@/images/icons'
 
-import ConfirmationUnsubscribe from '../../../emails/ConfirmationUnsubscribe';
+import ConfirmationUnsubscribe from '../../emails/ConfirmationUnsubscribe';
 
 
 
