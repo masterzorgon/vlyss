@@ -102,7 +102,7 @@ function Review({
     >
       <blockquote className="text-gray-900">
         <StarRating rating={rating} />
-        <p className="mt-4 text-lg font-semibold leading-6 before:content-['“'] after:content-['”']">
+        <p className="mt-4 text-lg font-medium leading-6 before:content-['“'] after:content-['”']">
           {title}
         </p>
         <p className="mt-3 text-base leading-7">{body}</p>
