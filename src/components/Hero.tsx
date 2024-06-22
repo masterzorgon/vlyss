@@ -52,7 +52,7 @@ export function Hero() {
             <Container className='relative text-white h-full py-20 m-20 z-10 border-2 border-white/10 backdrop-blur-md bg-white/10 rounded-2xl shadow-xl'>
                 <div className="flex flex-col items-center text-center">
                     <div className="relative z-10 lg:max-w-none">
-                        <h1 className="text-4xl sm:text-6xl font-medium leading-tight text-break">
+                        <h1 className="text-4xl sm:text-6xl leading-tight text-break">
                             Vlyss brings your vision to life
                         </h1>
                         <p className="mt-6 text-lg sm:text-xl font-medium max-w-xl mx-auto">
