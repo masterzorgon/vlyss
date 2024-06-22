@@ -232,7 +232,7 @@ export function Reviews() {
       <Container className='bg-gradient-to-b from-gray-50 to-white'>
         <h2
           id="reviews-title"
-          className="text-3xl font-medium tracking-tight text-gray-900 sm:text-center"
+          className="text-3xl tracking-tight text-gray-900 sm:text-center"
         >
           Why Vlyss?
         </h2>
