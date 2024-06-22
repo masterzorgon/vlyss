@@ -1,3 +1,5 @@
+"use client"
+
 import { Resend } from 'resend';
 
 import { CircleBackground } from '@/components/CircleBackground'
@@ -66,7 +68,7 @@ export default async function Unsubscribe() {
                             By clicking &quot;Unsubscribe&quot;, you are choosing to remove yourself from the La Playa Mexican Cafe newsletter. 
                         </p>
 
-                        <form action={()=>console.log("")} method="POST" className="mt-2 text-white">
+                        <form onSubmit={()=>console.log("")} method="POST" className="mt-2 text-white">
                             <div className='mt-4'>
                                 <label htmlFor="email" className="block text-sm font-semibold leading-6 text-start">
                                     Email
