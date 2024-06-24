@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { Popover } from '@headlessui/react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { track } from '@vercel/analytics';
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'

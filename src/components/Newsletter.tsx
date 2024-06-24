@@ -96,7 +96,7 @@ export async function Newsletter() {
                             <div className="mt-4 flex justify-center border-t border-gray-900/10 pt-8">
                                 <Button
                                     variant="solid"
-                                    color="cyan"
+                                    color="splendor"
                                     type="submit"
                                     disabled={isSending}
                                     loading={isSending}

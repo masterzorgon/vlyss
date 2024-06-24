@@ -1,61 +1,69 @@
 "use client"
 
+import React from 'react';
 import { Resend } from 'resend';
+import { toast } from 'react-toastify';
 
-import { CircleBackground } from '@/components/CircleBackground'
-import { Container } from '@/components/Container'
-import { Button } from '@/components/Button'
+import { CircleBackground } from '@/components/CircleBackground';
+import { Container } from '@/components/Container';
+import { Button } from '@/components/Button';
 
-import {
-    ActionIcon,
-} from '@/images/icons'
+import { ActionIcon } from '@/images/icons';
 
-// import ConfirmationUnsubscribe from '../../emails/ConfirmationUnsubscribe';
+import { validateEmail } from '@/lib/utils';
 
 export default async function Unsubscribe() {
-    // const unsubscribe = async (formData: FormData) => {
-    //     "use server";
+    const [isSending, setIsSending] = React.useState<boolean>(false);
 
-    //     const resend = new Resend(process.env.RESEND_KEY);
+    const handleUnsubscribe = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
 
-    //     const { email } = Object.fromEntries(formData);
+        const form = event.target as HTMLFormElement;
+        const emailInput = form.email as HTMLInputElement;
+        const email = emailInput.value;
 
-    //     // Email validation using a simple regex pattern
-    //     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    //     if (!emailRegex.test(email as string)) {
-    //         console.error("Error: Invalid email format.");
-    //         return; // Stop execution if the email format is invalid
-    //     }
+        if (!validateEmail(email)) {
+            toast.error("Invalid email format");
+            setIsSending(false);
+            return;
+        }
 
-    //     try {
-    //         // remove user from audience
-    //         const { data: audienceConfirmation } = await resend.contacts.remove({
-    //             email: email as string,
-    //             audienceId: process.env.RESEND_AUDIENCE as string
-    //         });
+        const url = "/api/unsubscribe";
 
-    //         // send confirmation email to user
-    //         await resend.emails.send({
-    //             from: "Acme <onboarding@resend.dev>",
-    //             to: [email as string],
-    //             subject: "You Are Removed From The La Playa Newsletter!",
-    //             react: <ConfirmationUnsubscribe /* ADD PARAMS */ />,
-    //         });
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            });
 
-    //         console.log("Signup successful", audienceConfirmation);
-    //     } catch (error) {
-    //         console.error("Error signing up:", error);
-    //     }
-    // };
+            const result = await response.json();
+            console.log(result);
+
+            if (response.ok) {
+                toast.success("Successfully unsubscribed!");
+            } else {
+                toast.error(result.error || "An error occurred. Try again later.");
+            }
+        } catch (error) {
+            console.error("Request failed:", error);
+            toast.error("An error occurred. Try again later.");
+        } finally {
+            setIsSending(false);
+            emailInput.value = '';
+        }
+    };
 
     return (
         <>
             <section
                 id="get-free-shares-today"
-                className="relative overflow-hidden bg-cyan-700 py-28 sm:py-28"
+                className="relative overflow-hidden bg-zinc-900 py-28 sm:py-28"
             >
                 <div className="flex justify-center absolute mx-auto w-screen scale-[120%] sm:scale-100 top-10 sm:top-14">
-                    <CircleBackground color="#fff" className="animate-spin-slower" />
+                    <CircleBackground color="#e087dd" className="animate-spin-slower" />
                 </div>
                 <Container className="relative">
                     <div className="sm:mt-10 mx-auto max-w-md text-center">
@@ -63,10 +71,11 @@ export default async function Unsubscribe() {
                             Unsubscribe From Our Newsletter
                         </h2>
                         <p className="mt-4 text-lg text-gray-300">
-                            By clicking &quot;Unsubscribe&quot;, you are choosing to remove yourself from the La Playa Mexican Cafe newsletter. 
+                            Enter the email you want to unsubscribe from the Vlyss newsletter.<br/>
+                            By clicking &quot;Unsubscribe&quot;, you are choosing to remove yourself from the Vlyss newsletter.
                         </p>
 
-                        <form onSubmit={()=>console.log("")} method="POST" className="mt-2 text-white">
+                        <form onSubmit={handleUnsubscribe} method="DELETE" className="mt-2 text-white">
                             <div className='mt-4'>
                                 <label htmlFor="email" className="block text-sm font-semibold leading-6 text-start">
                                     Email
@@ -86,11 +95,13 @@ export default async function Unsubscribe() {
                             <div className="mt-4 flex justify-center border-t border-gray-900/10 pt-8">
                                 <Button
                                     variant="solid"
-                                    color="white"
+                                    color="splendor"
                                     type="submit"
+                                    disabled={isSending}
+                                    loading={isSending}
                                 >
                                     <span className="mr-1.5">Unsubscribe</span>
-                                    <ActionIcon className="h-6 w-6 flex-none fill-black text-black" />
+                                    <ActionIcon className="h-6 w-6 flex-none fill-white text-white" />
                                 </Button>
                             </div>
                         </form>

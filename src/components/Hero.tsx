@@ -61,7 +61,7 @@ export function Hero() {
                         <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4 justify-center">
                             <Button 
                                 variant="solid" 
-                                color="cyan" 
+                                color="splendor" 
                                 onClick={() => {
                                     console.log("EVENT TRIGGERED")
                                     track("Podcast", { location: "Hero" });
