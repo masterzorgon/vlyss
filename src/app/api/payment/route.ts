@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { headers } from 'next/headers';
 import Stripe from "stripe";
 
-import { stripe, resend, webhookSecret } from '@/lib/env';
-import { SubscriptionNotification, SubscriptionConfirmation } from "@/emails/subscription";
+import { stripe, resend, webhookSecret } from '@/lib/constants';
+import { SubscriptionNotification, SubscriptionConfirmation } from "@/emails/Subscription";
 
 export async function POST(req: NextRequest, res: NextResponse) {
     const body = await req.text(); // get body in string format
@@ -51,18 +51,16 @@ export async function POST(req: NextRequest, res: NextResponse) {
             })
         });
 
-        // send confirmation email to customer
-        // BUG: cannoy send emails to other emails besides hello@vlyss.com
-        // const confirmData = await resend.emails.send({
-        //     from: "Acme <onboarding@resend.dev>",
-        //     // to: customerEmail,
-        //     to: "nathan.zebedee@gmail.com",
-        //     subject: "Vlyss Subscription Confirmation",
-        //     react: SubscriptionConfirmation({
-        //         subscriptionPlan
-        //     })
-        // })
+        const confirmData = await resend.emails.send({
+            from: "Acme <onboarding@resend.dev>",
+            // to: customerEmail,
+            to: "nathan.zebedee@gmail.com",
+            subject: "Vlyss Subscription Confirmation",
+            react: SubscriptionConfirmation({
+                subscriptionPlan
+            })
+        })
     }
 
     return NextResponse.json({ resendData }, { status: 200 });
-}
+};

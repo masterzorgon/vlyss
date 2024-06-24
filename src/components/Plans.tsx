@@ -110,7 +110,7 @@ function Plan({
     featured?: boolean
 }) {
     // const handleCheckoutSession = async () => {
-    //     const url = "/api/stripe/subscription";
+    //     const url = "/api/payment";
 
     //     try {
     //         const response = await fetch(url, {
