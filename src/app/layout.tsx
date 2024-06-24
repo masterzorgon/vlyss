@@ -1,9 +1,11 @@
+import { type Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import clsx from 'clsx'
 import { Analytics } from "@vercel/analytics/react"
+import { ToastContainer } from 'react-toastify';
 
 import '@/styles/tailwind.css'
-import { type Metadata } from 'next'
+import 'react-toastify/dist/ReactToastify.css';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -35,6 +37,10 @@ export default function RootLayout({
           {children}
           <Analytics />
         </div>
+        <ToastContainer 
+        autoClose={5000}
+        closeOnClick
+      />
       </body>
     </html>
   )

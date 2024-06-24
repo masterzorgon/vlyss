@@ -1,89 +1,60 @@
 "use client";
 
+import { useState } from 'react';
+import { toast } from 'react-toastify';
+
 import { CircleBackground } from '@/components/CircleBackground'
 import { Container } from '@/components/Container'
 import { Button } from '@/components/Button';
 
-import {
-    ActionIcon,
-} from '@/images/icons'
+import { validateEmail } from '@/lib/utils';
+
+import { ActionIcon } from '@/images/icons'
 
 export async function Newsletter() {
-    // const fetchContactListLength = async () => {
-    //     "use server";
+    const [isSending, setIsSending] = useState<boolean>(false);
 
-    //     const resend = new Resend(process.env.RESEND_KEY);
+    const handleNewsletterSignup = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        setIsSending(true);
 
-    //     // retrieve length of contacts and notify to la playa
-    //     const { data } = await resend.contacts.list({
-    //         audienceId: process.env.RESEND_AUDIENCE as string,
-    //     });
+        const form = event.target as HTMLFormElement;
+        const emailInput = form.email as HTMLInputElement;
+        const email = emailInput.value;
 
-    //     return data!.data.length as number;
-    // };
+        if (!validateEmail(email)) {
+            toast.error("Invalid email format");
+            setIsSending(false);
+            return;
+        }
 
-    // const signUp = async (formData: FormData) => {
-    //     "use server";
+        const url = "/api/newsletter";
 
-    //     track("Newsletter signup action");
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            });
 
-    //     const resend = new Resend(process.env.RESEND_KEY);
+            const result = await response.json();
+            console.log(result)
 
-    //     const { email, name } = Object.fromEntries(formData);
-
-    //     // Basic validation
-    //     if (!email || !name) {
-    //         alert("Please enter all required fields");
-    //         return; // Stop execution if any field is missing
-    //     }
-
-    //     // Email validation using a simple regex pattern
-    //     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    //     if (!emailRegex.test(email as string)) {
-    //         console.error("Error: Invalid email format.");
-    //         return; // Stop execution if the email format is invalid
-    //     }
-
-    //     // Name validation (example: ensure name is at least 2 characters long)
-    //     if ((name as string).length < 2) {
-    //         console.error("Error: Name must be at least 2 characters long.");
-    //         return; // Stop execution if the name doesn't meet the criteria
-    //     }
-
-    //     try {
-    //         // add signee to the audience
-    //         const { data: audienceConfirmation } = await resend.contacts.create({
-    //             email: email as string,
-    //             firstName: name as string,
-    //             unsubscribed: false,
-    //             audienceId: process.env.RESEND_AUDIENCE as string
-    //         });
-
-    //         // send confirmation email to signee
-    //         await resend.emails.send({
-    //             from: "Acme <onboarding@resend.dev>",
-    //             to: [email as string],
-    //             subject: "Welcome to the Vlyss Newsletter!",
-    //             react: <ConfirmationNewsLetterSignup /* ADD PARAMS */ />,
-    //             headers: {
-    //                 'List-Unsubscribe': '<https://www.laplayamexicancafe.com/unsubscribe>'
-    //             }
-    //         });
-
-    //         // calculate length of contact list and notify la playa of new signup
-    //         const numOfContacts = await fetchContactListLength();
-    //         await resend.emails.send({
-    //             from: "Acme <onboarding@resend.dev>",
-    //             to: "hello@vlyss.com",
-    //             subject: "New Newsletter Signup!",
-    //             react: <NotificationNewsLetterSignup numOfContacts={numOfContacts} />
-    //         });
-
-    //         console.log("Signup successful", audienceConfirmation);
-    //     } catch (error) {
-    //         console.error("Error signing up:", error);
-    //     }
-    // };
+            if (response.ok) {
+                toast.success("Successfully signed up!");
+            } else {
+                toast.error(result.error || "An error occurred. Try again later.");
+            }
+        } catch (err) {
+            console.error("Request failed:", err);
+            toast.error("An error occurred. Try again later.");
+        } finally {
+            setIsSending(false);
+            emailInput.value = '';
+        }
+    };
 
     return (
         <>
@@ -127,6 +98,8 @@ export async function Newsletter() {
                                     variant="solid"
                                     color="cyan"
                                     type="submit"
+                                    disabled={isSending}
+                                    loading={isSending}
                                 >
                                     <span className="mr-1.5">Subscribe</span>
                                     <ActionIcon className="h-6 w-6 flex-none fill-white text-white" />

@@ -47,10 +47,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
         console.error(err);
         return NextResponse.json({ err: err }, { status: 500 });
     }
-}
+};
 
 // endpoint to unsubscribe from the vlyss news letter
-export async function GET(req: NextRequest) {
+export async function DELETE(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const email = searchParams.get('email');
 
@@ -78,4 +78,4 @@ export async function GET(req: NextRequest) {
         console.error(err);
         return NextResponse.json({ error: 'An error occurred while unsubscribing' }, { status: 500 });
     }
-}
+};
