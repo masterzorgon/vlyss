@@ -33,7 +33,7 @@ export function Podcast() {
                             Every week, the Vlyss team releases an episode spanning topics across technology, design, culture, and college life. Join us as we talk through our thoughts and experiences as young entreprenuers.
                         </p>
                         <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4">
-                            <Button variant="solid" color="cyan" href="https://www.youtube.com/@VlyssPodcast" target="_blank" rel="noopener noreferrer">
+                            <Button variant="solid" color="splendor" href="https://www.youtube.com/@VlyssPodcast" target="_blank" rel="noopener noreferrer">
                                 <span className="mr-1.5">Our Podcast</span>
                                 <OrderIcon className="h-6 w-6 flex-none" />
                             </Button>

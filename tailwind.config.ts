@@ -41,7 +41,7 @@ export default {
         'accent': '#F4EE83'
       }),
       fontFamily: {
-        sans: ['"Publica Sans Round"'],
+        sans: ["Publica Sans Round", "Helvetica Neue", "sans-serif"],
       },
       keyframes: {
         'fade-in': {
