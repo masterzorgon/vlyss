@@ -3,7 +3,7 @@ import { headers } from 'next/headers';
 import Stripe from "stripe";
 
 import { stripe, resend, webhookSecret } from '@/lib/constants';
-import { SubscriptionNotification, SubscriptionConfirmation } from "@/emails/Subscription";
+import { SubscriptionNotification, SubscriptionConfirmation } from "../../../emails/Subscription";
 
 export async function POST(req: NextRequest, res: NextResponse) {
     const body = await req.text(); // get body in string format
