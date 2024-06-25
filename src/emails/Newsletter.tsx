@@ -3,7 +3,7 @@ import * as React from "react";
 
 import { EmailTemplate } from "./components/EmailTemplate";
 
-interface NewsletterNotification {
+interface NewsletterNotificationInterface {
     email: string;
     newsletterCount: string
 }
@@ -12,7 +12,7 @@ interface NewsletterNotification {
 export const NewsLetterNotification = ({
     email,
     newsletterCount
-}: NewsletterNotification) => {
+}: NewsletterNotificationInterface) => {
     const previewText = email;
     const heading = "New Newsletter Signup!";
     const body = [
@@ -29,12 +29,12 @@ export const NewsLetterNotification = ({
     );
 };
 
-interface NewsletterConfirmation {
+interface NewsletterConfirmationInterface {
     email: string;
 }
 
 // email sent to newsletter sign up
-export const NewsletterConfirmation = ({ email }: NewsletterConfirmation) => {
+export const NewsletterConfirmation = ({ email }: NewsletterConfirmationInterface) => {
     const previewText = "You've joined the Vlyss Newsletter!";
     const heading = "Welcome onboard to the Vlyss Newsletter!";
     const body = [
