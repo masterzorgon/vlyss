@@ -8,6 +8,7 @@ interface NewsletterNotification {
     newsletterCount: string
 }
 
+// email that notifies vlyss
 export const NewsLetterNotification = ({
     email,
     newsletterCount

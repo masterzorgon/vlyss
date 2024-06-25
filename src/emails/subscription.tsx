@@ -10,6 +10,7 @@ interface SubscriptionNotification {
     subscriptionPlan: string;
 }
 
+// email that notifies vlyss
 export const SubscriptionNotification = ({
     customerEmail,
     customerName,
@@ -38,6 +39,7 @@ interface SubscriptionConfirmation {
     subscriptionPlan: string;
 }
 
+// confirmation email sent to customer
 export const SubscriptionConfirmation = ({
     subscriptionPlan,
 }: SubscriptionConfirmation) => {

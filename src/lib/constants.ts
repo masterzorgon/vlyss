@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 export const CC_CONTACTS = [
     "nathan@vlyss.com",
     "cade@vlyss.com",
-    "luke_smith10@baylor.edu"
+    "luke@vlyss.com"
 ];
 export const VLYSS_EMAIL = "hello@vlyss.com";
 export const resend = new Resend(process.env.RESEND_KEY! as string);
