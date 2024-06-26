@@ -229,7 +229,7 @@ export function Plans() {
                     >
                         Simple Pricing. Simple Onboarding.
                     </h2>
-                    <p className="mt-2 text-lg text-gray-600">
+                    <p className="mt-2 text-lg text-gray-600 max-w-md mx-auto">
                         Join the Vlyss family by clicking &quot;Get started today.&quot; Pause or cancel anytime.
                     </p>
                 </div>
