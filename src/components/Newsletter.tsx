@@ -11,7 +11,7 @@ import { validateEmail } from '@/lib/utils';
 
 import { ActionIcon } from '@/images/icons'
 
-export async function Newsletter() {
+export function Newsletter() {
     const [isSending, setIsSending] = useState<boolean>(false);
 
     const handleNewsletterSignup = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -60,7 +60,7 @@ export async function Newsletter() {
         <>
             <section
                 id="newsletter"
-                aria-labelledby="Join our newsletter"
+                aria-labelledby="Vlyss Newsletter"
                 className="relative overflow-hidden bg-zinc-900 py-28 sm:pb-32"
             >
                 <div className="flex justify-center absolute mx-auto w-screen scale-[120%] top-0 lg:scale-100 lg:top-14">
@@ -76,7 +76,7 @@ export async function Newsletter() {
                             Follow the conversation as Vlyss discusses all things design and technology.
                         </p>
 
-                        <form onSubmit={handleNewsletterSignup} method="POST" className="mt-2 text-white">
+                        <form onSubmit={handleNewsletterSignup} method="POST" id="form" className="mt-2 text-white">
                             <div className='mt-4'>
                                 <label htmlFor="email" className="block text-sm font-semibold leading-6 text-start">
                                     Email

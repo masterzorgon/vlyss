@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { resend, audienceId, VLYSS_EMAIL, CC_CONTACTS } from '@/lib/constants';
 
-import { NewsLetterNotification, NewsletterConfirmation, NewsletterUnsubscribe } from "../../../emails/Newsletter";
+import { NewsLetterNotification, NewsletterConfirmation, NewsletterUnsubscribe } from "@/emails/Newsletter";
 
 // endpoint to sign up for the vlyss newsletter
 export async function POST(req: NextRequest, res: NextResponse) {
