@@ -108,32 +108,32 @@ export function Header() {
                           className="absolute inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-zinc-900 px-6 pb-6 pt-32 shadow-2xl shadow-gray-900/20"
                         >
                           <div className="space-y-4">
+                            <MobileNavLink href="#offerings">
+                              Offerings
+                            </MobileNavLink>
                             <MobileNavLink href="#newsletter">
                               Newsletter
                             </MobileNavLink>
                             <MobileNavLink href="#reviews">
                               Reviews
                             </MobileNavLink>
-                            <MobileNavLink href="#pricing">
-                              Pricing
-                            </MobileNavLink>
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
-                            <Button 
+                            <Button
 
-                              href="https://www.youtube.com/@VlyssPodcast" 
-                              variant="outline" 
+                              href="https://www.youtube.com/@VlyssPodcast"
+                              variant="outline"
                             >
                               <span className="mr-1.5 text-white">Our Podcast</span>
                               <OrderIcon className="h-6 w-6 flex-none" />
                             </Button>
-                            <Button 
-                              variant="solid" 
-                              color="white" 
-                              href="#plans" 
+                            <Button
+                              variant="solid"
+                              color="white"
+                              href="#plans"
+                              className="hidden lg:block"
                             >
-                              <span className="mr-1.5">Book a Meeting</span>
-                              <ActionIcon className="h-6 w-6 flex-none fill-black text-black" />
+                              <span>View Our Plans</span>
                             </Button>
                           </div>
                         </Popover.Panel>
@@ -143,18 +143,18 @@ export function Header() {
                 </>
               )}
             </Popover>
-            <Button 
-              href="https://www.youtube.com/@VlyssPodcast" 
-              variant="outline" 
-              className="hidden lg:block border-black" 
+            <Button
+              href="https://www.youtube.com/@VlyssPodcast"
+              variant="outline"
+              className="hidden lg:block border-black"
             >
               <span className="text-white">Our Podcast</span>
             </Button>
-            <Button 
-              variant="solid" 
-              color="white" 
-              href="#plans" 
-              className="hidden lg:block" 
+            <Button
+              variant="solid"
+              color="white"
+              href="#plans"
+              className="hidden lg:block"
             >
               <span>View Our Plans</span>
             </Button>
