@@ -56,7 +56,7 @@ const plans = [
             "Do you have a special request? Get in touch with our sales team!",
         button: {
             label: 'Get in touch',
-            href: "https://buy.stripe.com/6oE0232p0dmd5i03cj",
+            href: "https://cal.com/hello-vlyss/15min",
         },
         features: [],
         logomarkClassName: 'fill-gray-400',
