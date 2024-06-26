@@ -16,7 +16,7 @@ const plans = [
             'You need a website with maintenance, hosting, and analytics out-of-the-box.',
         button: {
             label: 'Get started today',
-            href: "https://buy.stripe.com/test_9AQ17m7uqfQf4jmeUW",
+            href: "https://buy.stripe.com/4gw1672p02Hz4dW8wB",
         },
         features: [
             "One request at a time",
@@ -35,7 +35,7 @@ const plans = [
             'You have a large project that needs dedicated support and in-depth work.',
         button: {
             label: 'Get started today',
-            href: "https://buy.stripe.com/test_00gg2gg0WfQf036dQR",
+            href: "https://buy.stripe.com/3cs8yz6Fg1Dv9yg14a",
         },
         features: [
             "Two requests at a time",
