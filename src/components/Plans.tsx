@@ -56,12 +56,12 @@ const plans = [
             "Do you have a special request? Get in touch with our sales team!",
         button: {
             label: 'Get in touch',
-            href: "https://cal.com/hello-vlyss/15min",
+            href: "https://buy.stripe.com/6oE0232p0dmd5i03cj",
         },
         features: [],
         logomarkClassName: 'fill-gray-400',
     },
-]
+];
 
 function CheckIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     return (
