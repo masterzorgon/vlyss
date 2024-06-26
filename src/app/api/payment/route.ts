@@ -6,8 +6,12 @@ import { stripe, resend, webhookSecret, VLYSS_EMAIL, CC_CONTACTS } from '@/lib/c
 import { SubscriptionConfirmation, SubscriptionNotification } from "@/emails/Subscription";
 
 export async function POST(req: NextRequest, res: NextResponse) {
+    console.log("ENDPOINT HIT");
+
     const body = await req.text(); // get body in string format
-    const signature = headers().get("Stripe-Signature") as string; // authenticates req as from stripe
+    const signature = headers().get("stripe-signature") as string; // authenticates req as from stripe
+
+    console.log("SIG VALIDATED");
 
     try {
         const event: Stripe.Event = stripe.webhooks.constructEvent(
@@ -48,6 +52,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
             });
         }
 
+        console.log("SUCCESS");
         return NextResponse.json({ event }, { status: 200 });
     } catch (error) {
         return new NextResponse("Invalid signautre", { status: 400 });
