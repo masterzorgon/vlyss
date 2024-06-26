@@ -109,35 +109,6 @@ function Plan({
     logomarkClassName?: string
     featured?: boolean
 }) {
-    // const handleCheckoutSession = async () => {
-    //     const url = "/api/payment";
-
-    //     try {
-    //         const response = await fetch(url, {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify({ email }),
-    //         });
-
-    //         const result = await response.json();
-    //         console.log("RESULT", result);
-
-    //         if (response.ok) {
-    //             toast.success("Successfully signed up!");
-    //         } else {
-    //             toast.error(result.error || "An error occurred. Try again later.");
-    //         }
-    //     } catch (error) {
-    //         console.error("Request failed:", error);
-    //         toast.error("An error occurred. Try again later.");
-    //     } finally {
-    //         setIsSending(false);
-    //         emailInput.value = '';
-    //     }
-    // };
-
     return (
         <section
             className={clsx(

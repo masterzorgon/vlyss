@@ -1,7 +1,6 @@
 "use client"
 
 import React from 'react';
-import { Resend } from 'resend';
 import { toast } from 'react-toastify';
 
 import { CircleBackground } from '@/components/CircleBackground';

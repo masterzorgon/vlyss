@@ -76,7 +76,7 @@ export async function Newsletter() {
                             Follow the conversation as Vlyss discusses all things design and technology.
                         </p>
 
-                        <form onSubmit={() => console.log("tbd")} method="POST" className="mt-2 text-white">
+                        <form onSubmit={handleNewsletterSignup} method="POST" className="mt-2 text-white">
                             <div className='mt-4'>
                                 <label htmlFor="email" className="block text-sm font-semibold leading-6 text-start">
                                     Email

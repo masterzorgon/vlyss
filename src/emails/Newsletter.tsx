@@ -41,8 +41,8 @@ export const NewsletterConfirmation = ({ email }: NewsletterConfirmationInterfac
         {
             value: (
                 <>
-                    We're so happy you decided to join the conversation on all things Vlyss!
-                    Don't worry, we don't plan on spamming you. This newsletter is simply an
+                    We&apos;re so happy you decided to join the conversation on all things Vlyss!
+                    Don&apos;t worry, we don&apos;t plan on spamming you. This newsletter is simply an
                     avenue through which we publicize announcements and, occasionally, our
                     thoughts on the state of technology, design, and culture.
                 </>
