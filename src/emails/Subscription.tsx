@@ -1,4 +1,3 @@
-import { Link } from "@react-email/components";
 import * as React from "react";
 
 import { EmailTemplate } from "./components/EmailTemplate";
@@ -16,21 +15,19 @@ export const SubscriptionConfirmation = ({
         {
             value: "Please reply to this email with any questions or tasks!"
         },
-        {
-            value: (
-                <>
-                    Book a meeting with the vlyss team using{" "}
-                    <Link href="https://cal.com/hello-vlyss/15min">this link</Link>.
-                </>
-            )
-        },
     ];
+    const cta = {
+        message: "Book a meeting with the vlyss team using the link below!",
+        href: "https://cal.com/hello-vlyss/15min",
+        buttonText: "Book a Meeting"
+    };
 
     return (
         <EmailTemplate
             previewText={previewText}
             heading={heading}
             body={body}
+            cta={cta}
         />
     );
 };
