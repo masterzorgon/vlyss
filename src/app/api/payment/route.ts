@@ -23,7 +23,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
         console.log("EVENT CREATED");
 
         if (event.type === "checkout.session.completed") {
-            console.log("EVENT IS CHECKOUT SESSION COMPLETED");
+            console.log("EVENT IS 'CHECKOUT SESSION COMPLETED'");
 
             const session = event.data.object as Stripe.Checkout.Session;
             const customerEmail = (session as any).customer_details.email as string;
@@ -32,8 +32,9 @@ export async function POST(req: NextRequest, res: NextResponse) {
             console.log("SESSION FOUND");
 
             const subscription = await stripe.subscriptions.retrieve(session.subscription?.toString() as string);
-            const subscriptionPlan = await (subscription as any).plan.amount.toString() === "79900" ? "Premium Subscription" : "Standard Subscription";
             console.log("SUBSCRIPTION FOUND");
+            const subscriptionPlan = (subscription as any).plan.amount.toString() === "79900" ? "Premium Subscription" : "Standard Subscription";
+            console.log("SUBSCRIPTION PLAN FOUND");
 
             // notify vlyss of subscription
             await resend.emails.send({
