@@ -31,13 +31,28 @@ export async function POST(req: NextRequest, res: NextResponse) {
             const customerID = (session as any).customer as string;
             console.log("SESSION FOUND");
 
-            // const subscription = await stripe.subscriptions.retrieve(session.subscription as string);
-            // console.log("SUBSCRIPTION FOUND");
-            // const subscriptionPlan = (subscription as any).plan.amount.toString() === "79900" ? "Premium Subscription" : "Standard Subscription";
-            // console.log("SUBSCRIPTION PLAN FOUND");
-
-            const subscriptionPlan = "demo";
-
+            let subscriptionPlan = "Subscription Undefined";
+            try {
+                // Retrieve the subscription
+                const subscription = await stripe.subscriptions.retrieve(session.subscription as string);
+            
+                // Check if the subscription exists
+                if (subscription) {
+                    console.log("SUBSCRIPTION FOUND");
+                    // Extract the subscription plan amount
+                    subscriptionPlan = (subscription as any).plan.amount.toString() === "79900" ? "Premium Subscription" : "Standard Subscription";
+            
+                    console.log("SUBSCRIPTION PLAN FOUND");
+                    console.log(`Subscription Plan: ${subscriptionPlan}`);
+            
+                    // You can now use the subscriptionPlan variable as needed
+                } else {
+                    console.log("SUBSCRIPTION NOT FOUND");
+                }
+            } catch (error) {
+                console.error("Error retrieving subscription:", error);
+            }
+            
             // notify vlyss of subscription
             await resend.emails.send({
                 from: VLYSS_EMAIL,
@@ -48,7 +63,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
                     customerEmail,
                     customerName,
                     customerID,
-                    // subscriptionPlan
                     subscriptionPlan
                 })
             });
