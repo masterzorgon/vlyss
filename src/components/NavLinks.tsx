@@ -9,7 +9,7 @@ export function NavLinks() {
   let timeoutRef = useRef<number | null>(null)
 
   return [
-    ['Offerings', '#offerings'],
+    ['Plans', '#plans'],
     ['Pricing', '#pricing'],
     ['Newsletter', '#newsletter'],
     ['Reviews', '#reviews'],

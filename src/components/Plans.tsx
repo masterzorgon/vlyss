@@ -25,10 +25,10 @@ const plans = [
             "Website hosting",
             "Website traffic analytics"
         ],
-        logomarkClassName: 'fill-gray-300',
+        logomarkClassName: 'fill-gray-400',
     },
     {
-        name: 'Pro',
+        name: 'Premium',
         featured: true,
         price: { Monthly: '$799', Annually: '$8,995' },
         description:
@@ -59,7 +59,7 @@ const plans = [
             href: "https://cal.com/hello-vlyss/15min",
         },
         features: [],
-        logomarkClassName: 'fill-gray-300',
+        logomarkClassName: 'fill-gray-400',
     },
 ]
 
@@ -81,8 +81,16 @@ function CheckIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
                 strokeLinejoin="round"
             />
         </svg>
-    )
-}
+    );
+};
+
+function BadgeIcon(props: React.ComponentPropsWithRef<'svg'>) {
+    return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+            <path fillRule="evenodd" d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clipRule="evenodd" />
+        </svg>
+    );
+};
 
 function Plan({
     name,
@@ -122,8 +130,9 @@ function Plan({
                     featured ? 'text-white' : 'text-gray-900',
                 )}
             >
-                <Logomark className={clsx('h-6 w-6 flex-none', logomarkClassName)} />
-                <span className="ml-4">{name}</span>
+                {/* <Logomark className={clsx('h-6 w-6 flex-none', logomarkClassName)} /> */}
+                <BadgeIcon className={clsx('h-6 w-6 flex-none', logomarkClassName)} />
+                <span className="ml-4">{name} Plan</span>
             </h3>
             <p
                 className={clsx(
@@ -222,7 +231,7 @@ export function Plans() {
                         Simple Pricing. Simple Onboarding.
                     </h2>
                     <p className="mt-2 text-lg text-gray-600">
-                        Join the Vlyss family by clicking &quot;Get started today&quot;<br/>Pause or cancel anytime
+                        Join the Vlyss family by clicking &quot;Get started today&quot;<br />Pause or cancel anytime
                     </p>
                 </div>
 
