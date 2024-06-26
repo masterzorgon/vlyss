@@ -31,7 +31,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
             const customerID = (session as any).customer as string;
             console.log("SESSION FOUND");
 
-            const subscription = await stripe.subscriptions.retrieve(session.subscription?.toString() as string);
+            const subscription = await stripe.subscriptions.retrieve(session.subscription as string);
             console.log("SUBSCRIPTION FOUND");
             const subscriptionPlan = (subscription as any).plan.amount.toString() === "79900" ? "Premium Subscription" : "Standard Subscription";
             console.log("SUBSCRIPTION PLAN FOUND");
