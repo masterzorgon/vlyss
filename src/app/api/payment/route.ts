@@ -31,7 +31,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
             const customerID = (session as any).customer as string;
             console.log("SESSION FOUND");
 
-            let subscriptionPlan = "Subscription Undefined";
+            let subscriptionPlan = "New Subscriber";
             try {
                 // Retrieve the subscription
                 const subscription = await stripe.subscriptions.retrieve(session.subscription as string);
