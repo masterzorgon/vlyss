@@ -7,7 +7,7 @@ import { SubscriptionConfirmation, SubscriptionNotification } from "@/emails/Sub
 
 export async function POST(req: NextRequest, res: NextResponse) {
     const body = await req.text(); // get body in string format
-    const signature = headers().get("stripe-signature") as string; // authenticates req as from stripe
+    const signature = req.headers.get("stripe-signature") as string; // authenticates req as from stripe
 
     try {
         const event: Stripe.Event = stripe.webhooks.constructEvent(
